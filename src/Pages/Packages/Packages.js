@@ -10,7 +10,8 @@ const Packages = () => {
     const sliceData = data.slice(0,6);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/packages')
+        // fetch('http://localhost:5000/packages')
+        fetch('https://rocky-dawn-55916.herokuapp.com/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)

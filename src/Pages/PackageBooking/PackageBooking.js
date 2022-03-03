@@ -35,7 +35,8 @@ const PackageBooking = () => {
     };
 
     useEffect(() =>{
-    fetch(`http://localhost:5000/packages/${id}`)
+    // fetch(`http://localhost:5000/packages/${id}`)
+    fetch(`https://rocky-dawn-55916.herokuapp.com/packages/${id}`)
     .then(res => res.json())
     .then(data => setDetails(data))
 },[id])
