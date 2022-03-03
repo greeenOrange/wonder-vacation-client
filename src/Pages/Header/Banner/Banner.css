@@ -1,0 +1,16 @@
+
+.image-slider{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden  
+}
+.image-slider:hover{
+    cursor: pointer;
+}
+.image-slider img{
+    height: 500px;
+    max-width: 100%;
+    width: 100%;
+}
