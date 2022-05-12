@@ -60,12 +60,6 @@ const Packages = ({pd}) => {
                     <span> {pd?.time}</span>
                 </p>
                 {/* <p className='card-price'><img src="https://img.icons8.com/material-rounded/24/000000/us-dollar.png"/>{pd.price}</p> */}
-                <p className='card-price'>
-                <Currency
-                    currency="USD"
-                    quantity={pd?.price}
-                />
-                </p>
                 </div>
                 <div className="products-details">
                     <h5>{pd?.name}</h5>
@@ -75,8 +69,19 @@ const Packages = ({pd}) => {
                     text={`${pd?.reviews} reviews`}
                      />
                     </div>
+                    <div className="products-booking-pricing">
                     <button className='btn btn-outline-danger me-2'><Link to={`/Packagebooking/${pd._id}`}>Book Now <span><FontAwesomeIcon icon={faArrowRight} /></span></Link> </button>
-                    <button onClick={() => addToCart(pd)} className='btn btn-outline-warning'>Add To Cart</button>
+                    <div className='card-price'>
+                    <span id='price-id'>From</span>
+                    <span className='price-tag'>
+                    <Currency
+                        currency="USD"
+                        quantity={pd?.price}
+                    />
+                    </span>
+                    Per Person
+                </div>
+                    </div>
                     {/* <button className='btn btn-lg btn-outline-danger'><Link to={`Packagebooking/${pd._id}`}></Link>ME MOre</button> */}
                 </div>
                 </div>

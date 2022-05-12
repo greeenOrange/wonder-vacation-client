@@ -1,3 +1,7 @@
+h2{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+}
 .products-section {
 
 }
@@ -13,7 +17,9 @@
     max-width: auto; */
 }
 .products-heading h2{
-    font-size: 2rem;
+    font-size: 35px;
+    font-weight: 800;
+    font-family: 'Barlow', sans-serif;
     color: #FF4838;
 }
 .products-images{
@@ -44,18 +50,21 @@
 .products-images{
    
 }
-.card-price{
-    font-weight: 600;
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #fff;
-    background: #ff4838;
+
+.products-booking-pricing{
+    margin-top: .7rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 110px;
-    -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    clip-path: polygon(0% 13%, 100% 0%, 100% 80%,40% 100%, 30% 100%)
+    justify-content: space-between;
+}
+.products-booking-pricing .card-price #price-id{
+    display: flex;
+}
+.products-booking-pricing .card-price .price-tag{
+    font-weight: 700;
+    color: #ff4838;
+    margin-right: .2rem;
+    font-size: 20px;
 }
 .products-details .btn a{
     text-decoration: none;

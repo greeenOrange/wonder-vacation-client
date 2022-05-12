@@ -46,10 +46,10 @@ const Footer = () => {
                     </div>
                     <hr />
                     <div className="contact">
-                        <div>
-                        <h2>Contact Us:</h2>
-                        <p><i class="fa-solid fa-phone"></i> +1763-222-9219</p>
-                        <p><i class="fa-solid fa-envelope-open"></i> info@wondervacation.com</p>
+                        <div className='d-flex justify-content-space-between align-items-center'>
+                        <h2 className='mt-0'>Contact Us:</h2>
+                        <p><i class="fa-solid fa-phone me-2"></i> +1763-222-9219</p>
+                        <p><i class="fa-solid fa-envelope-open me-2"></i> info@wondervacation.com</p>
                         <p>Malibag-1270, Dhaka, Bangladesh</p>
                         </div>
                     </div>

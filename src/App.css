@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  /* font-family: 'Barlow', sans-serif;
+  font-family: 'PT Serif', serif; */
+}
+h2{
+  font-family: 'Barlow', sans-serif;
+  color: #2d373c;
+  font-size: 35px;
+  font-weight: 800;
 }
 
 .App-logo {

@@ -1,3 +1,16 @@
+.tour-guide h2{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+}
+.tour-guide p{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    width: 650px;
+    max-width: fit-content;
+    margin-bottom: 2rem;
+}
 .grid-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);

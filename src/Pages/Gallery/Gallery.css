@@ -1,5 +1,15 @@
-.gallery_area{
-
+.gallery_area p{
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 650px;
+    max-width: fit-content;
+    margin-bottom: 2rem;
+}
+.gallery_area h2{
+    font-weight: 800;
+    color: #2d373c;
+    font-family: "Barlow", sans-serif;
 }
 .gallery_area .gallery-item{
     margin-top: 24px;
