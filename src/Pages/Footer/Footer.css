@@ -1,0 +1,68 @@
+.footer_section{
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+    background: #2d373c;
+    color: #fff;
+    background-image: url(https://demo-egenslab.b-cdn.net/html/tourxpro/assets/images/banner/footer-bg.png);
+    background-size: cover;
+      background-repeat: no-repeat;
+}
+.social_media{
+
+}
+.social_media ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.social_media ul li{
+    list-style: none;
+}
+.social_media ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    border: 1px solid #FF4838;
+    background-color: #FF4838;
+    color: #fff;
+    border-radius: 2rem;
+    transition: all ease-out .2s;
+}
+.social_media ul li a:hover{
+    border: 1px solid #FF4838;
+    color:#FF4838;
+    background: #2d373c;
+}
+.social_media ul li a i{
+    font-size: 19px;
+}
+.quick_link{
+
+}
+.quick_link ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.quick_link ul li{
+    height: 50px;
+}
+.quick_link ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.contact{
+    margin: .5rem 0;
+}
+.contact div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact div p{
+    font-size: 19px;
+}

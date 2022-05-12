@@ -1,0 +1,19 @@
+.tour-footer{
+padding: 1.5rem 0;
+background: #162b32;
+color: #fff;
+}
+.tour-footer .tour-copyright{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.footer-menu a{
+    text-decoration: none;
+    padding-right: .4rem;
+    color: #fff;
+}
+.footer-menu a:last-child::before{
+    content:'| ';
+    color: #FF4838;
+}

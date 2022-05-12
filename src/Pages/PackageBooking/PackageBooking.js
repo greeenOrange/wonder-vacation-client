@@ -28,15 +28,18 @@ const PackageBooking = () => {
           if(data.insertedId){
             alert('successfully added');
           reset();
-          navigate("/home");
+          navigate("/");
           }
         })
       console.log(data);
     };
+    const handleOnChange = (e) =>{
+      console.log(e.value)
+    }
 
     useEffect(() =>{
-    // fetch(`http://localhost:5000/packages/${id}`)
-    fetch(`https://rocky-dawn-55916.herokuapp.com/packages/${id}`)
+    fetch(`http://localhost:5000/packages/${id}`)
+    // fetch(`https://rocky-dawn-55916.herokuapp.com/packages/${id}`)
     .then(res => res.json())
     .then(data => setDetails(data))
 },[id])
@@ -86,24 +89,27 @@ const PackageBooking = () => {
 
       <input type="number" placeholder='Phone' {...register("phoneNumber")} />
       {errors.phoneNumber?.type === 'required' && "phoneNumber is required"}
-      <input
+      
+      {/* <input
                 {...register("name")}
                 placeholder="poject name"
                 defaultValue={details?._id}
-                className="p-2 m-2 w-100 input-field"
+                className="p-2 m-2 w-100 input-field disabled"
               />
               <input
                 {...register("price")}
                 defaultValue={details?.price}
                 placeholder="price"
                 className="p-2 m-2 w-100 input-field"
-              />
+              /> */}
 
       <Controller
         name="ticketType"
+        onChange={([selected]) => console.log(selected)}
         render={({ field }) => (
           <Select
             {...field}
+            
         placeholder="Tickets Type 1"
             options={[
               { value: "type-1", label: "Tickets Type 1" },

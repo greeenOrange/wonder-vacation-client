@@ -1,0 +1,63 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    justify-content: center;
+}
+.grid-container .grid-item{
+    display: grid;         /* new; nested grid container */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.grid-item img{
+    width: 350px;
+    height: 350px;
+    border-radius: .5rem;
+}
+.tour-gider{
+    position: relative;
+}
+.tour-gider:hover{
+    cursor: pointer;
+}
+.guider-media{
+    position: absolute;
+    bottom: -17px;
+    left: 50px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    background: #2d373c;
+    border-radius: .5rem;
+    visibility: hidden;
+    transition: all ease-in .2s;
+}
+.tour-gider:hover .guider-media{
+    visibility:visible;
+    cursor: pointer;
+    background: #2d373c;
+    bottom: 0;
+}
+.guider-media li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: auto;
+    padding: 0 1rem;
+}
+.guider-media li a{
+    color: #000;
+}
+.guider-media:hover li a{
+    text-decoration: none;
+    color: #000;
+    transition: all ease-in .2s;
+}
+.guider-media li:hover a{
+    color: #FF4838;
+}
+.guider-media li i{
+    background: rgba(255,255,255,.8);
+    padding: .3rem;
+    border-radius: 1rem;
+}

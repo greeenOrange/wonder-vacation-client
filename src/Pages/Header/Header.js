@@ -1,10 +1,14 @@
 import Hamburger from 'hamburger-react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css'
+import useAuth from '../../Hook/useAuth';
+import CartContext from '../CartState/CartContent/CartContext';
+import './Header.css';
 
 const Header = () => {
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false);
+    const {cartItems, showHideCart} = useContext(CartContext);
+    const {user, logout} = useAuth()
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,10 +23,10 @@ const Header = () => {
           <Link className="nav-link" aria-current="page" to="/home">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">Explore</Link>
+          <Link className="nav-link" to="/explore">Explore</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="packages">Package</Link>
+          <Link className="nav-link" to="/packages">Package</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="#">Destination</Link>
@@ -30,12 +34,44 @@ const Header = () => {
         <li className="nav-item">
           <Link className="nav-link" to="#">About Us</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">LogIn</Link>
-        </li>
       </ul>
-      <form class="d-flex search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      
+      <form className="d-flex search">
+      
+      {/* {user?.email? 
+        <div class="dropdown">
+  <button class="dropdown-toggle bg-light" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+  <img src={user?.photoURL} className='w-25 rounded-circle' alt="" />
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button onClick={logout} class="dropdown-item" type="button">log out</button></li>
+  <li><button class="dropdown-item" type="button">{user?.displayName}</button></li>
+  </ul>
+</div>:<button type="button" class="btn btn-primary"><Link className='user-login light text-decoration-none text-light' to='/login'>Login</Link></button>
+
+        } */}
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+        <Link className='nav-link shopping-cart' to='/cart'>
+          <i
+            className='fa fa-shopping-cart'
+            aria-hidden='true'
+            onClick={showHideCart}
+          />
+          {cartItems.length > 0 && (
+            <div className='item__count'>
+              <span>{cartItems.length}</span>
+            </div>
+          )}
+        </Link>
       </form>
     </div>
   </div>
