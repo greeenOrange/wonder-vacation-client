@@ -85,7 +85,6 @@ const PackageBooking = () => {
             </div>
             <div className="col-md-4">
                 <div className="user-details">
-                <h6>This is your id {details._id}</h6>
                 <h3>Book This Tour <span><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/fa314a/external-dollar-banking-and-finance-kiranshastry-lineal-kiranshastry-6.png"/>{details.price}</span></h3>
                     <div className="user-form">
     <form onSubmit={handleSubmit(onSubmit)}>
