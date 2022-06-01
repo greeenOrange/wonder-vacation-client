@@ -8,7 +8,8 @@ import './Header.css';
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
     const {cartItems, showHideCart} = useContext(CartContext);
-    const {user, logout} = useAuth()
+    const {user, logout} = useAuth();
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,10 +30,10 @@ const Header = () => {
           <Link className="nav-link" to="/packages">Package</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">Destination</Link>
+          <Link className="nav-link" to="destination">Destination</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">About Us</Link>
+          <Link className="nav-link" to="/aboutus">About Us</Link>
         </li>
       </ul>
       

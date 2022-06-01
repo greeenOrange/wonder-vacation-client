@@ -6,12 +6,14 @@ import AuthProvider from './context/AuthProvider';
 import Login from './Login/Login';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Register from './Login/Register/Register';
-import Cart from './Pages/Cart/Cart';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Destination from './Pages/Destination/Destination';
 import Header from './Pages/Header/Header';
 import Explore from './Pages/Home/Explore/Explore';
 import Home from './Pages/Home/Home';
 import PackageBooking from './Pages/PackageBooking/PackageBooking';
 import Packages from './Pages/Packages/Packages';
+import Payment from './Pages/Shared/Payment/Payment';
 
 function App() {
   return (
@@ -25,10 +27,12 @@ function App() {
         <Route index path="/home" element={<Home />} />
         <Route path="/packages" element={<Packages />}/>
         <Route path="/explore" element={<Explore />}/>
-        <Route path="/cart" element={<Cart />}/>
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
+        <Route path="/payment" element={<Payment />}/>
+        <Route path="/destination" element={<Destination />}/>
+        <Route path="/aboutus" element={<AboutUs />}/>
         {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}
         {/* <Route path="/Packagebooking/:id" element={<PackageBooking />}/> */}
     </Routes>

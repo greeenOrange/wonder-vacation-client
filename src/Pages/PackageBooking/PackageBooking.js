@@ -11,42 +11,50 @@ import './PackageBooking.css'
 const PackageBooking = () => {
     const {id} = useParams();
     const [details, setDetails] = useState({});
+    const [textfield, setText] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
     const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm();
 
+    const handleOnBlur = e =>{
+      const field = e.target.value;
+      setText(field);
+    }
     const onSubmit = (data) => {
-      // data.email = user?.email;
+      const appointment = {
+        details,
+        textfield,
+        data
+      }
       data.status = "pending";
       fetch("http://localhost:5000/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(appointment),
       })
-        .then((res) => res.json())
-        .then(data => {
+      .then((res) => res.json())
+      .then(data => {
           if(data.insertedId){
             alert('successfully added');
-          reset();
-          navigate("/");
           }
         })
-      console.log(data);
+        console.log(appointment);
+        reset();
+        navigate('/')
     };
-    const handleOnChange = (e) =>{
-      console.log(e.value)
-    }
 
     useEffect(() =>{
     fetch(`http://localhost:5000/packages/${id}`)
     // fetch(`https://rocky-dawn-55916.herokuapp.com/packages/${id}`)
     .then(res => res.json())
     .then(data => setDetails(data))
-},[id])
+},[id]);
+
     return (
         <div className='container my-4'>
         <div className="row">
-            <div className="col-md-8">
+
+              <div className="col-md-8">
                     <ul className='package-iteam'>
                         <li><FontAwesomeIcon icon={faClock} /></li>
                         <div className='me-md-5'>
@@ -77,6 +85,7 @@ const PackageBooking = () => {
             </div>
             <div className="col-md-4">
                 <div className="user-details">
+                <h6>This is your id {details._id}</h6>
                 <h3>Book This Tour <span><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/fa314a/external-dollar-banking-and-finance-kiranshastry-lineal-kiranshastry-6.png"/>{details.price}</span></h3>
                     <div className="user-form">
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -90,19 +99,6 @@ const PackageBooking = () => {
       <input type="number" placeholder='Phone' {...register("phoneNumber")} />
       {errors.phoneNumber?.type === 'required' && "phoneNumber is required"}
       
-      {/* <input
-                {...register("name")}
-                placeholder="poject name"
-                defaultValue={details?._id}
-                className="p-2 m-2 w-100 input-field disabled"
-              />
-              <input
-                {...register("price")}
-                defaultValue={details?.price}
-                placeholder="price"
-                className="p-2 m-2 w-100 input-field"
-              /> */}
-
       <Controller
         name="ticketType"
         onChange={([selected]) => console.log(selected)}
@@ -162,26 +158,26 @@ const PackageBooking = () => {
     </div>
 
     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    <h6>Date {startDate.toDateString()}</h6>
                 <textarea
                     placeholder='Your Massage'       
-                     name = "commentTextArea"
                      type="text"
-                     id="CommentsOrAdditionalInformation"
+                     onBlur={handleOnBlur}
                       >
                </textarea>
-      
-      <input className='btn btn-danger py-3' value="Book Now"  type="submit" />
+               <input className='btn btn-danger py-3' value="Book Now"  type="submit"/> 
     </form>
                     </div>
                 </div>
             </div>
-        
-        
+          
 
-        
         </div>            
         </div>
+        
+        
     );
+
 };
 
 export default PackageBooking;

@@ -10,7 +10,7 @@ import CartContext from '../CartState/CartContent/CartContext';
 import Spinner from '../Shared/Spinner';
 
 const Packages = ({pd}) => {
-    const {addToCart} = useContext(CartContext)
+    const {addToCart} = useContext(CartContext);
     const [packages, setPackages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const data = [...packages]
@@ -30,6 +30,7 @@ const Packages = ({pd}) => {
     },[]);
     
    
+
 
     return (
         <>
