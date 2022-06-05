@@ -20,13 +20,11 @@ const Packages = ({pd}) => {
     useEffect(()=>{
         setIsLoading(true)
         fetch('http://localhost:5000/packages')
-        // fetch('https://rocky-dawn-55916.herokuapp.com/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)
             setIsLoading(false)
         })
-        // .finally(() =>setIsLoading(false))
     },[]);
     
    
@@ -60,7 +58,6 @@ const Packages = ({pd}) => {
                 <p className='card-lavel'>
                     <span> {pd?.time}</span>
                 </p>
-                {/* <p className='card-price'><img src="https://img.icons8.com/material-rounded/24/000000/us-dollar.png"/>{pd.price}</p> */}
                 </div>
                 <div className="products-details">
                     <h5>{pd?.name}</h5>
@@ -71,7 +68,7 @@ const Packages = ({pd}) => {
                      />
                     </div>
                     <div className="products-booking-pricing">
-                    <button className='btn btn-outline-danger me-2'><Link to={`/Packagebooking/${pd._id}`}>Book Now <span><FontAwesomeIcon icon={faArrowRight} /></span></Link> </button>
+                    <button className='btn btn-outline-danger me-2'><Link to={`/Packagebooking/${pd._id}`}>Book Now <span><FontAwesomeIcon icon={faArrowRight} /></span></Link></button>
                     <div className='card-price'>
                     <span id='price-id'>From</span>
                     <span className='price-tag'>
@@ -83,7 +80,6 @@ const Packages = ({pd}) => {
                     Per Person
                 </div>
                     </div>
-                    {/* <button className='btn btn-lg btn-outline-danger'><Link to={`Packagebooking/${pd._id}`}></Link>ME MOre</button> */}
                 </div>
                 </div>
                 </div>

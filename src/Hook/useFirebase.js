@@ -10,7 +10,6 @@ const useFirebase = () => {
 
   const googleprovider = new GoogleAuthProvider();
   const facebookprovider = new FacebookAuthProvider();
-  // const [name, setName] = useState('')
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
@@ -56,18 +55,6 @@ const useFirebase = () => {
     // ..
   });
       }
-
-      // const handleUserName = () =>{
-      //   updateProfile(auth.currentUser, {displayName: name})
-      //   .then((result) => {
-      //     const user = result.user
-      //     console.log(user);
-      //     setName(user)
-      //   }).catch((error) => {
-      //     // An error occurred
-      //     // ...
-      //   });
-      // }
 
   const handleUserLogin = (email, password, navigate, location) =>{
     signInWithEmailAndPassword(auth, email, password)

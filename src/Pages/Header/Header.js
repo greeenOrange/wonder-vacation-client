@@ -35,11 +35,17 @@ const Header = () => {
         <li className="nav-item">
           <Link className="nav-link" to="/aboutus">About Us</Link>
         </li>
+        {user.email ?<div>
+        <p>{user?.email}</p>
+        <li><button onClick={logout} class="dropdown-item" type="button">log out</button></li>
+        </div>:
+        <Link className='user-login bg-success p-2 light text-decoration-none text-dark' to='/login'>Login</Link>
+        }
       </ul>
       
-      <form className="d-flex search">
+      {/* <form className="d-flex search">
       
-      {/* {user?.email? 
+      {user?.email? 
         <div class="dropdown">
   <button class="dropdown-toggle bg-light" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
   <img src={user?.photoURL} className='w-25 rounded-circle' alt="" />
@@ -50,7 +56,7 @@ const Header = () => {
   </ul>
 </div>:<button type="button" class="btn btn-primary"><Link className='user-login light text-decoration-none text-light' to='/login'>Login</Link></button>
 
-        } */}
+        }
         <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
@@ -73,7 +79,7 @@ const Header = () => {
             </div>
           )}
         </Link>
-      </form>
+      </form> */}
     </div>
   </div>
 </nav>

@@ -11,6 +11,7 @@ import Destination from './Pages/Destination/Destination';
 import Header from './Pages/Header/Header';
 import Explore from './Pages/Home/Explore/Explore';
 import Home from './Pages/Home/Home';
+import AllOrders from './Pages/Order/AllOrders';
 import PackageBooking from './Pages/PackageBooking/PackageBooking';
 import Packages from './Pages/Packages/Packages';
 import Payment from './Pages/Shared/Payment/Payment';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/payment" element={<Payment />}/>
+        <Route path='/allorders' element={<AllOrders></AllOrders>} />
         <Route path="/destination" element={<Destination />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
         {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}

@@ -7,45 +7,68 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './PackageBooking.css'
+import axios from 'axios';
+import useAuth from '../../Hook/useAuth';
 
 const PackageBooking = () => {
     const {id} = useParams();
+    const {user} = useAuth();
     const [details, setDetails] = useState({});
     const [textfield, setText] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
-    const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { register, control,  handleSubmit, reset, watch, formState: { errors } } = useForm();
 
     const handleOnBlur = e =>{
       const field = e.target.value;
+      console.log(field);
       setText(field);
     }
-    const onSubmit = (data) => {
-      const appointment = {
+    // const onSubmit = (data) => {
+    //   const appointment = {
+        
+    //     data,
+    //     textfield
+    //   }
+    //   data.status = "pending";
+    //   fetch("http://localhost:5000/order", {
+    //     method: "POST",
+    //     headers: { "content-type": "application/json" },
+    //     body: JSON.stringify(appointment),
+    //   })
+    //   .then((res) => res.json())
+    //   .then(data => {
+    //       if(data.insertedId){
+    //         alert('successfully added');
+    //       }
+    //     })
+    //     reset();
+    //     navigate('/')
+    // };
+    const onSubmit = (data) =>{
+      const packages = {
         details,
-        textfield,
-        data
+        data,
+        textfield
       }
-      data.status = "pending";
-      fetch("http://localhost:5000/order", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(appointment),
+      data.status = "pending"
+      
+      // SEND to the server
+      axios.post('http://localhost:5000/order', packages)
+      // axios.post('https://sleepy-ocean-28261.herokuapp.com/order',data)
+      .then(res => {
+        if(res.data.insertedId){
+          alert('successfully added');
+          reset();
+          navigate('/')
+        }
+
       })
-      .then((res) => res.json())
-      .then(data => {
-          if(data.insertedId){
-            alert('successfully added');
-          }
-        })
-        console.log(appointment);
-        reset();
-        navigate('/')
-    };
+    }
 
     useEffect(() =>{
     fetch(`http://localhost:5000/packages/${id}`)
-    // fetch(`https://rocky-dawn-55916.herokuapp.com/packages/${id}`)
+    
     .then(res => res.json())
     .then(data => setDetails(data))
 },[id]);
@@ -92,11 +115,11 @@ const PackageBooking = () => {
       <input placeholder='Your Full Name' {...register("fullName")} />
       {errors.fullName?.type === 'required' && "full name is required"}
 
-      <input placeholder='Your Email' {...register("email")} />
+      <input placeholder='email' defaultValue={user.email} {...register("email")} />
       {errors.email?.type === 'required' && "email is required"}
 
-      <input type="number" placeholder='Phone' {...register("phoneNumber")} />
-      {errors.phoneNumber?.type === 'required' && "phoneNumber is required"}
+      <input type="number" placeholder='Phone' />
+    
       
       <Controller
         name="ticketType"
