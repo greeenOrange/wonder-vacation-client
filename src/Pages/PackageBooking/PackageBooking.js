@@ -10,9 +10,10 @@ import './PackageBooking.css'
 import axios from 'axios';
 import useAuth from '../../Hook/useAuth';
 
+
 const PackageBooking = () => {
     const {id} = useParams();
-    const {user} = useAuth();
+    const {user} = useAuth()
     const [details, setDetails] = useState({});
     const [textfield, setText] = useState();
     const [startDate, setStartDate] = useState(new Date());
@@ -24,27 +25,6 @@ const PackageBooking = () => {
       console.log(field);
       setText(field);
     }
-    // const onSubmit = (data) => {
-    //   const appointment = {
-        
-    //     data,
-    //     textfield
-    //   }
-    //   data.status = "pending";
-    //   fetch("http://localhost:5000/order", {
-    //     method: "POST",
-    //     headers: { "content-type": "application/json" },
-    //     body: JSON.stringify(appointment),
-    //   })
-    //   .then((res) => res.json())
-    //   .then(data => {
-    //       if(data.insertedId){
-    //         alert('successfully added');
-    //       }
-    //     })
-    //     reset();
-    //     navigate('/')
-    // };
     const onSubmit = (data) =>{
       const packages = {
         details,
@@ -76,7 +56,6 @@ const PackageBooking = () => {
     return (
         <div className='container my-4'>
         <div className="row">
-
               <div className="col-md-8">
                     <ul className='package-iteam'>
                         <li><FontAwesomeIcon icon={faClock} /></li>

@@ -1,18 +1,22 @@
-import Hamburger from 'hamburger-react';
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useAuth from '../../Hook/useAuth';
-import CartContext from '../CartState/CartContent/CartContext';
-import './Header.css';
 
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hook/useAuth';
+
+import './Header.css';
 const Header = () => {
-    const [isOpen, setOpen] = useState(false);
-    const {cartItems, showHideCart} = useContext(CartContext);
-    const {user, logout} = useAuth();
+    const [click, setClick] = useState(false);
+    const {user, logout} = useAuth()
+    const handleClick = () =>{
+      setClick(!click)
+    }
+    const Close = () =>{
+      setClick(false);
+    }
     
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <>
+            {/* <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">Arrowfashion</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,48 +47,116 @@ const Header = () => {
         }
       </ul>
       
-      {/* <form className="d-flex search">
-      
-      {user?.email? 
-        <div class="dropdown">
-  <button class="dropdown-toggle bg-light" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <img src={user?.photoURL} className='w-25 rounded-circle' alt="" />
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <li><button onClick={logout} class="dropdown-item" type="button">log out</button></li>
-  <li><button class="dropdown-item" type="button">{user?.displayName}</button></li>
-  </ul>
-</div>:<button type="button" class="btn btn-primary"><Link className='user-login light text-decoration-none text-light' to='/login'>Login</Link></button>
-
-        }
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-        <Link className='nav-link shopping-cart' to='/cart'>
-          <i
-            className='fa fa-shopping-cart'
-            aria-hidden='true'
-            onClick={showHideCart}
-          />
-          {cartItems.length > 0 && (
-            <div className='item__count'>
-              <span>{cartItems.length}</span>
-            </div>
-          )}
-        </Link>
-      </form> */}
     </div>
   </div>
-</nav>
+</nav> */}
+{/* <Hamburger direction="right" color="#ff4838" toggled={isOpen} toggle={setOpen} /> */}
+<div className={click ? "main-container" : ""}  onClick={()=>Close()} />
+<nav className="navbar" onClick={e => e.stopPropagation()}>
+        <div className="container">
+          <NavLink to="/" className="nav-logo">
+            WonderVacation
+            <i className="fa fa-code"></i>
+          </NavLink>
+          <div className="menu-bar">
+            <div className="main-menu">
+            <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                to="/home"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/explore"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                Packages
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/aboutus"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/blog"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+              >
+                Blog
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/contact"
+                activeClassName="active"
+                className="nav-links"
+               onClick={click ? handleClick : null}
+              >
+                Contact Us
+              </NavLink>
+            </li>
+            
+          </ul>
+            </div>
+            
+          </div>
+          <div className="user-menu">
+          <ul id="menu">
+
+      <li>
+      <p>Hi {user?.displayName}</p>
+        <ul>
+       {user.email?  <li>
+        <Link
+            to="/payment"
+            className="nav-links"
+              >
+                My Account
+              </Link>
+              </li>: <li></li>
+              }
+        <li>
+        <Link
+        to='/login'
+        className='nav-links'>Login</Link>
+        </li>
+        <li>
+            <Link
+            to="/contact"
+            className="nav-links"
+              >
+                Contact Us
+              </Link></li>
+              <li><button onClick={logout} class="dropdown-item bg-danger p-3 text-light h5" type="button">log out</button></li>
+        </ul>
+      </li>
+    </ul>
+    
+            
+            </div>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
+          </div>
 
         </div>
+      </nav>
+        </>
     );
 };
 

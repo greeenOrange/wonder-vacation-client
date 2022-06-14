@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { CartProvider } from 'react-use-cart';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
 import Login from './Login/Login';
@@ -20,9 +19,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-    <AuthProvider>
-     <CartProvider>
-        <Header></Header>
+      <AuthProvider>
+        {/* <Header></Header> */}
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route index path="/home" element={<Home />} />
@@ -32,14 +30,13 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/payment" element={<Payment />}/>
-        <Route path='/allorders' element={<AllOrders></AllOrders>} />
+        <Route path='/allorders' element={<AllOrders />} />
         <Route path="/destination" element={<Destination />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
         {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}
         {/* <Route path="/Packagebooking/:id" element={<PackageBooking />}/> */}
     </Routes>
-     </CartProvider>
-  </AuthProvider>
+      </AuthProvider>
   </BrowserRouter>
     </div>
   );

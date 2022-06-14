@@ -1,9 +1,9 @@
-import { getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
+import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import intializeFirebase from "../Firebase/Firebase.init";
+import {useNavigate } from "react-router-dom";
+import intializeAuthentication from "../Firebase/Firebase.init";
 
-intializeFirebase()
+intializeAuthentication()
 
 const useFirebase = () => {
   const auth = getAuth();
@@ -13,7 +13,6 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
-  const location = useLocation()
   const navigate = useNavigate()
 
     const signInWithGoogle = () => {
@@ -22,6 +21,7 @@ const useFirebase = () => {
           .then((result) => {
             const user = result.user;
             setUser(user)
+            console.log(user);
             setAuthError('');
             navigate("/")
         })
@@ -33,8 +33,8 @@ const useFirebase = () => {
         signInWithPopup(auth, facebookprovider)
           .then((result) => {
             const user = result.user;
-            console.log(user);
             setUser(user)
+            console.log(user);
             setAuthError('');
             navigate("/")
         })

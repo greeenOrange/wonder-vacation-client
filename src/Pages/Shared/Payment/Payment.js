@@ -1,7 +1,10 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
-import { Table } from "react-bootstrap";
 import useAuth from '../../../Hook/useAuth';
+import CheckoutForm from './CheckoutForm';
 import './Payment.css';
+const stripePromise = loadStripe('pk_test_51Jw4F4HOXxFLrNqID8V8nKHk7qNrnMtIhZvWobJL8NVyFxnA57uRknnBlVUurwU9STeV5ugF1UaoNvfEMd9FKwih00HXfpJxCA');
 
 const Payment = () => {
     const {user} = useAuth();
@@ -11,10 +14,7 @@ const Payment = () => {
         fetch(`http://localhost:5000/order?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setOrder(data))
-    }, [user?.email])
-    console.log(user.email);
-    console.log(order);
-    
+    }, [user?.email]) 
 
       const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
@@ -39,8 +39,12 @@ const Payment = () => {
             <div className="row">
                 {
                   order?.map ((pd,index) =>(
+                    
               <div className="col-md-6">
-                      <h6>Package ID: {pd._id}</h6>
+                      { user.email?
+
+                       <div>
+                       <h6>Package ID: {pd._id}</h6>
                       <img width='300px' src={pd?.details?.image} alt="" />
                       <h4>Booked Place: {pd?.details?.Place_name}</h4>
                       <h6>Adult: {pd?.data?.adult?.value} & Teen: {pd?.data?.teen?.value}</h6>
@@ -49,6 +53,14 @@ const Payment = () => {
                       <button
                       onClick={() => handleDelete(pd?._id)} 
                       className="btn bg-danger p-2">Delete</button>
+                       </div>:<p>Please order</p>
+                      }
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm
+                    
+                    order={order}
+                     />
+                    </Elements>
               </div>
                   ))}
             </div>

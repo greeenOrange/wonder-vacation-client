@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
 import './AllOrders.css'
 
 const AllOrders = () => {
@@ -34,7 +33,7 @@ const AllOrders = () => {
             <div className='container'>
             <div className="row">
                 <div className="col-md-8 col-sm-6 mx-auto">
-                <Table striped bordered hover>
+                {/* <Table striped bordered hover>
   <thead>
     <tr>
       <th>Proparty Name</th>
@@ -57,7 +56,7 @@ const AllOrders = () => {
         </tr>
                 </tbody>
             ))}
-    </Table>
+    </Table> */}
                 </div>
             </div>
             </div>

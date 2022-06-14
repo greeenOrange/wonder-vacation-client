@@ -1,0 +1,57 @@
+.subscribe-left{
+    text-align: left;
+}
+.subscribe-left h2{
+    font-size: 3rem;
+}
+.subscribe-left h2 span{
+    display: block;
+    color: #ff4838;
+}
+.subscribe-details p{
+    color: #fff;
+    margin: 1rem 0;
+    display: inline-block;
+    font-size: 18px;
+}
+.subscribe-details p span{
+    display: block;
+}
+.achivement-container{
+    border:1px solid #ff4838;
+    padding: .5rem;
+}
+.subscribe-details{
+    padding: 2rem 0;
+}
+.subscribe-deals{
+    position: relative;
+    
+}
+.subscribe-content input:first-child{
+    background: #fff;
+    border: 1px solid rgba(206,62,38,.2);
+    box-sizing: border-box;
+    height: 56px;
+    width: 450px;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 20px 30px;
+}
+.subscribe-content input:last-child{
+    position: absolute;
+    right: 100px;
+    /* top: 0; */
+    bottom: 6px;
+    background: #ff4838;
+    border-radius: 0;
+    border: none;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all .3s;
+    font-weight: 700;
+}
+.subscribe-content input:last-child:hover{
+    background: #162b32;
+}

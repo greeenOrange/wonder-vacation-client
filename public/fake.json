@@ -7,8 +7,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "Place_name": "Eternal City",
    "country": "Rome",
-   "rating": "4.5",
-   "reviews": "12",
+   "rating": 4.5,
+   "reviews": 12,
    "details": "Romania is a southeastern European country known for the forested region of Transylvania, ringed by the Carpathian Mountains. Its preserved medieval towns include Sighişoara, and there are many fortified churches and castles, notably clifftop Bran Castle, long associated with the Dracula legend."
   },
   {
@@ -19,8 +19,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "place_name": "Barri Gòtic",
    "Country": "Barcelona",
-   "rating": "5",
-   "reviews": "9",
+   "rating": 5,
+   "reviews": 9,
    "details": "The charming Gothic Quarter, or Barri Gòtic, has narrow medieval streets filled with trendy bars, clubs and Catalan restaurants. The Museu d'Història de Barcelona shows remains of the Roman city. Artisans sell leather and jewelry near the Cathedral of Barcelona, while flower stalls and street-food vendors line busy avenue La Rambla."
   },
   {
@@ -31,8 +31,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "place_name": "Sydney Opera House",
    "Country": "Sydney",
-   "rating": "4",
-   "reviews": "7",
+   "rating": 4,
+   "reviews": 7,
    "details": "The Sydney Opera House is a multi-venue performing arts centre in Sydney. Located on the banks of Sydney Harbour, it is widely regarded as one of the world's most famous and distinctive buildings and a masterpiece of 20th century architecture."
   },
   {
@@ -43,8 +43,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "Place_name": "Piazzale Michelangelo",
    "country": "Florence",
-   "rating": "5",
-   "reviews": "19",
+   "rating": 5,
+   "reviews": 19,
    "details": "You can reach the square in the following ways: On foot from the city: You can choose to walk a bit steeply uphill. Option 1: You start at the bottom of Piazza Giuseppe Poggi (located next to the river)."
   },
   {
@@ -55,8 +55,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "place_name": "San Francisco Golden Gate Bridge",
    "country": "Spain",
-   "rating": "4.5",
-   "reviews": "15",
+   "rating": 4.5,
+   "reviews": 15,
    "details": "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.It takes you 7 miles (2 km) to reach it. The Golden Gate Bridge crosses the Bay in 35 minutes on average (or 7 kilometers h)"
   },
   {
@@ -67,8 +67,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "place_name": "San Francisco Golden Gate Bridge",
    "country": "Mount Dtna, Spain",
-   "rating": "4.5",
-   "reviews": "21"
+   "rating": 4.5,
+   "reviews": 21
   },
   {
    "image": "https://demo-egenslab.b-cdn.net/html/tourxpro/assets/images/package/p-alpha7.png",
@@ -78,8 +78,8 @@
    "name_url": "https://demo-egenslab.b-cdn.net/html/tourxpro/package-details.html",
    "Place_name": "San Francisco",
    "Country": "Golden Gate Bridge",
-   "rating": "5",
-   "reviews": "27"
+   "rating": 5,
+   "reviews": 27
   },
   {
    "name": "https://demo-egenslab.b-cdn.net/html/tourxpro/assets/images/package/p-alpha8.png",

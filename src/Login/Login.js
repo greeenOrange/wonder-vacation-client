@@ -6,7 +6,7 @@ import './Login.css'
 
 const Login = () => {
     const {signInWithGoogle, user, handleUserLogin, signInWithFacebook, logout} = useAuth();
-    console.log(user);
+    console.log(user, signInWithFacebook, signInWithGoogle);
     const [loginData, setLoginData] = useState({});
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate()

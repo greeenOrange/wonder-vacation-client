@@ -1,21 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Packages.css';
-import Currency from 'react-currency-formatter';
-import Rating from '../Rating/Rating';
-import {useContext} from 'react';
-import CartContext from '../CartState/CartContent/CartContext';
 import Spinner from '../Shared/Spinner';
+import Rating from 'react-rating';
 
 const Packages = ({pd}) => {
-    const {addToCart} = useContext(CartContext);
     const [packages, setPackages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const data = [...packages]
     const sliceData = data.slice(0,6);
-
 
     useEffect(()=>{
         setIsLoading(true)
@@ -34,8 +29,7 @@ const Packages = ({pd}) => {
         <>
         <main>
         <div className="products-section my-4 container">
-            <div className="row">
-            <div className='products'>
+        <div className='products'>
             <div className="products-heading">
             <h2 className='mb-4 products-heading'>Popular Tour <span> Package</span></h2>
             <p>The results are in! Explore this year’s expert-approved list of must-see destinations, places, and unforgettable experiences guaranteed to inspire.</p>
@@ -44,6 +38,8 @@ const Packages = ({pd}) => {
             <Link className='btn btn-outline-danger px-5 py-2' to="packages">Explore More</Link>
             </div>
             </div>
+            <div className="row">
+            
             {
                 isLoading && <Spinner></Spinner>
             }
@@ -62,20 +58,20 @@ const Packages = ({pd}) => {
                 <div className="products-details">
                     <h5>{pd?.name}</h5>
                     <div className='product Rating'>
-                    <Rating
-                    value={pd?.rating}
-                    text={`${pd?.reviews} reviews`}
-                     />
+                     <Rating
+                    initialRating={pd?.rating}
+                    emptySymbol="far fa-star icon-color"
+                    fullSymbol="fas fa-star icon-color"
+                    readonly
+                    ></Rating>
+                    <h5><span>{pd?.reviews}</span>/ Reviews</h5>
                     </div>
                     <div className="products-booking-pricing">
                     <button className='btn btn-outline-danger me-2'><Link to={`/Packagebooking/${pd._id}`}>Book Now <span><FontAwesomeIcon icon={faArrowRight} /></span></Link></button>
                     <div className='card-price'>
                     <span id='price-id'>From</span>
                     <span className='price-tag'>
-                    <Currency
-                        currency="USD"
-                        quantity={pd?.price}
-                    />
+                        {pd?.price}
                     </span>
                     Per Person
                 </div>

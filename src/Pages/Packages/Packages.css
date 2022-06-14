@@ -2,9 +2,7 @@ h2{
     font-family: 'Barlow', sans-serif;
     font-weight: 800;
 }
-.products-section {
 
-}
 .products{
     display: flex;
     align-items: center;
@@ -79,4 +77,22 @@ h2{
 .products-details .btn:hover a span{
     padding-left: .2rem;
     transition: all .1s ease-in-out;
+}
+.product{
+    display: flex;
+    justify-content: space-around;
+}
+.product h5 span {
+    color: #ff4838;
+    font-weight: 700;
+    font-size: 18px;
+    
+}
+.product h5{
+    color: #000;
+    margin-right: .4rem;
+    font-size: 15px;
+}
+.Rating{
+    color: #fede41;
 }
