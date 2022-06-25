@@ -1,6 +1,8 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import useAuth from '../../../Hook/useAuth';
 import CheckoutForm from './CheckoutForm';
 import './Payment.css';
@@ -16,23 +18,48 @@ const Payment = () => {
         .then(data => setOrder(data))
     }, [user?.email]) 
 
-      const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, you want to delete?');
-        if (proceed) {
-            const url = `http://localhost:5000/order/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('deleted successfully');
-                        const remainingUsers = order.filter(order => order._id !== id);
-                        setOrder(remainingUsers);
-                    }
-                });
-        }
-    }    
+    // const handleDelete = id => {
+    //   const proceed = window.confirm('Are you sure, you want to delete?');
+    //   if (proceed) {
+    //       const url = `http://localhost:5000/order/${id}`;
+    //       fetch(url, {
+    //           method: 'DELETE'
+    //       })
+    //           .then(res => res.json())
+    //           .then(data => {
+    //               if (data.deletedCount > 0) {
+    //                   alert('deleted successfully');
+    //                   const remainingUsers = order.filter(order => order._id !== id);
+    //                   setOrder(remainingUsers);
+    //               }
+    //           });
+    //   }
+
+    // } 
+
+    const handleDelete = id => {
+      const proceed = window.confirm('Are you sure, you want to delete?');
+      if (proceed) {
+          const url = `http://localhost:5000/order/${id}`;
+          fetch(url, {
+              method: 'DELETE'
+          })
+              .then(res => res.json())
+              .then(data => {
+                  if (data.deletedCount > 0) {
+                    Swal.fire(
+                      'Deleted!',
+                      'Your file has been deleted.',
+                      'success'
+                    )
+                      const remainingUsers = order.filter(order => order._id !== id);
+                      setOrder(remainingUsers);
+                  }
+              });
+      }
+
+    } 
+
     return (
       <div className='payment'>
           <div className="container">

@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './PackageBooking.css'
 import axios from 'axios';
 import useAuth from '../../Hook/useAuth';
+import Swal from 'sweetalert2';
 
 
 const PackageBooking = () => {
@@ -38,7 +39,13 @@ const PackageBooking = () => {
       // axios.post('https://sleepy-ocean-28261.herokuapp.com/order',data)
       .then(res => {
         if(res.data.insertedId){
-          alert('successfully added');
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Packages has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
           reset();
           navigate('/')
         }
