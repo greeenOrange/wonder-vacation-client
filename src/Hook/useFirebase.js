@@ -56,8 +56,8 @@ const useFirebase = () => {
   });
       }
 
-  const handleUserLogin = (email, password, navigate, location) =>{
-    signInWithEmailAndPassword(auth, email, password)
+  const handleUserLogin = (email, password, displayName, navigate) =>{
+  signInWithEmailAndPassword(auth, email, password, displayName)
   .then((result) => {
     const user = result.user
     setUser(user)

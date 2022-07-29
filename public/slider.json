@@ -1,0 +1,23 @@
+[
+    {
+        "images": "https://i.ibb.co/CJ84kVm/s2.jpg",
+        "price" : "250",
+        "name": "Adventure type",
+        "name2": "risk Places",
+        "discription": "Life-changing travel must also be sustainable travel. By bringing together a growing community of people, we help shape the adventure and eco-tourism industry as it grows. In response to travelers’ desires, tour operators, destinations are increasingly working to ensure their experiences provide an unforgettable journey."
+    },
+    {
+        "images": "https://i.ibb.co/Hq7pq5n/s3.jpg",
+        "price" : "250",
+        "name": "Most Attractive",
+        "name2": "Travel Places",
+        "discription": "The world's most beautiful places is an inherently subjective and impossible task, but we'd like to think beauty the world has to offer. Focusing largely on national parks, mountains, beaches, deserts, and other natural wonders."
+    },
+    {
+        "images": "https://i.ibb.co/Q9rf7k5/s4.jpg",
+        "price" : "250",
+        "name": "Travel and meet",
+        "name2": "Attractive yourself",
+        "discription": "The power of wanderlust is real.Destinations across the globe, and you'll feel a surge of inspiration and awe wash over you. Even when you can't pack your bags to experience the delights of travel in person, sometimes experiencing dreamy destinations from afar can satisfy your wanderlust and get you excited to see new places in the future."
+    }
+]

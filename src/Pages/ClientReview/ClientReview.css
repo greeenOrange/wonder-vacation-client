@@ -1,0 +1,109 @@
+.review-section{
+    margin: 2rem 0;
+    padding: 1.5rem;
+    max-height: 700px;
+    background: #4b4b4b;
+    position: relative;
+    overflow: hidden;
+}
+.review-heading{
+    display: block;
+    text-align: left;
+}
+.review-section .container .review-heading > h2{
+    font-weight: 600;
+    font-size: 40px;
+    color: #fff;
+}
+.review-section .container .review-heading > h4{
+    color: #fff;
+    font-size: 18px;
+}
+.review-card{
+    margin-top: 4rem; 
+    background: #eee9e9;
+    border-radius: .5rem;
+    position: absolute;
+    top: 3rem;
+    
+}
+.reviewer-review{
+    position: relative;
+}
+.reviewer-img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -2rem;
+    left: 35%;
+    transition: all ease-in .3s;
+}
+.review-card:hover{
+    background-image: linear-gradient(to bottom, rgba(197, 203, 206, 0.9), rgba(45,55,60,.9)), url('https://i.ibb.co/gzVBcSc/t-7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.review-card .reviewer-img{
+    transition: all ease-in .3s;
+}
+
+.review-card:hover .reviewer-img{
+    display: none;
+}
+.reviewer-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3rem;
+    border: 1px solid #fff;
+}
+.review-details{
+    padding: 7rem 0;
+    height: 320px;
+}
+.review-details p{
+    color: #000;
+}
+.review-rating{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+.reviewer {
+    color: #000;
+}
+.swiper-button-prev{
+    position: absolute;
+    top: 1.6rem !important;
+    left: 88% !important;
+    border: 1px solid #FF4838;
+    padding: 1.4rem;
+    border-radius: 5rem;
+    color: #fff !important;
+    transition: all ease-in .2s;
+}
+.swiper-button-prev:hover{
+    border: 1px solid #fff;
+    transform: scale(1.1);
+    color: #FF4838 !important;
+}
+.swiper-button-prev::after, .swiper-button-next::after{
+    font-size: 16px !important
+}
+.swiper-button-next{
+    top: 1.6rem !important;
+    right: .5rem !important;
+    border: 1px solid #FF4838;
+    padding: 1.4rem;
+    border-radius: 5rem;
+    color: #fff !important;
+    transition: all ease-in .2s;
+}
+.swiper-button-next:hover{
+    border: 1px solid #fff;
+    transform: scale(1.1);
+    color: #FF4838 !important;
+}

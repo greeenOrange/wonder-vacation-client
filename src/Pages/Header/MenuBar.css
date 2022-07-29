@@ -1,0 +1,44 @@
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.menu-bar-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+@media screen and (max-width: 678px) {
+    .menu-bar-menu li{
+        visibility: hidden;        
+    }
+    .menu-bar-menu{
+        display: block;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-image: url('https://i.ibb.co/nLWsZSs/menu.png');
+        width: 70px;
+        height: 42px;
+    }
+  }
+.menu-bar-menu li{
+    list-style: none;
+}
+.menu-bar-menu li a{
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 400;
+    padding: 0 0 .5rem .7rem;
+    color: #a54c4c;
+    transition: all ease-in .1s;
+}
+.menu-bar-menu li a:hover{
+    border-bottom: 2px solid #e2f113;
+}

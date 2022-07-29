@@ -1,3 +1,7 @@
+.gallery_area button{
+    border: none;
+    background-color:transparent;
+}
 .gallery_area p{
     display: block;
     text-align: center;

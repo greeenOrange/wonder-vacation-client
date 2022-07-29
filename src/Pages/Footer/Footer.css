@@ -1,5 +1,4 @@
 .footer_section{
-    margin-top: 2rem;
     padding-top: 2.5rem;
     background: #2d373c;
     color: #fff;
@@ -50,6 +49,13 @@
 }
 .quick_link ul li{
     height: 50px;
+    list-style: none;
+    transition: all ease-in .1s;
+}
+.quick_link ul li:hover{
+    list-style:disc;
+    color: #FF4838;
+    margin-left: .3rem;
 }
 .quick_link ul li a{
     text-decoration: none;

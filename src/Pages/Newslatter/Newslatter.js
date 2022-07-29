@@ -13,7 +13,7 @@ const Newslatter = () => {
         padding: '70px 0'
       };
     return (
-        <div>
+        <div className='subscribe-section'>
             <Parallax bgImage={image1} strength={500} style={insideStyles}>
             <div style={{ height: 500 }}>
                 <div className='subscribe-content'>
