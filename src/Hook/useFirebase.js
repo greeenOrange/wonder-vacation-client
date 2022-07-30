@@ -1,4 +1,4 @@
-import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
+import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken} from "firebase/auth";
 import { useEffect, useState } from "react";
 import {useNavigate } from "react-router-dom";
 import intializeAuthentication from "../Firebase/Firebase.init";
@@ -61,21 +61,26 @@ const useFirebase = () => {
   .then((result) => {
     const user = result.user
     setUser(user)
+    console.log(user);
   })
   .catch((authError) => {
     console.log(authError.massage);
 
   });
   }
+  // Observe user Auth state Change or Not
       useEffect(()=>{
-        onAuthStateChanged(auth, user =>{
+        const unsubscribe = onAuthStateChanged(auth, (user) =>{
             if(user){
+              getIdToken(user)
+              .then(idToken => localStorage.setItem('idToken', idToken))
                 setUser(user)
             }else{
                 setAuthError('');
             }
             setIsLoading(false)
         });
+        return () => unsubscribe
     },[]);
     const logout = () => {
       signOut(auth).then(() => {
