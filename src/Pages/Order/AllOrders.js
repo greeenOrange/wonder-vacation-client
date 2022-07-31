@@ -6,7 +6,7 @@ const AllOrders = () => {
     const [control, setControl] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/order")
+        fetch("http://localhost:5000/orders")
           .then((res) => res.json())
           .then((data) => setOrders(data))
       }, [control]);
@@ -33,30 +33,30 @@ const AllOrders = () => {
             <div className='container'>
             <div className="row">
                 <div className="col-md-8 col-sm-6 mx-auto">
-                {/* <Table striped bordered hover>
-  <thead>
-    <tr>
-      <th>Proparty Name</th>
-      <th>User Email</th>
-      <th>Address</th>
-      <th>Status</th>
-      <th>action</th>
-    </tr>
-  </thead>
-
-    {orders?.map((pd, index) => (
-                <tbody>
-                <tr>
-        
-         <td>{pd.name}</td>
-            <td>{pd.email}</td>
-            <td>{pd.address}</td>
-            <td className="text-success">{pd.status}</td>
-            <button className='btn btn-danger' onClick={() => handleDelete(pd._id)}>Delete</button>
-        </tr>
-                </tbody>
-            ))}
-    </Table> */}
+            <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th>Proparty Name</th>
+              <th>User Email</th>
+              <th>Address</th>
+              <th>Status</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          {orders?.map((pd, index) =>(
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{pd?.data?.fullName}</td>
+              <td>{pd?.data?.email}</td>
+              <td>{pd?.address}</td>
+              <td>{pd?.data?.status}</td>
+              <button onClick={() => handleDelete(pd?._id)}>Delete</button>
+            </tr>
+          </tbody>
+          ))}
+        </table>
                 </div>
             </div>
             </div>
