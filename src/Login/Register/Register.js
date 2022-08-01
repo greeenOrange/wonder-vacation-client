@@ -49,17 +49,17 @@ const handleLoginSubmit = e => {
     </div>
     
     <p>Email</p>
-    <i class="fa-solid fa-envelope-open"></i>
+    <i className="fa-solid fa-envelope-open"></i>
     <input type="email" {...register("email")} placeholder='Type your Email' onChange={handleOnChange}/>
 
     {/* include validation with required or other standard HTML validation rules */}
     <p>Password</p>
-    <i class="fa-solid fa-lock"></i>
+    <i className="fa-solid fa-lock"></i>
     <input className="" type="password" placeholder="password" name="password" onChange={handleOnChange} />
     {/* errors will return when field validation fails  */}
     {errors.exampleRequired && <span>This field is required</span>}
     <p>Password</p>
-    <i class="fa-solid fa-lock"></i>
+    <i className="fa-solid fa-lock"></i>
     <input className="" type="password" placeholder="Re-password" name="password2" onChange={handleOnChange} />
     {/* errors will return when field validation fails  */}
     {errors.exampleRequired && <span>This field is required</span>}

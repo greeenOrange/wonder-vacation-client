@@ -41,7 +41,7 @@ const Header = () => {
         </li>
         {user.email ?<div>
         <p>{user?.email}</p>
-        <li><button onClick={logout} class="dropdown-item" type="button">log out</button></li>
+        <li><button onClick={logout} className="dropdown-item" type="button">log out</button></li>
         </div>:
         <Link className='user-login bg-success p-2 light text-decoration-none text-dark' to='/login'>Login</Link>
         }
@@ -64,8 +64,7 @@ const Header = () => {
             <li className="nav-item">
               <NavLink
                 to="/home"
-                activeClassName="active"
-                className="nav-links"
+                className="nav-links active"
                 onClick={click ? handleClick : null}
               >
                 Home
@@ -74,8 +73,7 @@ const Header = () => {
             <li className="nav-item">
               <NavLink
                 to="/explore"
-                activeClassName="active"
-                className="nav-links"
+                className="nav-links active"
                 onClick={click ? handleClick : null}
               >
                 Packages
@@ -84,8 +82,7 @@ const Header = () => {
             <li className="nav-item">
               <NavLink
                 to="/aboutus"
-                activeClassName="active"
-                className="nav-links"
+                className="nav-links active"
                 onClick={click ? handleClick : null}
               >
                 About Us
@@ -94,18 +91,27 @@ const Header = () => {
             <li className="nav-item">
               <NavLink
                 to="/blog"
-                activeClassName="active"
-                className="nav-links"
+                className="nav-links active"
                 onClick={click ? handleClick : null}
               >
                 Blog
               </NavLink>
             </li>
+           { user &&
+            <li className="nav-item">
+              <NavLink
+                to="/dashboard"
+                className="nav-links active"
+                onClick={click ? handleClick : null}
+              >
+                Dashboard
+              </NavLink>
+            </li>
+           }
             <li className="nav-item">
               <NavLink
                 to="/contact"
-                activeClassName="active"
-                className="nav-links"
+                className="nav-links active"
                onClick={click ? handleClick : null}
               >
                 Contact Us
@@ -125,7 +131,7 @@ const Header = () => {
        {user.email?  <li>
         <Link
             to="/payment"
-            className="nav-links"
+            className="nav-links active"
               >
                 My Account
               </Link>
@@ -139,11 +145,11 @@ const Header = () => {
         <li>
             <Link
             to="/contact"
-            className="nav-links"
+            className="nav-links active"
               >
                 Contact Us
               </Link></li>
-              <li><button onClick={logout} class="dropdown-item bg-danger p-3 text-light h5" type="button">log out</button></li>
+              <li><button onClick={logout} className="dropdown-item bg-danger p-3 text-light h5" type="button">log out</button></li>
         </ul>
       </li>
     </ul>

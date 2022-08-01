@@ -12,28 +12,28 @@ const TourGuide = () => {
                     <div className='tour-gider'>
                     <img  src='https://i.ibb.co/0Xhs6TD/t-4.jpg' alt="" />
                     <ul className='guider-media'>
-                        <li> <a href=""><i class="fa-solid fa-at"></i></a> </li>
-                        <li> <a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-discord"></i></a></li>
+                        <li> <a href=""><i className="fa-solid fa-at"></i></a> </li>
+                        <li> <a href=""><i className="fa-brands fa-instagram"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-twitter"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-discord"></i></a></li>
                     </ul>
                     </div>
                     <div className='tour-gider'>
                     <img src='https://i.ibb.co/Wk9vZr8/t-5.jpg' alt="" />
                     <ul className='guider-media'>
-                        <li> <a href=""><i class="fa-solid fa-at"></i></a> </li>
-                        <li> <a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-discord"></i></a></li>
+                        <li> <a href=""><i className="fa-solid fa-at"></i></a> </li>
+                        <li> <a href=""><i className="fa-brands fa-instagram"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-twitter"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-discord"></i></a></li>
                     </ul>
                     </div>
                     <div className='tour-gider'>
                     <img src='https://i.ibb.co/gzVBcSc/t-7.jpg' alt="" />
                     <ul className='guider-media'>
-                        <li> <a href=""><i class="fa-solid fa-at"></i></a> </li>
-                        <li> <a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                        <li> <a href=""><i class="fa-brands fa-discord"></i></a></li>
+                        <li> <a href=""><i className="fa-solid fa-at"></i></a> </li>
+                        <li> <a href=""><i className="fa-brands fa-instagram"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-twitter"></i></a></li>
+                        <li> <a href=""><i className="fa-brands fa-discord"></i></a></li>
                     </ul>
                     </div>
                     </div>

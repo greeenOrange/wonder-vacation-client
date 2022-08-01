@@ -51,7 +51,7 @@ const HeroWrapper = () => {
               {
                 slider?.map((pd, index) =>{
                         return(
-                            <div className="hero-slider">
+                            <div className="hero-slider" key={index}>
                             { index === currentSlider && (
                <>
                <div className="slider-image">
@@ -63,8 +63,8 @@ const HeroWrapper = () => {
                     <div className="slider-btn">
                         {/* <button className='view-btn'> <a href="">View Adventure</a></button>
                     <button className='book-btn'><a href="">Book Now</a></button> */}
-                    <button type="button" class="view-btn"><a href="">View Adventure</a></button>
-                    <button type="button" class="book-btn"><a href="">Book Now</a></button>
+                    <button type="button" className="view-btn"><a href="">View Adventure</a></button>
+                    <button type="button" className="book-btn"><a href="">Book Now</a></button>
                     </div>
                 </div>
                 <div className="move-btn">

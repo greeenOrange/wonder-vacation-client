@@ -33,7 +33,7 @@ const AllOrders = () => {
             <div className='container'>
             <div className="row">
                 <div className="col-md-8 col-sm-6 mx-auto">
-            <table class="table table-striped">
+            <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -45,7 +45,7 @@ const AllOrders = () => {
             </tr>
           </thead>
           {orders?.map((pd, index) =>(
-          <tbody>
+          <tbody key={index}>
             <tr>
               <th scope="row">1</th>
               <td>{pd?.data?.fullName}</td>

@@ -37,13 +37,13 @@ export default class Gallery extends Component {
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-xl1.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-md1.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                  </div>
@@ -52,19 +52,19 @@ export default class Gallery extends Component {
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-sm1.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-sm2.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-md2.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                  </div>
@@ -73,13 +73,13 @@ export default class Gallery extends Component {
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-xl2.png" alt="image-gallery" />
                          <div className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </div>
                      </div>
                      <div className="gallery-item">
                          <img src="https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-md3.png" alt="image-gallery" />
                          <a className='gallery-item-overlay' href="">
-                             <i class="fa-solid fa-eye"></i>
+                             <i className="fa-solid fa-eye"></i>
                          </a>
                      </div>
                  </div>

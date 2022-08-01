@@ -77,7 +77,7 @@
     font-size: 1rem;
   }
   .nav-links:hover{
-    color: #f7c25e;
+    color: #FF4838;
     background-image: linear-gradient(90deg, #7acbdf 0%, #fd1d1d 50%, #fcb045 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -106,11 +106,11 @@
   
   .nav-item:hover:after {
     width: 100%;
-    background: #ffdd40;
+    background: #FF4838;
   }
   
   .nav-item.active {
-    color: #ffdd40;
+    color: #FF4838;
     border: 1px solid #ffdd40;
   }
   
@@ -141,7 +141,7 @@
       z-index: 1;
     }
     .nav-item .active {
-      color: #ffdd40;
+      color: #FF4838;
       border: none;
     }
     .nav-links {
@@ -158,7 +158,7 @@
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
-      color: #ffdd40;
+      color: #FF4838;
     }
     .user-menu{
       display: flex;

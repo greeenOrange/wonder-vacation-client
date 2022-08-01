@@ -10,7 +10,7 @@
 // import MenuBar from '../MenuBar';
 // const Banner = () => {
 //   return (
-//     <div class="hero-area hero-style-two">
+//     <div className="hero-area hero-style-two">
 //     <div className="container">
 //     <MenuBar></MenuBar>
 //     <Swiper
@@ -39,7 +39,7 @@
 //           </div>
 //             <div className="col-md-6">
 //             <div className="hero-image-group">
-//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group3.png" alt class='img-fluid' />
+//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group3.png" alt className='img-fluid' />
 //               </div>
 //           </div>
 //         </div>
@@ -60,7 +60,7 @@
 //           </div>
 //             <div className="col-md-6">
 //             <div className="hero-image-group">
-//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group.png" alt class='img-fluid' />
+//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group.png" alt className='img-fluid' />
 //               </div>
 //           </div>
 //         </div>
@@ -80,7 +80,7 @@
 //           </div>
 //             <div className="col-md-6">
 //             <div className="hero-image-group">
-//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group2.png" alt class='img-fluid' />
+//               <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/banner/hero2-image-group2.png" alt className='img-fluid' />
 //               </div>
 //           </div>
 //         </div>

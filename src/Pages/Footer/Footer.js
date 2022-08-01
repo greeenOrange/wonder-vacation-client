@@ -13,11 +13,11 @@ const Footer = () => {
                         <div className="social_media">
                             <h3>Follow Us On:</h3>
                             <ul>
-                                <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
-                                <li><a href=""><i class="fa-brands fa-pinterest"></i></a></li>
+                                <li><a href=""><i className="fa-brands fa-facebook"></i></a></li>
+                                <li><a href=""><i className="fa-brands fa-instagram"></i></a></li>
+                                <li><a href=""><i className="fa-brands fa-twitter"></i></a></li>
+                                <li><a href=""><i className="fa-brands fa-whatsapp"></i></a></li>
+                                <li><a href=""><i className="fa-brands fa-pinterest"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,8 +48,8 @@ const Footer = () => {
                     <div className="contact">
                         <div className='d-flex justify-content-space-between align-items-center'>
                         <h2 className='mt-0'>Contact Us:</h2>
-                        <p><i class="fa-solid fa-phone me-2"></i> +1763-222-9219</p>
-                        <p><i class="fa-solid fa-envelope-open me-2"></i> info@wondervacation.com</p>
+                        <p><i className="fa-solid fa-phone me-2"></i> +1763-222-9219</p>
+                        <p><i className="fa-solid fa-envelope-open me-2"></i> info@wondervacation.com</p>
                         <p>Malibag-1270, Dhaka, Bangladesh</p>
                         </div>
                     </div>
