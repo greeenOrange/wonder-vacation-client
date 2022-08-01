@@ -1,14 +1,12 @@
 .review-section{
     margin: 2rem 0;
-    padding: 1.5rem;
-    max-height: 700px;
+    padding: 3rem 0;
     background: #4b4b4b;
-    position: relative;
-    overflow: hidden;
 }
 .review-heading{
     display: block;
     text-align: left;
+    position: absolute;
 }
 .review-section .container .review-heading > h2{
     font-weight: 600;
@@ -20,12 +18,10 @@
     font-size: 18px;
 }
 .review-card{
-    margin-top: 4rem; 
+    margin-top: 10rem; 
     background: #eee9e9;
     border-radius: .5rem;
-    position: absolute;
-    top: 3rem;
-    
+    position: relative;
 }
 .reviewer-review{
     position: relative;
@@ -77,13 +73,14 @@
 }
 .swiper-button-prev{
     position: absolute;
-    top: 1.6rem !important;
-    left: 88% !important;
+    top: 2.8rem !important;
+    left: 86% !important;
     border: 1px solid #FF4838;
     padding: 1.4rem;
     border-radius: 5rem;
     color: #fff !important;
     transition: all ease-in .2s;
+    position: absolute;
 }
 .swiper-button-prev:hover{
     border: 1px solid #fff;
@@ -94,13 +91,14 @@
     font-size: 16px !important
 }
 .swiper-button-next{
-    top: 1.6rem !important;
+    top: 2.8rem !important;
     right: .5rem !important;
     border: 1px solid #FF4838;
     padding: 1.4rem;
     border-radius: 5rem;
     color: #fff !important;
     transition: all ease-in .2s;
+    position: absolute;
 }
 .swiper-button-next:hover{
     border: 1px solid #fff;
