@@ -1,0 +1,40 @@
+.add-pacakges-section{
+    margin-top: 2rem;
+}
+.add-pacakges-section form{
+   width: 700px;
+   text-align: center;
+   margin: auto;
+}
+.add-pacakges-section p{
+    padding: 0;
+}
+
+.add-pacakges-section p{
+    color: #e71f1f;
+}
+.add-pacakges-section label{
+    display: block;
+    text-align: left;
+    margin: .2rem 0;
+}
+.add-pacakges-section input{
+    display: block;
+    width: 100%;
+    padding: .3rem 0;
+    margin: 0;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.add-pacakges-section input:last-child{
+    padding: 1rem 0;
+}

@@ -1,0 +1,12 @@
+.dashboard-section button{
+     color: #ff4838;
+     display: flex;  
+    justify-content: center;  
+    align-items: flex-start; 
+}
+.dashboard-section .nav-item:hover:after {
+    width: 100px;
+    background: #FF4838;
+    text-align: center;
+    margin: auto ;
+}
