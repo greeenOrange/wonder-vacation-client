@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     }
     const onSubmit = (data) =>{
         const user = {email}
-        fetch('http://localhost:5000/makeadmin', {
+        fetch('http://localhost:5000//users/makeadmin', {
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'

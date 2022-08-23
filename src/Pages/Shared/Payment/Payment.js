@@ -15,7 +15,7 @@ const Payment = () => {
     const [status, setStatus] = useState("");
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user?.email}`, {
+        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
           headers: {
             'authorization': `Bearer ${localStorage.getItem('idToken')}`
           }
@@ -52,7 +52,7 @@ const Payment = () => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you sure, you want to delete?');
       if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+          const url = `http://localhost:5000/orders/${id}`;
           fetch(url, {
               method: 'DELETE'
           })

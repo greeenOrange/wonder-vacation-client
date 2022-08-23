@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import Spinner from '../Shared/Spinner';
+import  './MyOrder.css'
 
 const MyOrder = () => {
 const {user} = useAuth();
@@ -88,7 +90,11 @@ const [isDeleted, setIsDeleted] = useState(false);
     //     getOrder()
     // },[user?.email])
     return (
-        <div>
+        <div className='order-section'>
+            <div className="container">
+            {orders.length === 0 && (
+          <p class="fs-4 text-center d-block">You have no orders to view.</p>
+            )}
             {orders?.map((pd, index) => (
             <div key={index} className="col-md-6 col-lg-4">
                 <table className="table">
@@ -122,10 +128,13 @@ const [isDeleted, setIsDeleted] = useState(false);
                 </tr>
             </tbody>
             </table>
+            <div className="btn btn-success btn-lg paybtn">
+               <NavLink to='/payment'>Process to Pay</NavLink>
+            </div>
             </div>
           ))}
 
- 
+</div>
         </div>
     );
 };

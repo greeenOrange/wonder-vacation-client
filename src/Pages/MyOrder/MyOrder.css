@@ -1,0 +1,21 @@
+.order-section{
+  background: #abf2f7;
+  width: 100vw;
+  height: 100vh; 
+}
+.order-section p{
+   padding-top: 2rem;
+   font-weight: 600;
+   color: rgb(220, 44, 44);   
+}
+.paybtn a{
+    text-decoration: none;
+    color: #fff;
+}
+.paybtn a:hover{
+    color: #000;
+}
+.paybtn:hover{
+    border: 1px solid #14f614;
+    background: transparent;
+}

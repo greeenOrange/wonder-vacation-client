@@ -9,7 +9,7 @@ import './Login.css'
 const Login = () => {
     const {signInWithGoogle, user, handleUserLogin, signInWithFacebook, signInWithTwitter, logout, authError, isLoading } = useAuth();
     const [loginData, setLoginData] = useState({});
-    const { register, watch, formState: { errors } } = useForm();
+    const { register, watch, formState: { errors }, reset } = useForm();
     const navigate = useNavigate()
     const location = useLocation();
     // const [token] = useToken()
@@ -19,15 +19,15 @@ const Login = () => {
             const field = e.target.name;
             const value = e.target.value;
             const newLoginData = {...loginData};
+            console.log(newLoginData);
             newLoginData[field] = value;
             setLoginData(newLoginData)
 };
-    const handleLoginSubmit = async e => {
-        await handleUserLogin(loginData.name, loginData.email, loginData.password, location, navigate)
+    const handleLoginSubmit = (e) => {
+        handleUserLogin(loginData.email, loginData.password, location, navigate)
         e.preventDefault();
-        const {data} = await axios.post('http://localhost:5000/login', loginData.email);
-        localStorage.setItem('accessToken', data.accessToken);
         navigate({replace:true})
+        reset()
     }
     const handleGoogleSignIn = (e) =>{
         signInWithGoogle(loginData.email,loginData.password,location,navigate);
@@ -56,10 +56,6 @@ const Login = () => {
         <h2>Sign In</h2>
                 <div className="col">
                 <form onSubmit={handleLoginSubmit}>
-                <p>Username</p>
-    <i className="fa-solid fa-user"></i>
-    <input type="name" {...register("name", { required: true })} placeholder='name' onChange={handleOnChange}/>
-
     {/* register your input into the hook by invoking the "register" function */}
     <p>UserEmail</p>
     <i className="fa-solid fa-envelope-open"></i>

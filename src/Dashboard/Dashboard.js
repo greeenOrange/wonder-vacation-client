@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../Hook/useAuth';
 import './Dashboard.css'
 
 const Dashboard = () => {
+  const {user, logout} = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/users/makeadmin/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]?.role === "admin") {
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
+      });
+  }, [user?.email]);
     return (
         <div className='dashboard-section'>
            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
@@ -18,7 +33,9 @@ const Dashboard = () => {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
+        {isAdmin &&(
+          <>
+          <li class="nav-item">
           <a class="nav-link" href="/addusers">Add user</a>
         </li>
         <li class="nav-item">
@@ -27,6 +44,10 @@ const Dashboard = () => {
         <li class="nav-item">
           <a class="nav-link" href="/addpackage">addpackage</a>
         </li>
+          </>
+        )
+
+        }
         </ul>
             </div>
             </div>
