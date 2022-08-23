@@ -35,6 +35,20 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-.add-pacakges-section input:last-child{
+.add-pacakges-section button{
     padding: 1rem 0;
+    width: 100%;
+    background-color: #e71f1f;
+    color: #fff;
+    border: none;
+    transition: all ease-in .2s;
+}
+.add-pacakges-section button i{
+    margin-left: .5rem;
+}
+
+.add-pacakges-section button:hover{
+    border: 1px solid #e71f1f;
+    color: #000;
+    background: #fff;
 }

@@ -1,16 +1,32 @@
 import React from 'react';
 import './AddPackages.css';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddPackages = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const onSubmit = (data) => {
+      axios.post('http://localhost:5000/addPackage', data)
+      .then(res=> {
+        if(res.data.insertedId){
+          Swal.fire(
+            'Success',
+            'Your file has been Added.',
+            'success'
+          )
+      }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
     return (
         <div className='add-pacakges-section'>
         <h2>Add Packages</h2>
             <div className="container">
             <form onSubmit={handleSubmit(onSubmit)}>
-       <label>Name</label>
+       <label>Package Name</label>
       <input {...register("name", { required: true })} />
       {errors.name?.type === 'required' && <p>Name is required</p>}
       <label>Place Name</label>
@@ -29,7 +45,7 @@ const AddPackages = () => {
       <input type='number' {...register("reviews", { required: "Reviews is required" })} />
       <p>{errors.reviews?.message}</p>
       
-      <input type="submit" />
+      <button type="submit">Add File <i class="fas fa-paper-plane"></i></button>
     </form>
             </div>
         </div>

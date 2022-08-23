@@ -4,13 +4,12 @@ import { useForm } from "react-hook-form";
 import useAuth from '../../Hook/useAuth';
 import { Link } from 'react-router-dom';
 import Spinner from '../../Pages/Shared/Spinner';
-import { Alert } from 'bootstrap';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
     const {user, authError, handleUserRegister, isLoading } = useAuth();
-    console.log(user);
-    const { register, formState: { errors } } = useForm();
+    const { register, formState: { errors }, reset } = useForm();
 
 
     const handleOnChange = e =>{
@@ -18,18 +17,22 @@ const Register = () => {
         const value = e.target.value;
         const newLoginData = {...loginData};
         newLoginData[field] = value;
-        console.log(newLoginData);
         setLoginData(newLoginData)
 }
 
 const handleLoginSubmit = e => {
-    console.log(loginData.email);
     if(loginData.password !== loginData.password2){
-        alert('your password did not match')
-        return
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>'
+          })
     }
-    handleUserRegister(loginData.email, loginData.password)
+    handleUserRegister(loginData.email, loginData.password, loginData.firstname, loginData.lastname);
+    console.log(loginData.email, loginData.password, loginData.firstname, loginData.lastname);
     e.preventDefault();
+    reset()
 }
     return (
         <div className='register'>
@@ -41,11 +44,11 @@ const handleLoginSubmit = e => {
                  <form onSubmit={handleLoginSubmit}>
     {/* register your input into the hook by invoking the "register" function */}
     <div className='d-flex align-center justify-center'>
-    <input {...register("firstName", { required: true })} placeholder='First name' onChange={handleOnChange}/>
+    <input {...register("firstname", { required: true })} placeholder='First name' onChange={handleOnChange}/>
       {errors.firstName?.type === 'required' && "First name is required" }
       
-      <input {...register("lastName", { required: true })} placeholder='Last name' onChange={handleOnChange}/>
-      {errors.lastName && "Last name is required" && "Last name is required"}
+      <input {...register("lastname", { required: true })} placeholder='Last name' onChange={handleOnChange}/>
+      {errors.lastname && "Last name is required" && "Last name is required"}
     </div>
     
     <p>Email</p>
@@ -68,13 +71,13 @@ const handleLoginSubmit = e => {
     </form>
                
         <p className='m-a text-center d-block'>Or Already Sign Up? <span><Link href="" to="/login">signup now</Link></span></p>
-        {/* {isLoading && <Spinner/>}
-            {user?.email && <Alert className="text-success">
-            This is a success alert—check it out!
-            </Alert>}
-            {authError &&  <Alert className="text-danger">
-            This is a danger alert—check it out!
-            </Alert>} */}
+        {isLoading && <Spinner/>}
+            {user?.email && <p className="text-success">
+            successfully Register—check it out!
+            </p>}
+            {authError &&  <p className="text-danger">
+            Unsuccessfully Register—check it out!
+            </p>}
                 </div>
             </div>
         </div>

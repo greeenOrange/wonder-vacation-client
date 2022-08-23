@@ -63,7 +63,7 @@ const Header = () => {
             <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <NavLink
-                to="/home"
+                to="/"
                 className="nav-links active"
                 onClick={click ? handleClick : null}
               >
@@ -128,15 +128,17 @@ const Header = () => {
       <li>
       <p>Hi {user?.displayName}</p>
         <ul>
-       {user.email?  <li>
+       {
+        user?.email? <li>
         <Link
-            to="/payment"
+            to="/myorder"
             className="nav-links active"
               >
                 My Account
               </Link>
               </li>: <li></li>
-              }
+
+       }
         <li>
         <Link
         to='/login'

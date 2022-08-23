@@ -35,7 +35,7 @@ const PackageBooking = () => {
       data.status = "pending"
       
       // SEND to the server
-      axios.post('http://localhost:5000/order', packages)
+      axios.post('http://localhost:5000/orders', packages)
       // axios.post('https://sleepy-ocean-28261.herokuapp.com/order',data)
       .then(res => {
         if(res.data.insertedId){
@@ -48,6 +48,14 @@ const PackageBooking = () => {
           })
           reset();
           navigate('/')
+        }else{
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Something went wrong",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
 
       })
@@ -98,8 +106,8 @@ const PackageBooking = () => {
                     <div className="user-form">
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
-      <input placeholder='Your Full Name' {...register("fullName")} />
-      {errors.fullName?.type === 'required' && "full name is required"}
+      <input placeholder='Your Full Name' {...register("fullname")} />
+      {errors.fullname?.type === 'required' && "full name is required"}
 
       <input placeholder='email' defaultValue={user.email} {...register("email")} />
       {errors.email?.type === 'required' && "email is required"}

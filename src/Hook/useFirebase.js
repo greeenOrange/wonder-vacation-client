@@ -1,4 +1,4 @@
-import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken} from "firebase/auth";
+import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, TwitterAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken} from "firebase/auth";
 import { useEffect, useState } from "react";
 import {useNavigate } from "react-router-dom";
 import intializeAuthentication from "../Firebase/Firebase.init";
@@ -10,10 +10,12 @@ const useFirebase = () => {
 
   const googleprovider = new GoogleAuthProvider();
   const facebookprovider = new FacebookAuthProvider();
+  const twitterprovider = new TwitterAuthProvider();
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
     const signInWithGoogle = () => {
       setIsLoading(true)
@@ -21,11 +23,13 @@ const useFirebase = () => {
           .then((result) => {
             const user = result.user;
             setUser(user)
-            console.log(user);
             setAuthError('');
             navigate("/")
-        })
-          .catch((error) => setAuthError(error.message));
+        }).catch((error) => {
+            setAuthError(error.message)
+          }).finally(() =>{
+            setIsLoading(false)
+          })
       };
       
       const signInWithFacebook = () =>{
@@ -34,40 +38,51 @@ const useFirebase = () => {
           .then((result) => {
             const user = result.user;
             setUser(user)
-            console.log(user);
+            setAuthError('');
+            navigate("/")
+        }).catch((error) => setAuthError(error.message));
+      }
+
+      const signInWithTwitter = () =>{
+        setIsLoading(true)
+        signInWithPopup(auth, twitterprovider)
+          .then((result) => {
+            const user = result.user;
+            setUser(user)
             setAuthError('');
             navigate("/")
         })
           .catch((error) => setAuthError(error.message));
       }
 
-      const handleUserRegister = (email, password, username, location, navigate) =>{
-        console.log(email,password,username);
+      const handleUserRegister = (email, password, firstname, lastname, navigate) =>{
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              updateProfile(auth.currentUser, {
+                displayName: firstname, lastname
+              })
+              .then(() => {
+              })
+              setUser(userCredential.user)
+              navigate("/");
+            }).catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            }).finally(() => setIsLoading(false));
+    }
+
+        const handleUserLogin = (email, password, navigate) =>{
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
-    // Signed in 
-    const user = result.user;
-    updateProfile({displayName: username})
-    // ...
-  })
-  .catch((authError) => {
-    setAuthError(authError.massage);
-    // ..
-  });
-      }
+          const user = result.user
+          setUser(user)
+        }).catch((error) => {
+          setAuthError(error.message)
+        }).finally(() => setIsLoading(false));
 
-  const handleUserLogin = (email, password, displayName, navigate) =>{
-  signInWithEmailAndPassword(auth, email, password, displayName)
-  .then((result) => {
-    const user = result.user
-    setUser(user)
-    console.log(user);
-  })
-  .catch((authError) => {
-    console.log(authError.massage);
-
-  });
-  }
+        }
   // Observe user Auth state Change or Not
       useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) =>{
@@ -82,6 +97,7 @@ const useFirebase = () => {
         });
         return () => unsubscribe
     },[]);
+    
     const logout = () => {
       signOut(auth).then(() => {
         setUser({})
@@ -100,6 +116,7 @@ const useFirebase = () => {
         handleUserRegister,
         handleUserLogin,
         signInWithFacebook,
+        signInWithTwitter,
         logout
         };
 };

@@ -1,12 +1,14 @@
 .dashboard-section button{
-     color: #ff4838;
-     display: flex;  
+    color: #ff4838;
+    display: flex;  
     justify-content: center;  
     align-items: flex-start; 
 }
-.dashboard-section .nav-item:hover:after {
-    width: 100px;
-    background: #FF4838;
+.dashboard-section .nav-item {
+    transition: all ease-in .2s;
+}
+.dashboard-section .nav-item:hover {
+    color: #FF4838;
     text-align: center;
     margin: auto ;
 }

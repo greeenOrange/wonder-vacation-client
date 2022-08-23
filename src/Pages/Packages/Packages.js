@@ -22,9 +22,6 @@ const Packages = ({pd}) => {
         })
     },[]);
     
-   
-
-
     return (
         <>
         <main>
