@@ -34,7 +34,7 @@ function App() {
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/payment" element={<Payment />}/>
+        <Route path="/payment/:id" element={<Payment />}/>
         <Route path="/myorder" element={<MyOrder />}/>
         <Route path='/allorders' element={<AllOrders />} />
         <Route path='/addpackage' element={<AddPackages />} />

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
-import Spinner from '../../Shared/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Explore = () => {
     const [packages, setPackages] = useState([]);

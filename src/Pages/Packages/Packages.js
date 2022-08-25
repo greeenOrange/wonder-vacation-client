@@ -3,8 +3,8 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Packages.css';
-import Spinner from '../Shared/Spinner';
 import Rating from 'react-rating';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const Packages = ({pd}) => {
     const [packages, setPackages] = useState([]);
@@ -38,7 +38,7 @@ const Packages = ({pd}) => {
             <div className="row">
             
             {
-                isLoading && <Spinner></Spinner>
+                isLoading && <Spinner />
             }
 
             { sliceData?.map((pd, index) => (

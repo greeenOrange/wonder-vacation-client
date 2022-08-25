@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hook/useAuth';
-import Spinner from '../Pages/Shared/Spinner';
+import Spinner from '../Pages/Shared/Spinner/Spinner';
+
 import './Login.css'
 
 const Login = () => {

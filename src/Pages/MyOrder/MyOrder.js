@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
-import Spinner from '../Shared/Spinner';
+import OrdersSkelition from '../Shared/Spinner/OrdersSkelition';
+import Spinner from '../Shared/Spinner/Spinner';
 import  './MyOrder.css'
 
 const MyOrder = () => {
@@ -15,29 +16,30 @@ const [isDeleted, setIsDeleted] = useState(false);
  useEffect(() => {
         fetch(`http://localhost:5000/orders/${user?.email}`)
           .then((res) => res.json())
-          .then((data) => setOrders(data));
+          .then((data) => {
+            setOrders(data);
+  
+          });
       }, [user?.email]);
 
+      useEffect(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 3000);
+      }, []);
   // delete a order
   const handelCancel = (id) => {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success ms-3",
-        cancelButton: "btn btn-danger",
-      },
-      buttonsStyling: false,
-    });
-
-    swalWithBootstrapButtons
-      .fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You Want to Delete it!",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
-        reverseButtons: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
       })
+  
       .then((result) => {
         if (result.isConfirmed) {
           fetch(`http://localhost:5000/orders/${id}`, {
@@ -71,69 +73,47 @@ const [isDeleted, setIsDeleted] = useState(false);
       });
   };
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/${user?.email}`)
-    //       .then((res) => res.json())
-    //       .then((data) => setOrders(data));
-    //   }, [user?.email]);
-    // useEffect(() =>{
-    //     const getOrder = async() =>{
-    //         const email = user.email;
-    //         const url = `http://localhost:5000/order/${email}`;
-    //         const {data} = await axios.get(url, {
-    //             headers: {
-    //                 'authorization': `Bearer ${localStorage.getItem('idToken')}`
-    //             }
-    //         });
-    //         setOrders(data)
-    //     }
-    //     getOrder()
-    // },[user?.email])
     return (
-        <div className='order-section'>
+        <div className='order-section mt-3'>
             <div className="container">
-            {orders.length === 0 && (
-          <p class="fs-4 text-center d-block">You have no orders to view.</p>
+              <div className="row">
+            {orders?.map((pd, index) => 
+              isLoading ? (
+                <OrdersSkelition key={index} />
+              ) : (
+             <div key={index} className="col-md-12 col-lg-6 ">
+           <div className='order-wrapper shadow-sm p-3 mb-5 bg-body rounded'>
+           <div className='order-card'>
+           <div className='order-image'>
+           <img src={pd?.images} className="card-img-top" alt="..." />
+           </div>
+           <div className="order-card-body">
+             <h3 className="fs-6">{pd?.place_name}</h3>
+             <h5 className='fs-6'>Price: <span className='fw-bold'>{pd.price}</span> <span className='order-status'>{pd?.status}</span></h5>
+             <h5 className='fs-6'>time: {pd.time}</h5>
+             <h6 className='fs-6'>Phone: {pd?.number}</h6>
+           </div>
+           </div>
+           <div className='order-button'>
+           <button
+               className="btn btn-danger"
+               onClick={() => handelCancel(pd?._id)}
+             >
+               Cancel
+             </button>
+           <div className="btn btn-success paybtn d-block">
+              <Link to={`/payment/${pd._id}`}>Process to Pay</Link>
+           </div>
+           </div>
+           </div>
+           </div>
+           )          
+            
+          )}
+</div>
+{orders.length === 0 && (
+          <p className="fs-4 text-center d-block">You have no orders to view.</p>
             )}
-            {orders?.map((pd, index) => (
-            <div key={index} className="col-md-6 col-lg-4">
-                <table className="table">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Time</th>
-                <th scope="col">Price</th>
-                <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">{index + 1 }</th>
-                <td>{pd?._id}
-                <div>
-                    <div><img src={pd?.details?.image} alt="" /></div>
-                </div>
-                </td>
-                <td>{pd?.details?.Place_name}</td>
-                <td>{pd?.details?.time}</td>
-                <td>{pd?.details?.price}</td>
-                <td><button
-                className="btn btn-danger"
-                onClick={() => handelCancel(pd?._id)}
-              >
-                Cancel
-              </button></td>
-                </tr>
-            </tbody>
-            </table>
-            <div className="btn btn-success btn-lg paybtn">
-               <NavLink to='/payment'>Process to Pay</NavLink>
-            </div>
-            </div>
-          ))}
-
 </div>
         </div>
     );

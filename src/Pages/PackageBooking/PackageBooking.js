@@ -16,27 +16,22 @@ const PackageBooking = () => {
     const {id} = useParams();
     const {user} = useAuth()
     const [details, setDetails] = useState({});
-    const [textfield, setText] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
-    const { register, control,  handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { register, control,  handleSubmit, reset, formState: { errors } } = useForm();
 
-    const handleOnBlur = e =>{
-      const field = e.target.value;
-      console.log(field);
-      setText(field);
-    }
     const onSubmit = (data) =>{
-      const packages = {
-        details,
-        data,
-        textfield
-      }
-      data.status = "pending"
+      const bookingData = {...data};
+      bookingData.images = details.image;
+      bookingData.place_name = details.place_name;
+      bookingData.price = details.price;
+      bookingData.time = details.time;
+      bookingData.email = user.email;
+      bookingData.number = details.phone;
+      bookingData.status = "pending"
       
       // SEND to the server
-      axios.post('http://localhost:5000/orders', packages)
-      // axios.post('https://sleepy-ocean-28261.herokuapp.com/order',data)
+      axios.post('http://localhost:5000/orders', bookingData)
       .then(res => {
         if(res.data.insertedId){
           Swal.fire({
@@ -112,8 +107,8 @@ const PackageBooking = () => {
       <input placeholder='email' defaultValue={user.email} {...register("email")} />
       {errors.email?.type === 'required' && "email is required"}
 
-      <input type="number" placeholder='Phone' />
-    
+      <input type="number" {...register("phone")} placeholder='Phone Number' />
+      {errors.number?.type === 'required' && "phone number is required"}
       
       <Controller
         name="ticketType"
@@ -178,7 +173,7 @@ const PackageBooking = () => {
                 <textarea
                     placeholder='Your Massage'       
                      type="text"
-                     onBlur={handleOnBlur}
+                     {...register("textField")}
                       >
                </textarea>
                <input className='btn btn-danger py-3' value="Book Now"  type="submit"/> 

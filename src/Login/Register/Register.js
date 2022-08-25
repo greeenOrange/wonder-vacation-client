@@ -3,8 +3,8 @@ import './Register.css';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hook/useAuth';
 import { Link } from 'react-router-dom';
-import Spinner from '../../Pages/Shared/Spinner';
 import Swal from 'sweetalert2';
+import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -71,7 +71,7 @@ const handleLoginSubmit = e => {
     </form>
                
         <p className='m-a text-center d-block'>Or Already Sign Up? <span><Link href="" to="/login">signup now</Link></span></p>
-        {isLoading && <Spinner/>}
+        {isLoading && <Spinner />}
             {user?.email && <p className="text-success">
             successfully Register—check it out!
             </p>}
