@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import OrdersSkelition from '../Shared/Spinner/OrdersSkelition';
-import Spinner from '../Shared/Spinner/Spinner';
 import  './MyOrder.css'
 
 const MyOrder = () => {
@@ -91,7 +90,11 @@ const [isDeleted, setIsDeleted] = useState(false);
              <h3 className="fs-6">{pd?.place_name}</h3>
              <h5 className='fs-6'>Price: <span className='fw-bold'>{pd.price}</span> <span className='order-status'>{pd?.status}</span></h5>
              <h5 className='fs-6'>time: {pd.time}</h5>
-             <h6 className='fs-6'>Phone: {pd?.number}</h6>
+             <h6 className='fs-6'>Phone: {pd?.phone}</h6>
+             <h6 className='fs-6'>ticketType: {pd?.ticketType?.value} <span className='d-block'>label: {pd?.ticketType?.label}</span></h6>
+             <h6 className='fs-6'>Adult: {pd?.adult?.value} <span className='d-block'>label: {pd?.adult?.label}</span></h6>
+             <h6 className='fs-6'>Teen: {pd?.teen?.value} <span className='d-block'>label: {pd?.teen?.label}</span></h6>
+             <p>Data:</p>
            </div>
            </div>
            <div className='order-button'>
@@ -102,7 +105,8 @@ const [isDeleted, setIsDeleted] = useState(false);
                Cancel
              </button>
            <div className="btn btn-success paybtn d-block">
-              <Link to={`/payment/${pd._id}`}>Process to Pay</Link>
+              {(pd.price && !pd.paid) && <Link to={`/payment/${pd._id}`}>Process to Pay</Link>}
+              {(pd.price && pd.paid) && <p className='text-success fs-4'>Paid</p>}
            </div>
            </div>
            </div>

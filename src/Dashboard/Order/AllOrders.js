@@ -32,14 +32,15 @@ const AllOrders = () => {
             <h2>Mange All Orders: {orders?.length}</h2>
             <div className='container'>
             <div className="row">
-                <div className="col-md-8 col-sm-6 mx-auto">
+                <div className="col-md-12 col-sm-6 col-md-8 mx-auto">
             <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th>Proparty Name</th>
+              <th>Package Name</th>
+              <th>User Name</th>
               <th>User Email</th>
-              <th>Address</th>
+              <th>visit Date</th>
               <th>Status</th>
               <th>action</th>
             </tr>
@@ -48,11 +49,12 @@ const AllOrders = () => {
           <tbody key={index}>
             <tr>
               <th scope="row">1</th>
-              <td>{pd?.data?.fullName}</td>
-              <td>{pd?.data?.email}</td>
-              <td>{pd?.address}</td>
-              <td>{pd?.data?.status}</td>
-              <button onClick={() => handleDelete(pd?._id)}>Delete</button>
+              <td>{pd?.place_name}</td>
+              <td>{pd?.fullname}</td>
+              <td>{pd?.email}</td>
+              <td>{pd?.date}</td>
+              <td>{pd?.status}</td>
+              <button className='btn btn-danger' onClick={() => handleDelete(pd?._id)}>Delete</button>
             </tr>
           </tbody>
           ))}

@@ -8,6 +8,7 @@ import AddUsers from './Dashboard/AddUsers/AddUsers';
 import Dashboard from './Dashboard/Dashboard';
 import MakeAdmin from './Dashboard/MakeAdmin/MakeAdmin';
 import AllOrders from './Dashboard/Order/AllOrders';
+import Payment from './Dashboard/Payment/Payment';
 import Login from './Login/Login';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Register from './Login/Register/Register';
@@ -19,7 +20,7 @@ import Home from './Pages/Home/Home';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import PackageBooking from './Pages/PackageBooking/PackageBooking';
 import Packages from './Pages/Packages/Packages';
-import Payment from './Pages/Shared/Payment/Payment';
+
 
 function App() {
   return (

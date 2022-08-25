@@ -1,27 +1,38 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useAuth from '../../../Hook/useAuth';
-import CheckoutForm from './CheckoutForm';
+import useAuth from '../../Hook/useAuth';
+
 import './Payment.css';
 const stripePromise = loadStripe('pk_test_51Jw4F4HOXxFLrNqID8V8nKHk7qNrnMtIhZvWobJL8NVyFxnA57uRknnBlVUurwU9STeV5ugF1UaoNvfEMd9FKwih00HXfpJxCA');
 
 const Payment = () => {
     const {id} = useParams();
     const {user} = useAuth();
-    const [order, setOrder] = useState({});
+    const [payOrder, setPayOrder] = useState({});
+    const [isLoading, setIsLoading] = useState(true)
+    console.log(payOrder._id);
     const [status, setStatus] = useState("");
     const navigate = useNavigate();
 
     useEffect(() =>{
+      setIsLoading(true)
       fetch(`http://localhost:5000/orders/${id}`)
-      
       .then(res => res.json())
-      .then(data => setOrder(data))
+      .then(data => setPayOrder(data))
+      .finally(() =>{
+        setIsLoading(false)
+      })
   },[id]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/orders?email=${user?.email}`, {
@@ -73,8 +84,8 @@ const Payment = () => {
                       'Your file has been deleted.',
                       'success'
                     )
-                      const remainingUsers = order.filter(order => order._id !== id);
-                      setOrder(remainingUsers);
+                      const remainingUsers = payOrder.filter(order => order._id !== id);
+                      setPayOrder(remainingUsers);
                   }
               });
       }
@@ -84,31 +95,25 @@ const Payment = () => {
     return (
       <div className='payment'>
           <div className="container">
-            <div className="row">
-                {
-                  order?.map ((pd,index) =>(
-                    
-              <div key={index} className="col-md-6">
-                      { user.email?
+            <div className="row">                    
+              <div className="col-md-6">
                        <div>
-                       <h6>Package ID: {pd._id}</h6>
-                      <img width='300px' src={pd?.details?.image} alt="" />
-                      <h4>Booked Place: {pd?.details?.Place_name}</h4>
-                      <h6>Adult: {pd?.data?.adult?.value} & Teen: {pd?.data?.teen?.value}</h6>
-                      <h6>Ticket Type: {pd?.data?.ticketType?.value}</h6>
-                      <h5>Price: ${pd?.details?.price}</h5>
+                       <h6>Package ID: {payOrder._id}</h6>
+                        <h2>Hi ! {payOrder?.fullname}</h2>
+                      <h4>Booked Place: {payOrder?.Place_name}</h4>
+                      <h5>time {payOrder?.time}</h5>
+                      <h5>Price: ${payOrder?.price}</h5>
                       <button
-                      onClick={() => handleDelete(pd?._id)} 
+                      onClick={() => handleDelete(payOrder?._id)} 
                       className="btn bg-danger p-2">Delete</button>
-                       </div>:<p>Please order</p>
-                      }
+                       </div>
+
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm
-                    order={pd}
-                     />
+                    {/* <CheckoutFor
+                    order={payOrder}
+                     /> */}
                     </Elements>
               </div>
-                  ))}
             </div>
           </div>
       </div>
