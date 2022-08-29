@@ -13,7 +13,9 @@ const [isDeleted, setIsDeleted] = useState(false);
 
 // get all the orders
  useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user?.email}`)
+        fetch(`http://localhost:5000/orders/${user?.email}`,{
+          method: 'GET',
+        })
           .then((res) => res.json())
           .then((data) => {
             setOrders(data);
@@ -105,7 +107,7 @@ const [isDeleted, setIsDeleted] = useState(false);
                Cancel
              </button>
            <div className="btn btn-success paybtn d-block">
-              {(pd.price && !pd.paid) && <Link to={`/payment/${pd._id}`}>Process to Pay</Link>}
+              {(pd.price && !pd.paid) && <Link to={`/dashboard/payment/${pd._id}`}>Process to Pay</Link>}
               {(pd.price && pd.paid) && <p className='text-success fs-4'>Paid</p>}
            </div>
            </div>

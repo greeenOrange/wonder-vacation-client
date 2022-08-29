@@ -35,7 +35,6 @@ function App() {
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/payment/:id" element={<Payment />}/>
         <Route path="/myorder" element={<MyOrder />}/>
         <Route path='/allorders' element={<AllOrders />} />
         <Route path='/addpackage' element={<AddPackages />} />
@@ -43,6 +42,7 @@ function App() {
         <Route path='/addusers' element={<AddUsers />} />
         <Route path='/makeadmin' element={<MakeAdmin />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard/payment/:id' element={<Payment />} />
         <Route path="/destination" element={<Destination />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
         {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}

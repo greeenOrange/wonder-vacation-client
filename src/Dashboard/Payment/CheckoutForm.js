@@ -2,10 +2,11 @@ import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import useAuth from '../../Hook/useAuth';
 
-const CheckoutForm = ({order}) => {
-    const {fullname, email} = order.data;
-    const {price, place_name} = order.details;
+const CheckoutForm = ({payOrder}) => {
+    const {fullname, email, price, place_name} = payOrder;
+    const {user} = useAuth();
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('');
@@ -14,21 +15,22 @@ const CheckoutForm = ({order}) => {
     const [clientSecret, setClientSecret] = useState('')
 
 
-    useEffect(() =>{
-      fetch(`http://localhost:5000/create-payment-intent`,{
-        method: 'POST',
-        headers:{
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({price})
-      })
-      .then(res => res.json())
-      .then(data => {
-        if(data?.clientSecret){
-          setClientSecret(data.clientSecret);
-        }
-      });
-    }, [price])
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({price})
+        })
+            .then(res =>  res.json())
+            .then(data => {
+                if(data?.clientSecret){
+                    setClientSecret(data.clientSecret);
+                }
+                console.log(data.clientSecret);
+              });
+    }, [price]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,8 +59,7 @@ const CheckoutForm = ({order}) => {
           card: card,
           billing_details: {
             name: fullname,
-            email: email,
-            place: place_name
+            email: user.email,
           },
         },
       },
@@ -71,6 +72,7 @@ const CheckoutForm = ({order}) => {
       setTransactionId(paymentIntent.id)
       console.log(paymentIntent);
       setSuccess('Congrats! Payment successfully completed')
+      // Save to Database
     }
   };
     return (
