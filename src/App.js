@@ -39,12 +39,14 @@ function App() {
         <Route path='/allorders' element={<AllOrders />} />
         <Route path='/addpackage' element={<AddPackages />} />
         <Route path='/removepackage' element={<RemovePackages />} />
-        <Route path='/addusers' element={<AddUsers />} />
+        <Route path='/addusers' element={<PrivateRoute>
+          <AddUsers />
+        </PrivateRoute>} />
         <Route path='/makeadmin' element={<MakeAdmin />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/dashboard/payment/:id' element={<Payment />} />
         <Route path="/destination" element={<Destination />}/>
-        <Route path="/aboutus" element={<AboutUs />}/>
+        <Route path="/aboutus" element={<PrivateRoute><AboutUs /></PrivateRoute>}/>
         {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}
         {/* <Route path="/Packagebooking/:id" element={<PackageBooking />}/> */}
     </Routes>

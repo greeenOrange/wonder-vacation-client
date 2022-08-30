@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hook/useAuth';
@@ -11,11 +10,16 @@ const Login = () => {
     const {signInWithGoogle, user, handleUserLogin, signInWithFacebook, signInWithTwitter, logout, authError, isLoading } = useAuth();
     const [loginData, setLoginData] = useState({});
     const { register, watch, formState: { errors }, reset } = useForm();
-    const navigate = useNavigate()
-    const location = useLocation();
+    
     // const [token] = useToken()
+    // if(user){
+    //     navigate(from, {replace: true})
+    // }
 
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    
     const handleOnChange = e =>{
             const field = e.target.name;
             const value = e.target.value;
@@ -27,21 +31,23 @@ const Login = () => {
     const handleLoginSubmit = (e) => {
         handleUserLogin(loginData.email, loginData.password, location, navigate)
         e.preventDefault();
-        navigate({replace:true})
+        navigate(from, {replace: true})
         reset()
     }
     const handleGoogleSignIn = (e) =>{
         signInWithGoogle(loginData.email,loginData.password,location,navigate);
         e.preventDefault();
+        navigate(from, {replace: true})
     }
     const handleFacebookSignIn = e =>{
         signInWithFacebook(loginData.email,loginData.password,location,navigate);
         e.preventDefault();
+        navigate(from, {replace: true})
     }
     const handleTwitterSignIn = e =>{
         signInWithTwitter(loginData.email,loginData.password,location,navigate);
         e.preventDefault();
-        console.log(loginData);
+        navigate(from, {replace: true})
     }
     const signOut = () =>{
         logout()
@@ -69,6 +75,13 @@ const Login = () => {
     {/* errors will return when field validation fails  */}
     {errors.exampleRequired && <span>This field is required</span>}
 
+    {isLoading && <Spinner/>}
+            {user?.email && <p className="text-success mt-2">
+            This is a success alert—check it out!
+            </p>}
+            {authError &&  <p className="text-danger mt-2">
+            This is a danger alert—check it out!
+            </p>}
     <input type="submit"/>
     </form>
     <div className='easy-login m-a text-center d-block'>
@@ -80,13 +93,6 @@ const Login = () => {
         </ul>
     </div>
         <p className='m-a text-center d-block'>Or New Member? <span><Link href="" to='/register'>signup now</Link></span></p>
-        {isLoading && <Spinner/>}
-            {user?.email && <p className="text-success">
-            This is a success alert—check it out!
-            </p>}
-            {authError &&  <p className="text-danger">
-            This is a danger alert—check it out!
-            </p>}
                 </div>
             </div>
         </div>

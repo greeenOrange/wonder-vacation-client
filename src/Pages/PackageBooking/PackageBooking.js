@@ -6,7 +6,7 @@ import Select from "react-select";
 import { useNavigate, useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import './PackageBooking.css'
+import './PackageBooking.css';
 import axios from 'axios';
 import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
@@ -18,7 +18,8 @@ const PackageBooking = () => {
     const [details, setDetails] = useState({});
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
-    const { register, control,  handleSubmit, reset, formState: { errors } } = useForm();
+    // const { register, control,  handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, formState: { errors }, control, reset, handleSubmit } = useForm();
 
     const onSubmit = (data) =>{
       const bookingData = {...data};
@@ -29,7 +30,6 @@ const PackageBooking = () => {
       bookingData.email = user.email;
       bookingData.number = details.phone;
       bookingData.status = "pending"
-      
       // SEND to the server
       axios.post('http://localhost:5000/orders', bookingData)
       .then(res => {
@@ -47,9 +47,9 @@ const PackageBooking = () => {
           Swal.fire({
             position: "center",
             icon: "error",
-            title: "Something went wrong",
+            title: "Please Login",
+            footer: '<a href="/login">login</a>',
             showConfirmButton: false,
-            timer: 1500,
           });
         }
 
@@ -101,17 +101,18 @@ const PackageBooking = () => {
                     <div className="user-form">
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
-      <input placeholder='Your Full Name' {...register("fullname")} />
-      {errors.fullname?.type === 'required' && "full name is required"}
+      <input placeholder='Your Full Name' {...register("fullname", { required: true })} />
+      {errors.fullname?.type === 'required' && <p className='text-danger'>Your name is required</p>}
 
-      <input placeholder='email' defaultValue={user.email} {...register("email")} />
-      {errors.email?.type === 'required' && "email is required"}
+      <input placeholder='email' defaultValue={user.email} {...register("email", { required: true })} />
+      {errors.email?.type === 'required' && <p className='text-danger'>email is required</p>}
 
-      <input type="number" {...register("phone")} placeholder='Phone Number' />
-      {errors.number?.type === 'required' && "phone number is required"}
+      <input type="number" {...register("phone", { required: true })} placeholder='Phone Number' />
+      {errors.number?.type === 'required' && <p className='text-danger'>phone number is required</p>}
       
       <Controller
         name="ticketType"
+        {...register("ticketType", { required: true })}
         onChange={([selected]) => console.log(selected)}
         render={({ field }) => (
           <Select
@@ -129,6 +130,7 @@ const PackageBooking = () => {
         control={control}
         defaultValue=""
       />
+      {errors.ticketType?.type === 'required' && <p className='text-danger'>Ticket Type is required</p>}
     <div className='user-age'>
     <div className='adult'>
       <Controller

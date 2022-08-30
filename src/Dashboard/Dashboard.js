@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useAuth from '../Hook/useAuth';
 import './Dashboard.css'
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        {isAdmin &&(
+        {/* {isAdmin &&(
           <>
           <li class="nav-item">
           <a class="nav-link" href="/addusers">Add user</a>
@@ -47,7 +47,18 @@ const Dashboard = () => {
           </>
         )
 
-        }
+        } */}
+          <>
+          <li class="nav-item">
+          <a class="nav-link" href="/addusers">Add user</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/makeadmin">make admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/addpackage">addpackage</a>
+        </li>
+          </>
         </ul>
             </div>
             </div>

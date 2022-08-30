@@ -1,6 +1,6 @@
 import {getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, TwitterAuthProvider, updateProfile, FacebookAuthProvider ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getIdToken} from "firebase/auth";
 import { useEffect, useState } from "react";
-import {useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import intializeAuthentication from "../Firebase/Firebase.init";
 
 intializeAuthentication()
@@ -16,6 +16,8 @@ const useFirebase = () => {
   const [authError, setAuthError] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
     const signInWithGoogle = () => {
       setIsLoading(true)
@@ -24,7 +26,7 @@ const useFirebase = () => {
             const user = result.user;
             setUser(user)
             setAuthError('');
-            navigate("/")
+            navigate(from, {replace: true})
         }).catch((error) => {
             setAuthError(error.message)
           }).finally(() =>{
@@ -39,7 +41,7 @@ const useFirebase = () => {
             const user = result.user;
             setUser(user)
             setAuthError('');
-            navigate("/")
+            navigate(from, {replace: true})
         }).catch((error) => setAuthError(error.message));
       }
 
@@ -50,7 +52,7 @@ const useFirebase = () => {
             const user = result.user;
             setUser(user)
             setAuthError('');
-            navigate("/")
+            navigate(from, {replace: true})
         })
           .catch((error) => setAuthError(error.message));
       }
@@ -65,19 +67,21 @@ const useFirebase = () => {
               .then(() => {
               })
               setUser(userCredential.user)
-              navigate("/");
+              navigate(from, {replace: true})
             }).catch((error) => {
                 setAuthError(error.message);
                 console.log(error);
             }).finally(() => setIsLoading(false));
     }
 
-        const handleUserLogin = (email, password, navigate) =>{
+        const handleUserLogin = (email, password, navigate, location) =>{
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
-          const user = result.user
-          setUser(user)
+          const user = result.user;
+          const from = location.state?.from?.pathname || '/';
+          setUser(user);
+          navigate(from)
         }).catch((error) => {
           setAuthError(error.message)
         }).finally(() => setIsLoading(false));

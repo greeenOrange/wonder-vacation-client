@@ -71,11 +71,11 @@ const Payment = () => {
                       className="btn bg-danger p-2">Delete</button>
                        </div>
 
-                {/* <Elements stripe={stripePromise}>
+                <Elements stripe={stripePromise}>
                     <CheckoutForm
-                    // payOrder={payOrder}
+                    payOrder={payOrder}
                      />
-                    </Elements> */}
+                    </Elements>
               </div>
             </div>
           </div>

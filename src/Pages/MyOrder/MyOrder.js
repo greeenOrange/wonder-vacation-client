@@ -8,6 +8,7 @@ import  './MyOrder.css'
 const MyOrder = () => {
 const {user} = useAuth();
 const [orders, setOrders] = useState([]);
+console.log(orders);
 const [isLoading, setIsLoading] = useState(true);
 const [isDeleted, setIsDeleted] = useState(false);
 

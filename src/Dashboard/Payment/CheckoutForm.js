@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 import useAuth from '../../Hook/useAuth';
 
 const CheckoutForm = ({payOrder}) => {
-    const {fullname, email, price, place_name} = payOrder;
+    const {_id, fullname, email, price, place_name} = payOrder;
     const {user} = useAuth();
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false)
     const [success, setSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('')
@@ -51,6 +52,7 @@ const CheckoutForm = ({payOrder}) => {
 
     setError(error?.message || '')
     setSuccess('')
+    setIsLoading(true)
     // confirm Card Pyament
     const {paymentIntent, error:intentError} = await stripe.confirmCardPayment(
       clientSecret,
@@ -73,6 +75,22 @@ const CheckoutForm = ({payOrder}) => {
       console.log(paymentIntent);
       setSuccess('Congrats! Payment successfully completed')
       // Save to Database
+      const payment = {
+        payOrder: _id,
+        transactionId: paymentIntent.id
+      }
+      fetch(`http://localhost:5000/paymentOrders/${_id}`,{
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(payment)
+      })
+      .then(res => res.json())
+      .then(data => {
+        setIsLoading(false)
+        console.log(data);
+      })
     }
   };
     return (
