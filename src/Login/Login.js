@@ -9,13 +9,8 @@ import './Login.css'
 const Login = () => {
     const {signInWithGoogle, user, handleUserLogin, signInWithFacebook, signInWithTwitter, logout, authError, isLoading } = useAuth();
     const [loginData, setLoginData] = useState({});
-    const { register, watch, formState: { errors }, reset } = useForm();
+    const { register, formState: { errors }, reset } = useForm();
     
-    // const [token] = useToken()
-    // if(user){
-    //     navigate(from, {replace: true})
-    // }
-
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -35,7 +30,7 @@ const Login = () => {
         reset()
     }
     const handleGoogleSignIn = (e) =>{
-        signInWithGoogle(loginData.email,loginData.password,location,navigate);
+        signInWithGoogle(loginData.email,loginData.password, location, navigate);
         e.preventDefault();
         navigate(from, {replace: true})
     }
@@ -53,9 +48,6 @@ const Login = () => {
         logout()
     }
     return (
-    //     <div>   
-    // <button onClick={handleGoogleSignIn} className='btn btn-success' type="submit">Google signIn</button>
-    //     </div>
         <div className='login-page'>
             <div className='login-form'>
         <div className="container">
@@ -63,16 +55,13 @@ const Login = () => {
         <h2>Sign In</h2>
                 <div className="col">
                 <form onSubmit={handleLoginSubmit}>
-    {/* register your input into the hook by invoking the "register" function */}
     <p>UserEmail</p>
     <i className="fa-solid fa-envelope-open"></i>
     <input type="email" {...register("email")} placeholder='Type your Email' onChange={handleOnChange}/>
 
-    {/* include validation with required or other standard HTML validation rules */}
     <p>Password</p>
     <i className="fa-solid fa-lock"></i>
     <input type="password" {...register("password", { required: true })} placeholder='Type your password' onChange={handleOnChange}/>
-    {/* errors will return when field validation fails  */}
     {errors.exampleRequired && <span>This field is required</span>}
 
     {isLoading && <Spinner/>}

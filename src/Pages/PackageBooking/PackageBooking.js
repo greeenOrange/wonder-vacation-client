@@ -31,7 +31,7 @@ const PackageBooking = () => {
       bookingData.number = details.phone;
       bookingData.status = "pending"
       // SEND to the server
-      axios.post('http://localhost:5000/orders', bookingData)
+      axios.post('https://fierce-falls-08266.herokuapp.com/orders', bookingData)
       .then(res => {
         if(res.data.insertedId && user){
           Swal.fire({
@@ -57,7 +57,7 @@ const PackageBooking = () => {
     }
 
     useEffect(() =>{
-    fetch(`http://localhost:5000/packages/${id}`)
+    fetch(`https://fierce-falls-08266.herokuapp.com/packages/${id}`)
     
     .then(res => res.json())
     .then(data => setDetails(data))

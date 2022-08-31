@@ -14,7 +14,7 @@ const AddUsers = () => {
     }
     const onSubmit = (data) =>{
         const user = {email}
-        fetch('http://localhost:5000/addusers', {
+        fetch('https://fierce-falls-08266.herokuapp.com/addusers', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

@@ -47,8 +47,6 @@ function App() {
         <Route path='/dashboard/payment/:id' element={<Payment />} />
         <Route path="/destination" element={<Destination />}/>
         <Route path="/aboutus" element={<PrivateRoute><AboutUs /></PrivateRoute>}/>
-        {/* <Route path="/Packagebooking/:id" element={<PrivateRoute><PackageBooking /></PrivateRoute>} /> */}
-        {/* <Route path="/Packagebooking/:id" element={<PackageBooking />}/> */}
     </Routes>
       </AuthProvider>
   </BrowserRouter>

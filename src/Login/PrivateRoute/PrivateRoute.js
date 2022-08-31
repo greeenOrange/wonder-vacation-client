@@ -5,14 +5,13 @@ import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 const PrivateRoute = ({ children }) => {
   const { user, isLoading } = useAuth();
-  console.log(user?.email);
     const location = useLocation();
 
     if (isLoading) {
         return <Spinner></Spinner>
     }
 
-    if (!user?.email) {
+    if (!user?.displayName) {
         return <Navigate to="/login" state={{ from: location }} replace></Navigate>
     }
     return children;

@@ -8,7 +8,7 @@ const RemovePackages = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("http://localhost:5000/packages")
+        fetch("https://fierce-falls-08266.herokuapp.com/packages")
           .then((res) => res.json())
           .then((data) => {
             setPackages(data)
@@ -17,7 +17,7 @@ const RemovePackages = () => {
       }, [control]);
 
     //   const handleDelete = (id) =>{
-    //     axios.delete(`http://localhost:5000/packages/${id}`)
+    //     axios.delete(`https://fierce-falls-08266.herokuapp.com/packages/${id}`)
     //     .then(res => res.json())
     //      .then((data) => {
     //             if (data.deletedCount) {
@@ -27,7 +27,7 @@ const RemovePackages = () => {
 
         const handleDelete = id => {
             setIsLoading(true)
-            const url = `http://localhost:5000/packages/${id}`;
+            const url = `https://fierce-falls-08266.herokuapp.com/packages/${id}`;
             fetch(url, {
             method: 'DELETE'
             })

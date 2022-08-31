@@ -18,7 +18,7 @@ const Payment = () => {
 
     useEffect(() =>{
         setIsLoading(true)
-        fetch(`http://localhost:5000/paymentOrders/${id}`)
+        fetch(`https://fierce-falls-08266.herokuapp.com/paymentOrders/${id}`)
         .then(res => res.json())
         .then(data => setPayOrder(data))
         .finally(() =>{
@@ -36,7 +36,7 @@ const Payment = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
