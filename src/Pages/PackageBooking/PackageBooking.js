@@ -33,7 +33,7 @@ const PackageBooking = () => {
       // SEND to the server
       axios.post('http://localhost:5000/orders', bookingData)
       .then(res => {
-        if(res.data.insertedId){
+        if(res.data.insertedId && user){
           Swal.fire({
             position: 'center',
             icon: 'success',

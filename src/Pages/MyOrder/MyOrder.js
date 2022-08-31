@@ -8,7 +8,6 @@ import  './MyOrder.css'
 const MyOrder = () => {
 const {user} = useAuth();
 const [orders, setOrders] = useState([]);
-console.log(orders);
 const [isLoading, setIsLoading] = useState(true);
 const [isDeleted, setIsDeleted] = useState(false);
 
@@ -20,7 +19,7 @@ const [isDeleted, setIsDeleted] = useState(false);
           .then((res) => res.json())
           .then((data) => {
             setOrders(data);
-  
+            console.log(data);
           });
       }, [user?.email]);
 
@@ -91,7 +90,7 @@ const [isDeleted, setIsDeleted] = useState(false);
            </div>
            <div className="order-card-body">
              <h3 className="fs-6">{pd?.place_name}</h3>
-             <h5 className='fs-6'>Price: <span className='fw-bold'>{pd.price}</span> <span className='order-status'>{pd?.status}</span></h5>
+             <h5 className='fs-6'>Price: <span className='fw-bold'>{pd.price}</span> {pd.paid ?(<span className='order-status'>Paid</span>) : <span className='order-status'>{pd?.status}</span>}</h5>
              <h5 className='fs-6'>time: {pd.time}</h5>
              <h6 className='fs-6'>Phone: {pd?.phone}</h6>
              <h6 className='fs-6'>ticketType: {pd?.ticketType?.value} <span className='d-block'>label: {pd?.ticketType?.label}</span></h6>
@@ -100,6 +99,7 @@ const [isDeleted, setIsDeleted] = useState(false);
              <p>Data:</p>
            </div>
            </div>
+           {pd?.transactionId && <h6 className='d-inline-block w-100'>transitionID: <span className='fw-bold text-success'>{pd?.transactionId}</span></h6>}
            <div className='order-button'>
            <button
                className="btn btn-danger"
@@ -109,7 +109,7 @@ const [isDeleted, setIsDeleted] = useState(false);
              </button>
            <div className="btn btn-success paybtn d-block">
               {(pd.price && !pd.paid) && <Link to={`/dashboard/payment/${pd._id}`}>Process to Pay</Link>}
-              {(pd.price && pd.paid) && <p className='text-success fs-4'>Paid</p>}
+              {(pd.price && pd.paid) && <span className='text-success paidbtn text-white fs-4'>Paid</span>}
            </div>
            </div>
            </div>
