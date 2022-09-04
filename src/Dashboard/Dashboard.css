@@ -1,8 +1,9 @@
-.dashboard-section button{
+.dashboard-section .dash-button{
     color: #ff4838;
     display: flex;  
-    justify-content: center;  
-    align-items: flex-start; 
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: -4rem; 
 }
 .dashboard-section .nav-item {
     transition: all ease-in .2s;
@@ -11,4 +12,7 @@
     color: #FF4838;
     text-align: center;
     margin: auto ;
+}
+.dashboard-section svg{
+   font-size: 2rem;
 }

@@ -30,7 +30,6 @@ const handleLoginSubmit = e => {
           })
     }
     handleUserRegister(loginData.email, loginData.password, loginData.firstname, loginData.lastname);
-    console.log(loginData.email, loginData.password, loginData.firstname, loginData.lastname);
     e.preventDefault();
     reset()
 }

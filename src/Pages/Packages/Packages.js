@@ -14,7 +14,7 @@ const Packages = ({pd}) => {
 
     useEffect(()=>{
         setIsLoading(true)
-        fetch('https://fierce-falls-08266.herokuapp.com/packages')
+        fetch('http://localhost:5000/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)

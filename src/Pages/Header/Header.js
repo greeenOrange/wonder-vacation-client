@@ -81,7 +81,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/aboutus"
+                to="aboutus"
                 className="nav-links active"
                 onClick={click ? handleClick : null}
               >
@@ -131,7 +131,7 @@ const Header = () => {
        {
         user?.email? <li>
         <Link
-            to="/myorder"
+            to="/dashboard/myorder"
             className="nav-links active"
               >
                 My Account

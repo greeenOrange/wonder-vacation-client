@@ -13,14 +13,14 @@ const [isDeleted, setIsDeleted] = useState(false);
 
 // get all the orders
  useEffect(() => {
-        fetch(`https://fierce-falls-08266.herokuapp.com/orders/${user?.email}`,{
+        fetch(`http://localhost:5000/orders/${user?.email}`,{
           method: 'GET',
         })
           .then((res) => res.json())
           .then((data) => {
             setOrders(data);
-            console.log(data);
-          });
+          })
+          .catch(error => (console.log(error)));
       }, [user?.email]);
 
       useEffect(() => {
@@ -43,7 +43,7 @@ const [isDeleted, setIsDeleted] = useState(false);
   
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://fierce-falls-08266.herokuapp.com/orders/${id}`, {
+          fetch(`http://localhost:5000/orders/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -89,6 +89,7 @@ const [isDeleted, setIsDeleted] = useState(false);
            <img src={pd?.images} className="card-img-top" alt="..." />
            </div>
            <div className="order-card-body">
+             <h3 className="fs-4 text-success my-2">{pd?.fullname}</h3>
              <h3 className="fs-6">{pd?.place_name}</h3>
              <h5 className='fs-6'>Price: <span className='fw-bold'>{pd.price}</span> {pd.paid ?(<span className='order-status'>Paid</span>) : <span className='order-status'>{pd?.status}</span>}</h5>
              <h5 className='fs-6'>time: {pd.time}</h5>

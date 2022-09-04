@@ -12,6 +12,7 @@ const useFirebase = () => {
   const facebookprovider = new FacebookAuthProvider();
   const twitterprovider = new TwitterAuthProvider();
   const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
 
@@ -24,7 +25,9 @@ const useFirebase = () => {
         signInWithPopup(auth, googleprovider)
           .then((result) => {
             const user = result.user;
-            setUser(user)
+            // save user to the database
+            saveUser(user.email, 'POST');
+            // saveUser(user.email, user.displayName, 'PUT');
             setAuthError('');
             navigate(from, {replace: true})
         }).catch((error) => {
@@ -39,6 +42,8 @@ const useFirebase = () => {
         signInWithPopup(auth, facebookprovider)
           .then((result) => {
             const user = result.user;
+             // save user to the database
+            saveUser(user.email, 'POST');
             setUser(user)
             setAuthError('');
             navigate(from, {replace: true})
@@ -50,6 +55,8 @@ const useFirebase = () => {
         signInWithPopup(auth, twitterprovider)
           .then((result) => {
             const user = result.user;
+             // save user to the database
+             saveUser(user.email, 'POST');
             setUser(user)
             setAuthError('');
             navigate(from, {replace: true})
@@ -61,16 +68,19 @@ const useFirebase = () => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+              setAuthError('');
+              const newUser = { email, displayName: firstname, lastname  };
+              // save user to the database
+              saveUser(email, 'POST');
               updateProfile(auth.currentUser, {
-                displayName: firstname, lastname
+                displayName: firstname
               })
               .then(() => {
               })
-              setUser(userCredential.user)
+              setUser(newUser);
               navigate(from, {replace: true})
             }).catch((error) => {
                 setAuthError(error.message);
-                console.log(error);
             }).finally(() => setIsLoading(false));
     }
 
@@ -91,8 +101,6 @@ const useFirebase = () => {
       useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) =>{
             if(user){
-              getIdToken(user)
-              .then(idToken => localStorage.setItem('idToken', idToken))
                 setUser(user)
             }else{
                 setAuthError('');
@@ -113,11 +121,38 @@ const useFirebase = () => {
        
   }
 
+  // Send user info in DB
+  const saveUser = (email, method) => {
+    const user = { email, };
+    setIsLoading(true);
+    fetch('http://localhost:5000/users', {
+        method: method,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    }).catch((error) => {
+      setAuthError(error.message)
+    }).finally(() => setIsLoading(false));
+}
+
+// Check Admin
+useEffect(() => {
+  fetch(`http://localhost:5000/users/${user?.email}`)
+      .then(res => res.json())
+      .then(data => setAdmin(data.admin))
+}, [user?.email])
+
       return {
         signInWithGoogle,
         user,
         isLoading,
         handleUserRegister,
+        admin,
         handleUserLogin,
         signInWithFacebook,
         signInWithTwitter,

@@ -1,0 +1,19 @@
+.review-conainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.review-conainer .review-form{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+.review-conainer input{
+    width: 100%;
+    padding: 1rem 0;
+    margin: .5rem 0;
+}
+.review-conainer .icon-color{
+    font-size: 1.7rem;
+    color: #fede41;
+}

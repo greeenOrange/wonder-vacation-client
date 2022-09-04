@@ -6,7 +6,7 @@ const AllOrders = () => {
     const [control, setControl] = useState(true);
 
     useEffect(() => {
-        fetch("https://fierce-falls-08266.herokuapp.com/orders")
+        fetch("http://localhost:5000/orders")
           .then((res) => res.json())
           .then((data) => setOrders(data))
       }, [control]);
@@ -14,7 +14,7 @@ const AllOrders = () => {
       const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
-            const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
              method: "DELETE",
             })
@@ -48,13 +48,14 @@ const AllOrders = () => {
           {orders?.map((pd, index) =>(
           <tbody key={index}>
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{index + 1}</th>
               <td>{pd?.place_name}</td>
               <td>{pd?.fullname}</td>
               <td>{pd?.email}</td>
               <td>{pd?.date}</td>
-              <td>{pd?.status}</td>
-              <button className='btn btn-danger' onClick={() => handleDelete(pd?._id)}>Delete</button>
+              {(pd.price && !pd.paid) &&<td className='text-secondary fw-bold'>{pd?.status}</td>}
+              {(pd.price && pd.paid) &&<td className='text-success fw-bold'>paid</td>}
+              <button className='btn btn-danger bg-danger' onClick={() => handleDelete(pd?._id)}>Delete</button>
             </tr>
           </tbody>
           ))}
