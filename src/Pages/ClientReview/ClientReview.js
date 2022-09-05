@@ -13,7 +13,7 @@ const ClientReview = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("http://localhost:5000/users/review")
+        fetch("https://fierce-falls-08266.herokuapp.com/users/review")
           .then((res) => res.json())
           .then((data) => {
             setReviewed(data);

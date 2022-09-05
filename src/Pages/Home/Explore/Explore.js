@@ -11,7 +11,7 @@ const Explore = () => {
 
     useEffect(()=>{
         setIsLoading(true)
-        fetch('http://localhost:5000/packages')
+        fetch('https://fierce-falls-08266.herokuapp.com/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)

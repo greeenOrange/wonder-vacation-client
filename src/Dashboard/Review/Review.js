@@ -19,7 +19,7 @@ const Review = () => {
             review
         };
         // SEND to the server
-        axios.post('http://localhost:5000/users/review', reviewAdded)
+        axios.post('https://fierce-falls-08266.herokuapp.com/users/review', reviewAdded)
         .then(res => {
           if(res.data.insertedId){
             Swal.fire({

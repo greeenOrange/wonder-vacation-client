@@ -18,7 +18,7 @@ const CheckoutForm = ({payOrder}) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://fierce-falls-08266.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -80,7 +80,7 @@ const CheckoutForm = ({payOrder}) => {
         payOrder: _id,
         transactionId: paymentIntent.id
       }
-      fetch(`http://localhost:5000/paymentOrders/${_id}`,{
+      fetch(`https://fierce-falls-08266.herokuapp.com/paymentOrders/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json'

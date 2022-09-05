@@ -15,7 +15,7 @@ const [isDeleted, setIsDeleted] = useState(false);
 
 // get all the orders
  useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user?.email}`,{
+        fetch(`https://fierce-falls-08266.herokuapp.com/orders/${user?.email}`,{
           method: 'GET',
         })
           .then((res) => res.json())
@@ -45,7 +45,7 @@ const [isDeleted, setIsDeleted] = useState(false);
   
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/orders/${id}`, {
+          fetch(`https://fierce-falls-08266.herokuapp.com/orders/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

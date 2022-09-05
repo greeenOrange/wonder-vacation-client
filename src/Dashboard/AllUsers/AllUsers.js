@@ -8,7 +8,7 @@ const AllUsers = () => {
     const [admin, SetAdmin] = useState([])
     
     useEffect(() =>{
-        fetch('http://localhost:5000/users')
+        fetch('https://fierce-falls-08266.herokuapp.com/users')
         .then(res => res.json())
         .then(data => {
             SetAdmin(data)
