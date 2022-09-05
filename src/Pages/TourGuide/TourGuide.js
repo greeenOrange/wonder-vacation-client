@@ -5,8 +5,10 @@ const TourGuide = () => {
     return (
         <div className='tour-guide my-4'>
         <div className="container">
+            <div className="row">
         <h2>Tour Guide</h2>
         <p className='text-secondary'>Come explore beaches, old growth forests, tea plantations and swarming cities on a private world tour with a friendly local guide</p>
+    
                 <div className="grid-container">
                     <div className='grid-item'>
                     <div className='tour-gider'>
@@ -38,6 +40,7 @@ const TourGuide = () => {
                     </div>
                     </div>
                 </div>
+                </div>    
 
             </div>
         </div>

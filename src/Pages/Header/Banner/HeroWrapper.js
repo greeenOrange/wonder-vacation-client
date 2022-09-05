@@ -47,7 +47,7 @@ const HeroWrapper = () => {
         <>
         <Header />
         <div className='hero-wrapper'>
-              <div className="blr">
+                <div className="blr">
               {
                 slider?.map((pd, index) =>{
                         return(
@@ -78,6 +78,7 @@ const HeroWrapper = () => {
 
                 })} 
               </div> 
+
         </div>
         </>
     );

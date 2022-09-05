@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import OrdersSkelition from '../Shared/Spinner/OrdersSkelition';
+import Spinner from '../Shared/Spinner/Spinner';
 import  './MyOrder.css'
 
 const MyOrder = () => {
 const {user} = useAuth();
 const [orders, setOrders] = useState([]);
+console.log(orders);
 const [isLoading, setIsLoading] = useState(true);
 const [isDeleted, setIsDeleted] = useState(false);
 
@@ -83,6 +85,9 @@ const [isDeleted, setIsDeleted] = useState(false);
                 <OrdersSkelition key={index} />
               ) : (
              <div key={index} className="col-md-12 col-lg-6 ">
+              {index + 1 === 0 && (
+          <p className="fs-4 text-center d-block mx-auto">You have no orders to view.</p>
+            )}
            <div className='order-wrapper shadow-sm p-3 mb-5 bg-body rounded'>
            <div className='order-card'>
            <div className='order-image'>
@@ -97,17 +102,17 @@ const [isDeleted, setIsDeleted] = useState(false);
              <h6 className='fs-6'>ticketType: {pd?.ticketType?.value} <span className='d-block'>label: {pd?.ticketType?.label}</span></h6>
              <h6 className='fs-6'>Adult: {pd?.adult?.value} <span className='d-block'>label: {pd?.adult?.label}</span></h6>
              <h6 className='fs-6'>Teen: {pd?.teen?.value} <span className='d-block'>label: {pd?.teen?.label}</span></h6>
-             <p>Data:</p>
+             <p>Data:{pd?.bookingDate}</p>
            </div>
            </div>
            {pd?.transactionId && <h6 className='d-inline-block w-100'>transitionID: <span className='fw-bold text-success'>{pd?.transactionId}</span></h6>}
            <div className='order-button'>
-           <button
+          {!pd?.transactionId &&  <button
                className="btn btn-danger"
                onClick={() => handelCancel(pd?._id)}
              >
                Cancel
-             </button>
+             </button>}
            <div className="btn btn-success paybtn d-block">
               {(pd.price && !pd.paid) && <Link to={`/dashboard/payment/${pd._id}`}>Process to Pay</Link>}
               {(pd.price && pd.paid) && <span className='text-success paidbtn text-white fs-4'>Paid</span>}
@@ -119,9 +124,9 @@ const [isDeleted, setIsDeleted] = useState(false);
             
           )}
 </div>
-{orders.length === 0 && (
+{/* {orders.length === 0 && (
           <p className="fs-4 text-center d-block">You have no orders to view.</p>
-            )}
+            )} */}
 </div>
         </div>
     );

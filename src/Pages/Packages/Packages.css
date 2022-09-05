@@ -2,12 +2,6 @@ h2{
     font-family: 'Barlow', sans-serif;
     font-weight: 800;
 }
-
-.products{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 .products-heading {
     margin: 1rem 0;
     text-align: left;
@@ -30,7 +24,7 @@ h2{
 .products{
     position: relative;
     top: -90px;
-    left: -4px;
+    left: 0;
     -webkit-transform: translateY(50%);
     transform: translateY(50%);
 }
@@ -41,14 +35,10 @@ h2{
     color: #fff;
     background: #ff4838;
     width: 150px;
-    padding: .5rem 0;
-    -webkit-clip-path: polygon(9% 0,90% 3%,100% 94%,0 100%);
-    clip-path: polygon(9% 0,90% 3%,100% 94%,0 100%);
+    padding: 0.4em 1.2rem;
+    -webkit-clip-path: polygon(0% 9%,90% 9%,100% 100%,0% 100%);
+    clip-path: polygon(0% 9%,90% 9%,100% 100%,0% 100%);
 }
-.products-images{
-   
-}
-
 .products-booking-pricing{
     margin-top: .7rem;
     display: flex;
@@ -95,4 +85,23 @@ h2{
 }
 .Rating{
     color: #fede41;
+}
+@media screen and (min-width: 1024px){
+    .products{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 680px){
+    .products-images{
+        margin-left: 2.8rem;
+     }
+     .products-details{
+        padding: 0 2.8rem;
+     }
+     .products-booking-pricing button{
+           padding: 1rem 2.4rem;
+     }
 }

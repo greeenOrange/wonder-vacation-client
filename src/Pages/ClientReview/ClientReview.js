@@ -18,7 +18,6 @@ const ClientReview = () => {
           .then((data) => {
             setReviewed(data);
             setIsLoading(false);
-            console.log(data);
         })
       }, []);
 
@@ -26,12 +25,12 @@ const ClientReview = () => {
         <div className='review-section'>
         <div className="container">
             <div className="review-heading">
-        <h2>What Our Client Say About Us</h2>
+        <h2>What Client Say About Us</h2>
         <h4>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. <span className='d-block'>Suspendissendt blandit interdum. Sed pellentesque at nunc eget consectetur</span></h4>
         </div>
             <div className="row">
                 {reviewed?.map((pd, index) =>(
-                    <div className="col-md-12">
+                    <div className="col-md-12 review-slider">
                 <Swiper
         slidesPerView={3}
         spaceBetween={30}

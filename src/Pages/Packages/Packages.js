@@ -32,7 +32,7 @@ const Packages = ({pd}) => {
             <p>The results are in! Explore this year’s expert-approved list of must-see destinations, places, and unforgettable experiences guaranteed to inspire.</p>
             </div>
             <div className="col-md-3 d-flex justify-content-end">
-            <Link className='btn btn-outline-danger px-5 py-2' to="packages">Explore More</Link>
+            <Link className='btn btn-outline-danger px-5 py-2' to="/explore">Explore More</Link>
             </div>
             </div>
             <div className="row">
@@ -42,7 +42,7 @@ const Packages = ({pd}) => {
             }
 
             { sliceData?.map((pd, index) => (
-                <div key={pd._id} className='col-md-4 my-3'>
+                <div key={pd._id} className='col-md-4 my-3 col-sm-12'>
                 <div className='products'>
                 <img src={pd?.image} alt="" />
                 </div>

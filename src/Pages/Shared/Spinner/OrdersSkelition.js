@@ -27,10 +27,9 @@ const OrdersSkelition = () => {
       <button
           className="btn btn-danger"
         >
-          Cancel
+
         </button>
       <div className="btn btn-success paybtn d-block">
-         <a>Process to Pay</a>
       </div>
       </div>
       </div>

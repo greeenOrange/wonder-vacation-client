@@ -18,11 +18,12 @@ const PackageBooking = () => {
     const [details, setDetails] = useState({});
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
+   const bookingDate = startDate?.toLocaleDateString()
     // const { register, control,  handleSubmit, reset, formState: { errors } } = useForm();
     const { register, formState: { errors }, control, reset, handleSubmit } = useForm();
 
     const onSubmit = (data) =>{
-      const bookingData = {...data};
+      const bookingData = {...data, bookingDate};
       bookingData.images = details.image;
       bookingData.place_name = details.place_name;
       bookingData.price = details.price;

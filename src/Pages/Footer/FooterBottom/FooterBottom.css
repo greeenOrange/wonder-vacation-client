@@ -3,7 +3,7 @@ padding: 1.5rem 0;
 background: #162b32;
 color: #fff;
 }
-.tour-footer .tour-copyright{
+.tour-footer .tour-copyright .tour-info{
     display: flex;
     align-items: center;
     justify-content:space-between;
@@ -16,4 +16,11 @@ color: #fff;
 .footer-menu a:last-child::before{
     content:'| ';
     color: #FF4838;
+}
+@media screen and (min-width: 320px) and (max-width: 680px){
+    .tour-footer .tour-copyright .tour-info{
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
 }

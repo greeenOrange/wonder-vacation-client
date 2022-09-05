@@ -84,14 +84,13 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
 
-        const handleUserLogin = (email, password, navigate, location) =>{
+        const handleUserLogin = (email, password, navigate) =>{
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
           const user = result.user;
-          const from = location.state?.from?.pathname || '/';
           setUser(user);
-          navigate(from)
+          navigate(from, {replace: true})
         }).catch((error) => {
           setAuthError(error.message)
         }).finally(() => setIsLoading(false));

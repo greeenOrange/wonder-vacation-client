@@ -3,6 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from '../../Hook/useAuth';
+import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 const CheckoutForm = ({payOrder}) => {
     const {_id, fullname, email, price, place_name} = payOrder;
@@ -28,9 +29,9 @@ const CheckoutForm = ({payOrder}) => {
             .then(data => {
                 if(data?.clientSecret){
                     setClientSecret(data.clientSecret);
-                }
+                  }
                 console.log(data.clientSecret);
-              });
+              })
     }, [price]);
 
   const handleSubmit = async (event) => {

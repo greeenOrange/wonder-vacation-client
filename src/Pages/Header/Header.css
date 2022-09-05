@@ -85,14 +85,16 @@
   .fa-code {
     margin-left: 1rem;
   }
-  
-  .menu-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .main-menu li{
+    margin-left: 0;
   }
-  .nav-item {
-    
+  
+  .main-menu li{
+    list-style: none;
+  }
+  .main-menu li a{
+    text-decoration: none;
+    padding: 0 .7rem;
   }
   
   .nav-item:after {
@@ -117,14 +119,30 @@
   .nav-icon {
     display: none;
   }
+
+   
+  @media screen and (max-width: 992px) {
+    nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 440px;
+      max-width: 100%;
+      border-top: 1px solid #fff;
+      position: absolute;
+      top: 0;
+      left: -70%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+  }
   
-  @media screen and (max-width: 960px) {
+  @media screen and (min-width: 320px) and (max-width: 500px) {
     
     .nav-menu {
       display: flex;
       flex-direction: column;
-      width: 400px;
-      width: 100%;
+      width: 440px;
+      max-width: 100%;
       border-top: 1px solid #fff;
       position: absolute;
       top: 0;

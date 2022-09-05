@@ -58,60 +58,49 @@ const Header = () => {
             WonderVacation
             <i className="fa fa-code"></i>
           </NavLink>
-          <div className="menu-bar">
+   
             <div className="main-menu">
             <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
+            <li>
               <NavLink
                 to="/"
-                className="nav-links active"
+                className="active"
                 onClick={click ? handleClick : null}
               >
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li>
               <NavLink
                 to="/explore"
-                className="nav-links active"
+                className="active"
                 onClick={click ? handleClick : null}
               >
                 Packages
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li>
               <NavLink
                 to="aboutus"
-                className="nav-links active"
+                className="active"
                 onClick={click ? handleClick : null}
               >
                 About Us
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li>
               <NavLink
                 to="/blog"
-                className="nav-links active"
+                className="active"
                 onClick={click ? handleClick : null}
               >
                 Blog
               </NavLink>
             </li>
-           { user &&
-            <li className="nav-item">
-              <NavLink
-                to="/dashboard"
-                className="nav-links active"
-                onClick={click ? handleClick : null}
-              >
-                Dashboard
-              </NavLink>
-            </li>
-           }
-            <li className="nav-item">
+            <li>
               <NavLink
                 to="/contact"
-                className="nav-links active"
+                className="active"
                onClick={click ? handleClick : null}
               >
                 Contact Us
@@ -121,7 +110,7 @@ const Header = () => {
           </ul>
             </div>
             
-          </div>
+
           <div className="user-menu">
           <ul id="menu">
 
@@ -131,7 +120,7 @@ const Header = () => {
        {
         user?.email? <li>
         <Link
-            to="/dashboard/myorder"
+            to="/dashboard"
             className="nav-links active"
               >
                 My Account
