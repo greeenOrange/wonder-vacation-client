@@ -10,11 +10,13 @@ import './PackageBooking.css';
 import axios from 'axios';
 import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
+import PackageBookingSkelition from '../Shared/Spinner/PackageBookingSkelition';
 
 
 const PackageBooking = () => {
     const {id} = useParams();
-    const {user} = useAuth()
+    const {user} = useAuth();
+    const [isLoading, setIsLoading] = useState(true);
     const [details, setDetails] = useState({});
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
@@ -34,7 +36,7 @@ const PackageBooking = () => {
       // SEND to the server
       axios.post('https://fierce-falls-08266.herokuapp.com/orders', bookingData)
       .then(res => {
-        if(res.data.insertedId && user){
+        if(res.data.insertedId && user?.displayName){
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -48,7 +50,7 @@ const PackageBooking = () => {
           Swal.fire({
             position: "center",
             icon: "error",
-            title: "Please Login",
+            title: "Please login",
             footer: '<a href="/login">login</a>',
             showConfirmButton: false,
           });
@@ -63,6 +65,13 @@ const PackageBooking = () => {
     .then(res => res.json())
     .then(data => setDetails(data))
 },[id]);
+
+useEffect(() => {
+  setIsLoading(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000);
+}, []);
 
     return (
         <div className='container my-4'>
@@ -86,15 +95,19 @@ const PackageBooking = () => {
                         <h5>Tour Guide</h5><span>05 People</span>
                         </div>
                     </ul>
+                    {isLoading ? (
+                    <PackageBookingSkelition />
+                  ) : (
                     <div className="packages-details my-4">
                         <img src={details?.image} alt="" className='w-100 mt-3' />
                         <p>Name{details?.place_name}</p>
-                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png"/> San Francisco Golden Gate Bridge.</h4>
+                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png"/>{details?.country}</h4>
                         <div className="package-discription">
-                        <h3>Package Details</h3>
+                        <h5>Package Details</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo excepturi reiciendis amet! Quae, assumenda! Excepturi cumque nostrum accusamus eaque voluptatum!</p>
                         </div>
                     </div>
+                    )}
             </div>
             <div className="col-md-4">
                 <div className="user-details">

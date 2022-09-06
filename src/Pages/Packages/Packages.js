@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './Packages.css';
 import Rating from 'react-rating';
 import Spinner from '../Shared/Spinner/Spinner';
+import PackagesSkelition from '../Shared/Spinner/PackagesSkelition';
 
 const Packages = ({pd}) => {
     const [packages, setPackages] = useState([]);
@@ -42,7 +43,10 @@ const Packages = ({pd}) => {
             }
 
             { sliceData?.map((pd, index) => (
-                <div key={pd._id} className='col-md-4 my-3 col-sm-12'>
+                isLoading ? (
+                    <PackagesSkelition key={index} />
+                  ) : (
+                    <div key={pd._id} className='col-md-4 my-3 col-sm-12'>
                 <div className='products'>
                 <img src={pd?.image} alt="" />
                 </div>
@@ -76,6 +80,8 @@ const Packages = ({pd}) => {
                 </div>
                 </div>
                 </div>
+                  )
+                
           ))}
             </div>
             </div>

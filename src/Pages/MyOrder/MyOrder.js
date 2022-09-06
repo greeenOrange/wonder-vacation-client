@@ -9,7 +9,6 @@ import  './MyOrder.css'
 const MyOrder = () => {
 const {user} = useAuth();
 const [orders, setOrders] = useState([]);
-console.log(orders);
 const [isLoading, setIsLoading] = useState(true);
 const [isDeleted, setIsDeleted] = useState(false);
 
@@ -124,9 +123,6 @@ const [isDeleted, setIsDeleted] = useState(false);
             
           )}
 </div>
-{/* {orders.length === 0 && (
-          <p className="fs-4 text-center d-block">You have no orders to view.</p>
-            )} */}
 </div>
         </div>
     );

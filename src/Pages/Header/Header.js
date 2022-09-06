@@ -1,12 +1,14 @@
 
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useAdmin from '../../Hook/useAdmin/useAdmin';
 import useAuth from '../../Hook/useAuth';
 
 import './Header.css';
 const Header = () => {
     const [click, setClick] = useState(false);
-    const {user, logout} = useAuth()
+    const {user, logout} = useAuth();
+    const [admin] = useAdmin(user);
     const handleClick = () =>{
       setClick(!click)
     }
@@ -77,6 +79,15 @@ const Header = () => {
                 onClick={click ? handleClick : null}
               >
                 Packages
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard"
+                className="active"
+                onClick={click ? handleClick : null}
+              >
+                Dashboard
               </NavLink>
             </li>
             <li>
