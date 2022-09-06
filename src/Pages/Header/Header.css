@@ -141,7 +141,7 @@
     .nav-menu {
       display: flex;
       flex-direction: column;
-      width: 440px;
+      width: 410px;
       max-width: 100%;
       border-top: 1px solid #fff;
       position: absolute;

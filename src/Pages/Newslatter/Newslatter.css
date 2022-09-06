@@ -55,3 +55,10 @@
 .subscribe-content input:last-child:hover{
     background: #162b32;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px){
+
+    .subscribe-content input:last-child{
+        right: 60px;
+    }
+}
