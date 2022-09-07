@@ -23,7 +23,7 @@ const Newslatter = () => {
                             <div className="col-md-6"> 
                             <div className="subscribe-left">
                                 <div className="subscribe-details">
-                                <h2>Subscribe Our <span>Newsletter</span></h2>
+                                <h2>Subscribe Our <span> Newsletter</span></h2>
                                 <p>Sign up to receive the best offers on promotion and <span>coupons. Don’t worry! It’s not Spam</span></p>
                                 </div>
                                 <form className='subscribe-form'>
@@ -39,7 +39,7 @@ const Newslatter = () => {
                                 <div className="achivement">
                                     <div className="row g-4">
 
-                                        <div className="col-md-6 ">
+                                        <div className="col-md-6">
                                         <div className="achivement-container">
                                         <div className="achivement-icon">
                                            <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon2.svg" alt="" />
@@ -83,8 +83,6 @@ const Newslatter = () => {
                                         </div>
                                         </div>
                                         </div>
-                                        
-                                        
                                     </div>
                                 </div>
                             </div>

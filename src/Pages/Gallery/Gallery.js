@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import './Gallery.css'
-// This only needs to be imported once in your app
 
 const images = [
   'https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-xl1.png',
@@ -27,11 +26,13 @@ export default class Gallery extends Component {
    
 
     return (
-        <div className='gallery_area'>
+        <div className='gallery_area my-3'>
              <div className="container">
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
-             <h2>Travel Gallery</h2>
+             <div className="gallery-discription">
+              <h2>Travel Gallery</h2>
              <p>A concert tour is a series of concerts by an artist or group of artists in different cities, countries or locations. There’s no better way to feel the heartbeat of a city.</p>
+              </div>
+        <button type="button" onClick={() => this.setState({ isOpen: true })}>
              <div className="row">
                  <div className="col-md-4">
                      <div className="gallery-item">

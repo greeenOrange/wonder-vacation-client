@@ -14,19 +14,19 @@ h2{
     font-family: 'Barlow', sans-serif;
     color: #FF4838;
 }
-.products-images{
-    display: flex;
-    justify-content: space-between;
-}
+
 .package-container{
    
 }
-.products{
+.products-card{
     position: relative;
-    top: -90px;
+    top: -55px;
     left: 0;
     -webkit-transform: translateY(50%);
     transform: translateY(50%);
+}
+.products-details{
+    margin-top: -2.5rem;
 }
 .products-section .card-lavel{
     font-weight: 600;
@@ -94,14 +94,216 @@ h2{
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 680px){
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 400px) {
     .products-images{
-        margin-left: 2.8rem;
-     }
+        width: 300px;
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
      .products-details{
         padding: 0 2.8rem;
      }
+     .products-booking-pricing{
+        display: block;
+     }
      .products-booking-pricing button{
-           padding: 1rem 2.4rem;
+           padding: 1rem 3rem;
+           font-size: 12px;
+           margin: .4rem 0;
+     }
+     .products-booking-pricing .card-price #price-id{
+        display: block;
+    }
+     .products-booking-pricing .card-price .price-tag{
+        margin-right: .2rem;
+        font-size: 15px;
      }
 }
+@media only screen and (min-device-width : 400px) and (max-device-width : 404px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: .3rem;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+    .products-booking-pricing button{
+        padding: 1rem 3rem;
+        font-size: 12px;
+        margin: .4rem 0;
+  }
+    .products-section .card-lavel{
+        padding: 0.4em 1rem;
+    }
+}
+@media only screen and (min-device-width : 404px) and (max-device-width : 412px) {
+
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: .4rem;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+    .products-section .card-lavel{
+        padding: 0.4em .8rem;
+    }
+}
+@media only screen and (min-device-width : 412px) and (max-device-width : 420px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: .7rem;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+@media only screen and (min-device-width : 420px) and (max-device-width : 425px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+@media only screen and (min-device-width : 425px) and (max-device-width : 430px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+@media only screen and (min-device-width : 431px) and (max-device-width : 436px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+@media only screen and (min-device-width : 437px) and (max-device-width : 440px) {
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0rem;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+@media only screen and (min-device-width : 441px) and (max-device-width : 480px) {
+    .products-images{
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }
+    .products-card{
+        position: relative;
+        top: -55px;
+        left: 0;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+    }
+}
+/* @media only screen and (min-device-width : 404px) and (max-device-width : 420px) {
+
+     .products-details{
+        padding: 0 2.3rem;
+     }
+     .products-booking-pricing{
+        display: block;
+     }
+     .products-booking-pricing button{
+           padding: 1rem 3rem;
+           font-size: 15px;
+           margin: .4rem 0;
+     }
+     .products-booking-pricing .card-price #price-id{
+        display: block;
+    }
+    .products{
+        left: .3rem;
+    }
+    .products-section .card-lavel{
+        padding: 0.4em .7rem;
+    }
+} */
+@media only screen and (min-device-width : 420px) and (max-device-width : 440px) {
+    .products-images{
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }
+     .products-booking-pricing{
+        display: block;
+     }
+     .products-booking-pricing button{
+           padding: 1rem 3rem;
+           font-size: 15px;
+           margin: .4rem 0;
+     }
+     .products-booking-pricing .card-price #price-id{
+        display: block;
+    }
+    .products-section .card-lavel{
+        padding: 0.4em .7rem;
+    }
+}
+@media only screen and (min-device-width : 440px) and (max-device-width : 480px) {
+     .products-details{
+        padding: 0 2.3rem;
+     }
+     .products-booking-pricing{
+        display: block;
+     }
+     .products-booking-pricing button{
+           padding: 1rem 3rem;
+           font-size: 15px;
+           margin: .4rem 0;
+     }
+     .products-booking-pricing .card-price #price-id{
+        display: block;
+    }
+    .products-section .card-lavel{
+        padding: 0.4em .7rem;
+    }
+}
+@media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
+    .products-images{
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .products-images{
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }   
+}
+@media only screen and (min-device-width : 1024px)  and (min-width : 1224px) {
+    .products-images{
+        max-width: 100%;
+    }
+    .products-images img{
+        width: 100%;
+    }  
+    }

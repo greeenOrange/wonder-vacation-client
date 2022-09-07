@@ -89,4 +89,20 @@
         justify-content: center;
         line-height: 10px;
     }
+    .social_media ul{
+        margin-right: .7rem;
+        justify-content: center;
+    }
+    .social_media ul li{
+        padding: 0 .3rem;
+    }
+    .social_media ul li a i{
+        font-size: 16px;
+
+    }
+    .quick_link ul{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+    }
 }

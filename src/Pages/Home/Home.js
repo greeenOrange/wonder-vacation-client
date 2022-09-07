@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import Gallery from '../Gallery/Gallery';
 import Banner from '../Header/Banner/Banner';
 import HeroWrapper from '../Header/Banner/HeroWrapper';
+import Header from '../Header/Header';
 import Newslatter from '../Newslatter/Newslatter';
 import Packages from '../Packages/Packages';
 import TourGuide from '../TourGuide/TourGuide';

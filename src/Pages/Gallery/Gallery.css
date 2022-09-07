@@ -1,3 +1,7 @@
+.gallery-discription{
+    text-align: center;
+    margin: auto;
+}
 .gallery_area button{
     border: none;
     background-color:transparent;
@@ -52,13 +56,77 @@
 .gallery_area .gallery-item:hover .gallery-item-overlay i{
     transform: scale(1);
 }
-@media screen and (min-width: 320px) and (max-width: 680px){
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 340px) {
     .gallery-item{
+        width: 290px;
+    }
+    .gallery-item img{
         width: 100%;
     }
-    .gallery-item-overlay{
-        text-align: center;
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 290px;
+        align-items: center;
+    }
+}
+@media only screen and (min-device-width : 340px) and (max-device-width : 360px) {
+    .gallery-item{
+        width: 310px;
+    }
+    .gallery-item img{
+        width: 100%;
+    }
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 310px;
+        align-items: center;
         margin: auto;
-        width: 370px;
+    }
+}
+@media only screen and (min-device-width : 360px) and (max-device-width : 365px) {
+    .gallery-item{
+        width: 330px;
+    }
+    .gallery-item img{
+        width: 100%;
+    }
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 330px;
+        align-items: center;
+        margin: auto;
+    }
+}
+@media only screen and (min-device-width : 365px) and (max-device-width : 375px) {
+    .gallery-item{
+        width: 340px;
+    }
+    .gallery-item img{
+        width: 100%;
+    }
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 340px;
+        align-items: center;
+        margin: auto;
+    }
+}
+@media only screen and (min-device-width : 375px) and (max-device-width : 390px) {
+    .gallery-item{
+        width: 345px;
+    }
+    .gallery-item img{
+        width: 100%;
+    }
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 345px;
+        align-items: center;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-device-width : 408px) and (max-device-width : 480px) {
+    
+    .gallery_area .gallery-item .gallery-item-overlay{
+        width: 380px;
+        align-items: center;
+        margin: auto;
     }
 }

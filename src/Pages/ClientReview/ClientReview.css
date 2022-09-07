@@ -56,10 +56,7 @@
     border-radius: 3rem;
     border: 1px solid #fff;
 }
-.review-details{
-    padding: 7rem 0;
-    height: 320px;
-}
+
 .review-details p{
     color: #000;
 }
@@ -67,6 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 1rem;
     margin-top: 2rem;
 }
@@ -110,23 +108,168 @@
 .rating{
     color: #fede41;
 }
-@media screen and (min-width: 320px) and (max-width: 680px){
+@media screen and (min-width: 320px) and (max-width: 372px){
     .review-section .container .review-heading > h2{
-        font-size: 30px;
+        font-size: 22px;
     }
-    .review-slider{
-        padding-top: 5rem;
+    .review-section .container .review-heading > h4{
+        margin: .2rem 0;
+        font-size: 13px;
     }
     .swiper-button-prev{
-        top: 4.8rem !important;
-        left: 20rem !important;
+        top: 7.4rem !important;
+        left: 14rem !important;
+        padding: 0 1.2rem;
     }
     .swiper-button-next{
-        top: 4.8rem !important;
-        right: .5rem !important;
+        top: 7.4rem !important;
+        right: 1rem !important;
+        padding: 0 1.2rem;
     }
-    .swiper-slide{
-        width: 320px !important;
-        max-width: 100%;
+
+    .review-details{
+        padding: .4rem 0;
+    }
+    .review-details p{
+        font-size: 15px;
+    }
+    .review-rating{
+        font-size: 12px;
+    }
+    .reviewer-img{
+        display: none;
+    }
+    .reviewer h3{
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 372px) and (max-width: 420px){
+    .review-section .container .review-heading > h2{
+        font-size: 26px;
+    }
+    .review-section .container .review-heading > h4{
+        margin: .4rem 0;
+        font-size: 15px;
+    }
+    .swiper-button-prev{
+        top: 7.4rem !important;
+        left: 17rem !important;
+        padding: 0 1.2rem;
+    }
+    .swiper-button-next{
+        top: 7.4rem !important;
+        right: 1rem !important;
+        padding: 0 1.2rem;
+    }
+
+    .review-details{
+        padding: .4rem 0;
+    }
+    .review-details p{
+        font-size: 15px;
+    }
+    .review-rating{
+        font-size: 12px;
+    }
+    .reviewer-img{
+        display: block;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: -1rem;
+        left: 20%;
+        transition: all ease-in .3s;
+    }
+    .reviewer h3{
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 390px) and (max-width: 426px){
+    .review-section .container .review-heading > h2{
+        font-size: 26px;
+    }
+    .review-section .container .review-heading > h4{
+        margin: .4rem 0;
+        font-size: 15px;
+    }
+    .swiper-button-prev{
+        top: 7.4rem !important;
+        left: 18rem !important;
+        padding: 0 1.2rem;
+    }
+    .swiper-button-next{
+        top: 7.4rem !important;
+        right: 1rem !important;
+        padding: 0 1.2rem;
+    }
+
+    .review-details{
+        padding: 0;
+    }
+    .review-details p{
+        font-size: 15px;
+    }
+    .review-rating{
+        font-size: 12px;
+    }
+    .reviewer-img{
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: -1rem;
+        left: 20%;
+        transition: all ease-in .3s;
+    }
+    .reviewer h3{
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 480px){
+    .review-section .container .review-heading > h2{
+        font-size: 23px;
+    }
+    .review-section .container .review-heading > h4{
+        margin: .4rem 0;
+        font-size: 14px;
+    }
+    .reviewer-img{
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: -1rem;
+        left: 22%;
+        transition: all ease-in .3s;
+    }
+    .swiper-button-prev{
+        top: 7.4rem !important;
+        left: 20rem !important;
+        padding: 0 1.2rem;
+    }
+    .swiper-button-next{
+        top: 7.4rem !important;
+        right: 1rem !important;
+        padding: 0 1.2rem;
+    }
+
+    .review-details{
+        padding: 0;
+    }
+    .review-details p{
+        font-size: 15px;
+    }
+    .review-rating{
+        font-size: 12px;
+    }
+    .reviewer h3{
+        font-size: 16px;
+    }
+}
+
+@media only screen  and (min-width : 1224px) {
+    .review-details{
+        padding: 7rem 0;
+        height: 320px;
     }
 }

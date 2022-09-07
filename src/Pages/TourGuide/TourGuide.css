@@ -74,10 +74,58 @@
     padding: .3rem;
     border-radius: 1rem;
 }
-@media screen and (min-width: 320px) and (max-width: 680px){
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .tour-guide h2{
+        font-size: 1.3rem;
+    }
+    .tour-guide p{
+        font-size: .7rem;
+    }
     .grid-container .grid-item{
-    display: grid;         /* new; nested grid container */
+    display: grid;        
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
     }
+    .grid-item img{
+        width: 250px;
+        height: 250px;
+        border-radius: .3rem;
+    }
+    .guider-media{
+        bottom: -20px;
+        left: 10px;
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
+    .grid-container .grid-item{
+        display: grid;         
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        }
+        .grid-item img{
+            width: 330px;
+            height: 330px;
+            border-radius: .3rem;
+        }
+        .guider-media{
+            bottom: -20px;
+            left: 30px;
+        }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .grid-container .grid-item{
+        display: grid;         
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        }
+        .grid-item img{
+            width: 250px;
+            height: 250px;
+            border-radius: .3rem;
+        }
+        .guider-media{
+            bottom: -20px;
+            left: 4px;
+        }
 }

@@ -66,7 +66,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className="active"
+                className=""
                 onClick={click ? handleClick : null}
               >
                 Home
@@ -75,7 +75,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/explore"
-                className="active"
+                className=""
                 onClick={click ? handleClick : null}
               >
                 Packages
@@ -84,7 +84,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/dashboard"
-                className="active"
+                className=""
                 onClick={click ? handleClick : null}
               >
                 Dashboard
@@ -93,7 +93,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="aboutus"
-                className="active"
+                className=""
                 onClick={click ? handleClick : null}
               >
                 About Us
@@ -102,7 +102,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/blog"
-                className="active"
+                className=""
                 onClick={click ? handleClick : null}
               >
                 Blog
@@ -132,7 +132,7 @@ const Header = () => {
         user?.email? <li>
         <Link
             to="/dashboard"
-            className="nav-links active"
+            className="user-link active"
               >
                 My Account
               </Link>
@@ -142,12 +142,12 @@ const Header = () => {
         <li>
         <Link
         to='/login'
-        className='nav-links'>Login</Link>
+        className='user-link active'>Login</Link>
         </li>
         <li>
             <Link
             to="/contact"
-            className="nav-links active"
+            className="user-link active"
               >
                 Contact Us
               </Link></li>

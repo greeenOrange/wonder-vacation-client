@@ -16,3 +16,39 @@
 .dashboard-section svg{
    font-size: 2rem;
 }
+.dashboard-section .dash-button:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .dashboard-section .dash-button{
+        margin-left: -2rem; 
+    }
+}
+@media only screen and (min-device-width : 480px) and (max-device-width : 576px) {
+    .dashboard-section .dash-button{
+        margin-left: -2rem; 
+    }
+}
+@media only screen and (min-device-width : 576px) and (max-device-width : 590px) {
+    .dashboard-section .dash-button{
+        margin-left: -3rem; 
+    }
+}
+@media only screen and (min-device-width : 590px) and (max-device-width : 610px) {
+    .dashboard-section .dash-button{
+        margin-left: -4rem; 
+    }
+}
+@media only screen and (min-device-width : 610px) and (max-device-width : 660px) {
+    .dashboard-section .dash-button{
+        margin-left: -5rem; 
+    }
+}
+@media only screen and (min-device-width : 660px) and (max-device-width : 720px) {
+    .dashboard-section .dash-button{
+        margin-left: -6rem; 
+    }
+}

@@ -63,9 +63,9 @@ const HeroWrapper = () => {
                     <div className="slider-btn">
                         {/* <button className='view-btn'> <a href="">View Adventure</a></button>
                     <button className='book-btn'><a href="">Book Now</a></button> */}
-                    <button type="button" className="view-btn"><a href="">View Adventure</a></button>
+                   <button type="button" className="view-btn"><a href="">View Adventure</a></button>
                     <button type="button" className="book-btn"><a href="">Book Now</a></button>
-                    </div>
+                   </div>
                 </div>
                 <div className="move-btn">
                 <button className='left-arrow arrow' onClick={prevSlider}><FontAwesomeIcon icon={faArrowLeft}/>Pre</button>

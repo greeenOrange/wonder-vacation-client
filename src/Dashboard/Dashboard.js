@@ -104,7 +104,7 @@ const Dashboard = () => {
         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
         <li className="nav-item"><Link className="nav-link active" to="/dashboard">My Orders</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/addreview">add review</Link></li>
-        {!isAdmin && <>
+        {isAdmin && <>
             <li className="nav-item"><Link className="nav-link" to="/dashboard/manageProducts">Manage Products</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/dashboard/manageOrders">Manage Orders</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/dashboard/addProduct">Add Product</Link></li>
