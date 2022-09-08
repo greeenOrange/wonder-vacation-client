@@ -21,7 +21,7 @@ const [isDeleted, setIsDeleted] = useState(false);
           .then((data) => {
             setOrders(data);
           })
-          .catch(error => (console.log(error)));
+          .catch(error => ((error)));
       }, [user?.email]);
 
       useEffect(() => {
@@ -59,6 +59,7 @@ const [isDeleted, setIsDeleted] = useState(false);
                 window.location.reload();
               }
             })
+            .catch(error => (console.log(error)))
             .finally(() => {
               setIsDeleted(false);
             });
@@ -122,6 +123,9 @@ const [isDeleted, setIsDeleted] = useState(false);
            )          
             
           )}
+          {orders.length === -1 && (
+          <p className="fs-4 text-center d-block mx-auto">You have no orders to view.</p>
+            )}
 </div>
 </div>
         </div>

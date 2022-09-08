@@ -13,9 +13,9 @@ const RemovePackages = () => {
           .then((res) => res.json())
           .then((data) => {
             setPackages(data)
-            console.log(data);
             setIsLoading(false)
           })
+          .catch(error => (console.log(error)));
       }, [isDeleted]);
 
     //   const handleDelete = (id) =>{
@@ -73,7 +73,8 @@ const RemovePackages = () => {
             })
             .finally(() => {
               setIsDeleted(false);
-            });
+            })
+            .catch(error => (console.log(error)));
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel

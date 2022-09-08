@@ -61,6 +61,9 @@ function App() {
         <Route path="/addreview" element={<Review />}/>
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path='/allusers/:email' element={<AllUsers />} />
+        <Route path="/makeAdmin" element={
+              <AllUsers></AllUsers>
+          }></Route>
         <Route path="/dashboard" element={
             <Dashboard />
         }>

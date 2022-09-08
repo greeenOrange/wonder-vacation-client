@@ -64,6 +64,7 @@ const PackageBooking = () => {
     
     .then(res => res.json())
     .then(data => setDetails(data))
+    .catch(error => (console.log(error)))
 },[id]);
 
 useEffect(() => {
@@ -127,7 +128,7 @@ useEffect(() => {
       <Controller
         name="ticketType"
         {...register("ticketType", { required: true })}
-        onChange={([selected]) => console.log(selected)}
+        onChange={([selected]) => (selected)}
         render={({ field }) => (
           <Select
             {...field}

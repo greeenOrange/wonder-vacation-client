@@ -20,6 +20,7 @@ const ClientReview = () => {
             setReviewed(data);
             setIsLoading(false);
         })
+        .catch(error => (console.log(error)));
       }, []);
 
     return (
@@ -42,8 +43,8 @@ const ClientReview = () => {
             modules={[ Navigation]}
             className="mySwiper"
           >
-            <SwiperSlide>
-            <div key={index} className="col-md-12 col-sm-6 review-slider">
+            <SwiperSlide key={index}>
+            <div className="col-md-12 col-sm-6 review-slider">
                 <div className='review-card'>
                     <div className="reviewer-review">
                     <div className="reviewer-img">

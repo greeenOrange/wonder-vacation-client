@@ -30,6 +30,7 @@ const HeroWrapper = () => {
         fetch('./slider.json')
         .then(res => res.json())
         .then(data => setSlider(data))
+        .catch(error => (console.log(error)));
     },[])
 
     const prevSlider = () =>{

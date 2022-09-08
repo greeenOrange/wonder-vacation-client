@@ -35,9 +35,7 @@ const UserRow = ({user}) => {
             <td>{displayName}</td>
             <td>{email}</td>
             <td>{role !== 'admin' && <button onClick={makeAdmin} className='btn btn-success'>Make Admin</button>}
-                </td>
-            <td><button className='btn btn-danger'>Remove User</button></td>
-
+            </td>
         </>
     );
 };

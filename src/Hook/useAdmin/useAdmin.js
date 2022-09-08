@@ -16,6 +16,7 @@ const useAdmin = (user) => {
             .then(data => {
                 setAdmin(data.admin)
             })
+            .catch(error => (console.log(error)));
         }
     }, [user])
     return [admin];

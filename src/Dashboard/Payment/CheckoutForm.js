@@ -3,10 +3,9 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from '../../Hook/useAuth';
-import Spinner from '../../Pages/Shared/Spinner/Spinner';
 
 const CheckoutForm = ({payOrder}) => {
-    const {_id, fullname, email, price, place_name} = payOrder;
+    const {_id, fullname, price} = payOrder;
     const {user} = useAuth();
     const stripe = useStripe();
     const elements = useElements();
@@ -30,8 +29,8 @@ const CheckoutForm = ({payOrder}) => {
                 if(data?.clientSecret){
                     setClientSecret(data.clientSecret);
                   }
-                console.log(data.clientSecret);
               })
+              .catch(error => (console.log(error)));
     }, [price]);
 
   const handleSubmit = async (event) => {
@@ -46,7 +45,7 @@ const CheckoutForm = ({payOrder}) => {
     }
 
     // Use your card Element with other Stripe.js APIs
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
+    const {error} = await stripe.createPaymentMethod({
       type: 'card',
       card,
     });
@@ -73,7 +72,6 @@ const CheckoutForm = ({payOrder}) => {
     }else{
       setError('');
       setTransactionId(paymentIntent.id)
-      console.log(paymentIntent);
       setSuccess('Congrats! Payment successfully completed')
       // Save to Database
       const payment = {
@@ -90,8 +88,8 @@ const CheckoutForm = ({payOrder}) => {
       .then(res => res.json())
       .then(data => {
         setIsLoading(false)
-        console.log(data);
       })
+      .catch(error => (console.log(error)));
     }
   };
     return (

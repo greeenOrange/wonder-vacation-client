@@ -9,6 +9,7 @@ const AllOrders = () => {
         fetch("https://fierce-falls-08266.herokuapp.com/orders")
           .then((res) => res.json())
           .then((data) => setOrders(data))
+          .catch(error => (console.log(error)));
       }, [control]);
 
       const handleDelete = (id) => {

@@ -81,7 +81,7 @@ const Header = () => {
                 Packages
               </NavLink>
             </li>
-            <li>
+            {admin && <li>
               <NavLink
                 to="/dashboard"
                 className=""
@@ -89,7 +89,7 @@ const Header = () => {
               >
                 Dashboard
               </NavLink>
-            </li>
+            </li>}
             <li>
               <NavLink
                 to="aboutus"
@@ -129,7 +129,7 @@ const Header = () => {
       <p>Hi {user?.displayName}</p>
         <ul>
        {
-        user?.email? <li>
+        user? <li>
         <Link
             to="/dashboard"
             className="user-link active"

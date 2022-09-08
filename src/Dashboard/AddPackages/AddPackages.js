@@ -18,7 +18,7 @@ const AddPackages = () => {
       }
       })
       .catch(function (error) {
-        console.log(error);
+        
       });
     }
     return (

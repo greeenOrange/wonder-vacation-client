@@ -112,9 +112,7 @@ const useFirebase = () => {
     const logout = () => {
       signOut(auth).then(() => {
         setUser({})
-          // Sign-out successful.
       }).catch((authError) => {
-          // An error happened.
           setAuthError("");
       })
        
@@ -133,10 +131,10 @@ const useFirebase = () => {
     })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
     }).catch((error) => {
       setAuthError(error.message)
-    }).finally(() => setIsLoading(false));
+    }).catch(error => (console.log(error)))
+    .finally(() => setIsLoading(false));
 }
 
 // Check Admin
@@ -144,6 +142,7 @@ useEffect(() => {
   fetch(`https://fierce-falls-08266.herokuapp.com/users/${user?.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin))
+      .catch(error => (console.log(error)));
 }, [user?.email])
 
       return {

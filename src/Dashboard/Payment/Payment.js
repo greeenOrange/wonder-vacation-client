@@ -21,6 +21,7 @@ const Payment = () => {
         fetch(`https://fierce-falls-08266.herokuapp.com/paymentOrders/${id}`)
         .then(res => res.json())
         .then(data => setPayOrder(data))
+        .catch(error => (console.log(error)))
         .finally(() =>{
           setIsLoading(false)
         })
@@ -51,7 +52,8 @@ const Payment = () => {
                         const remainingUsers = payOrder.filter(order => order._id !== id);
                         setPayOrder(remainingUsers);
                     }
-                });
+                })
+                .catch(error => (console.log(error)));
         }
   
     }

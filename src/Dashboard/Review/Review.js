@@ -29,7 +29,6 @@ const Review = () => {
               showConfirmButton: false,
               timer: 1500
             })
-            console.log(reviewAdded);
             reset();
             Navigate('/')
           }else{
