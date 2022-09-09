@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
+import Spinner from '../../Pages/Shared/Spinner/Spinner';
 import CheckoutForm from './CheckoutForm';
 import './Payment';
 import './Payment.css'
@@ -28,43 +29,14 @@ const Payment = () => {
           setIsLoading(false)
         })
     },[id]);
-  
-    useEffect(() => {
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-    }, []);
 
-    // const handleDelete = id => {
-    //     const proceed = window.confirm('Are you sure, you want to delete?');
-    //     if (proceed) {
-    //         const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.deletedCount > 0) {
-    //                   Swal.fire(
-    //                     'Deleted!',
-    //                     'Your file has been deleted.',
-    //                     'success'
-    //                   )
-    //                     const remainingUsers = payOrder.filter(order => order._id !== id);
-    //                     setPayOrder(remainingUsers);
-    //                 }
-    //             })
-    //             .catch(error => (console.log(error)));
-    //     }
-  
-    // }
     return (
         <div className='payment'>
           <div className="container">
             <div className="row">                    
               <div className="col-md-4">
                 <div className='pay-summary'>
+                  {isLoading && <Spinner/>}
                        <h6>Package ID: {payOrder._id}</h6>
                         <h3>Booking Summary</h3>
                       <h4>Place: <span>{payOrder?.place_name}</span></h4>

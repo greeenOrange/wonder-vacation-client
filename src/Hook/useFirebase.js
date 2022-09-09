@@ -25,6 +25,8 @@ const useFirebase = () => {
         signInWithPopup(auth, googleprovider)
           .then((result) => {
             const user = result.user;
+            setUser(user)
+            console.log(user);
             // save user to the database
             saveUser(user.email, 'POST');
             // saveUser(user.email, user.displayName, 'PUT');
@@ -42,9 +44,9 @@ const useFirebase = () => {
         signInWithPopup(auth, facebookprovider)
           .then((result) => {
             const user = result.user;
+            setUser(user)
              // save user to the database
             saveUser(user.email, 'POST');
-            setUser(user)
             setAuthError('');
             navigate(from, {replace: true})
         }).catch((error) => setAuthError(error.message));

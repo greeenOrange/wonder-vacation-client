@@ -50,7 +50,7 @@ const Review = () => {
                     <div className="col-md-8 review-form">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {user?.photoURL && <img src={user?.photoURL} alt="" width="100" height="80" />}
-      <input defaultValue={user?.displayName
+      <input placeholder='name' defaultValue={user?.displayName
 } {...register("name", { required: true })}/>
       <input placeholder='email' defaultValue={user?.email} {...register("email", { required: true })} />
      {!user?.photoURL && <label for="avatar">Choose a profile picture:</label>}
