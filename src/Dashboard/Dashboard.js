@@ -1,22 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
 import useAdmin from '../Hook/useAdmin/useAdmin';
 import useAuth from '../Hook/useAuth';
 import { Link, Outlet} from 'react-router-dom';
-import MyOrder from '../Pages/MyOrder/MyOrder';
-import AllOrders from './Order/AllOrders';
-import AddPackages from './AddPackages/AddPackages';
-import RemovePackages from './AddPackages/RemovePackages/RemovePackages';
 import './Dashboard.css'
 
 const Dashboard = () => {
   const {user, logout} = useAuth();
   const [admin] = useAdmin(user);
-  console.log(admin);
-
-
-
 
     return (
       <div className='dashboard-section'>

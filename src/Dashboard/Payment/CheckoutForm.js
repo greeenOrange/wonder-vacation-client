@@ -3,9 +3,10 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from '../../Hook/useAuth';
+import './CheckoutFrom.css'
 
 const CheckoutForm = ({payOrder}) => {
-    const {_id, fullname, price} = payOrder;
+    const {_id, fullname, price, Place_name} = payOrder;
     const {user} = useAuth();
     const stripe = useStripe();
     const elements = useElements();
@@ -93,8 +94,11 @@ const CheckoutForm = ({payOrder}) => {
     }
   };
     return (
-        <div>
-          <form onSubmit={handleSubmit}>
+        <div className='checkout-form-section'>
+			<div class="card mx-auto">
+				<p class="heading">PAYMENT DETAILS</p>
+					<form class="card-details" onSubmit={handleSubmit}>
+
         <CardElement
           options={{
             style: {
@@ -111,18 +115,22 @@ const CheckoutForm = ({payOrder}) => {
             },
           }}
         />
-        <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
-          Pay
-        </button>
-      </form>
-          {
-            error? <p className='text-center mx-auto'><span className='text-danger'>{error}</span></p>: <div className='text-center mx-auto text-dark'>Pamyent status: 
-            <p className='text-success'>{success}</p>
+        {!success && <button type="submit" class="btn btn-primary my-4" disabled={!stripe || !clientSecret}>$ {price}<i class="fas fa-arrow-right px-2 py-2"></i></button>}
+        {success && <></>}
+					</form>
+			</div>
+
+      {error? <p className='text-center mx-auto'>
+      <span className='text-danger'>{error}</span></p>:
+      <div className='text-center mx-auto text-dark'>
+        <p className='text-success'>{success}</p>
              </div>
           }
           {
-            transactionId && <p>Your Transition ID: <span className='fw-bold text-secondary'>{transactionId}</span></p>
+            transactionId && <p>Your Transition ID: 
+            <span className='fw-bold text-secondary'>{transactionId}</span></p>
           }
+
         </div>
     );
 };

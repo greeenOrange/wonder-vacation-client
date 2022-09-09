@@ -27,33 +27,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <AuthProvider>
-        {/* <Header></Header> */}
-      {/* <Routes>
-        <Route index path="/" element={<Home />} />
-        <Route path="/packages" element={<Packages />}/>
-        <Route path="/explore" element={<Explore />}/>
-        <Route path="/Packagebooking/:id" element={<PackageBooking />} />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path='/dashboard' element={<PrivateRoute><Dashboard>
-
-        <Route index element={<MyOrder />}/>
-        <Route path='/allorders' element={<AllOrders />} />
-        <Route path='allusers' element={<AllUsers />} />
-        <Route path='/allusers/:email' element={<AllUsers />} />
-        <Route path='/addpackage' element={<AddPackages />} />
-        <Route path='removepackage' element={<RemovePackages />} />
-        <Route path='/dashboard/payment/:id' element={<Payment />} />
-        <Route path="/destination" element={<Destination />}/>
-        <Route path="aboutus" element={<AboutUs />}/>
-        </Dashboard>
-        
-        </PrivateRoute>} />
-        
-    </Routes> */}
+        <Header></Header>
     <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/explore" element={<Explore />}/>
@@ -67,23 +43,23 @@ function App() {
         <Route path="/dashboard" element={
             <Dashboard />
         }>
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<MyOrder></MyOrder>} />
           <Route path='payment/:id' element={<Payment />} />
           <Route path="manageProducts" element={
               <RemovePackages></RemovePackages>
-          }></Route>
+          } />
           <Route path="manageOrders" element={
               <AllOrders></AllOrders>
-          }></Route>
+          } />
           <Route path="addProduct" element={
               <AddPackages></AddPackages>
-          }></Route>
+          } />
           <Route path="makeAdmin" element={
               <AllUsers></AllUsers>
-          }></Route>
+          } />
           <Route path="aboutUs" element={
               <AboutUs></AboutUs>
-          }></Route>
+          } />
         </Route>
 
       </Routes>

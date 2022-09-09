@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from '../../Pages/Shared/Spinner/Spinner';
 import './AllOrders.css'
 
 const AllOrders = () => {
     const [orders, setOrders] = useState([]);
     const [control, setControl] = useState(true);
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         fetch("https://fierce-falls-08266.herokuapp.com/orders")
@@ -15,6 +17,7 @@ const AllOrders = () => {
       const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
+          setIsLoading(true)
             const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
             fetch(url, {
              method: "DELETE",
@@ -23,6 +26,7 @@ const AllOrders = () => {
              .then((data) => {
              if (data.deletedCount) {
              setControl(!control);
+             setIsLoading(false)
              }
        })
         }
@@ -56,7 +60,7 @@ const AllOrders = () => {
               <td>{pd?.date}</td>
               {(pd.price && !pd.paid) &&<td className='text-secondary fw-bold'>{pd?.status}</td>}
               {(pd.price && pd.paid) &&<td className='text-success fw-bold'>paid</td>}
-              <button className='btn btn-danger bg-danger' onClick={() => handleDelete(pd?._id)}>Delete</button>
+             {isLoading && <Spinner /> } <button className='btn btn-danger bg-danger' onClick={() => handleDelete(pd?._id)}>Delete</button>}
             </tr>
           </tbody>
           ))}

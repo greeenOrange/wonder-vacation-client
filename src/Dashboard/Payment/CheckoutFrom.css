@@ -1,0 +1,49 @@
+
+.checkout-form-section .card{
+	border: none;
+	max-width: 450px;
+	border-radius: 15px;
+	margin: 150px 0 150px;
+	padding: 35px;
+	padding-bottom: 20px!important;
+}
+.checkout-form-section.heading{
+	color: #C1C1C1;
+	font-size: 14px;
+	font-weight: 500;
+}
+.checkout-form-section img{
+	transform: translate(160px,-10px);
+}
+.checkout-form-section img:hover{
+    cursor: pointer;
+}
+.text-warning{
+	font-size: 12px;
+	font-weight: 500;
+	color: #edb537!important;
+}
+#cno{
+	transform: translateY(-10px);
+}
+.checkout-form-section input{
+	border-bottom: 1.5px solid #E8E5D2!important;
+	border-radius: 0;
+	border: 0;
+
+}
+.checkout-form-section .form-group input:focus{
+	border: 0;
+	outline: 0;
+}
+.checkout-form-section .col-sm-5{
+	padding-left: 90px;
+}
+.checkout-form-section .btn{
+	background: #F3A002!important;
+	border: none;
+	border-radius: 30px;
+}
+.checkout-form-section .btn:focus{
+    box-shadow: none;
+}

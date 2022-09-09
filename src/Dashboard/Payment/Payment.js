@@ -2,16 +2,18 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import CheckoutForm from './CheckoutForm';
 import './Payment';
+import './Payment.css'
+
 
 const stripePromise = loadStripe('pk_test_51Lc1THFBNcbcOSFgnXvCS7bux2hWNm5eciKIb0Z0zY3ttB1IQ1LAzTvG56ZdpDgBA1Jcx798WRokCB2o1CDI4LNj00gyfOYXnb');
 const Payment = () => {
     const {id} = useParams();
     const {user} = useAuth();
     const [payOrder, setPayOrder] = useState({});
+    console.log(payOrder);
     const [isLoading, setIsLoading] = useState(true)
     const [status, setStatus] = useState("");
     const navigate = useNavigate();
@@ -34,51 +36,50 @@ const Payment = () => {
       }, 3000);
     }, []);
 
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, you want to delete?');
-        if (proceed) {
-            const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                      Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                      )
-                        const remainingUsers = payOrder.filter(order => order._id !== id);
-                        setPayOrder(remainingUsers);
-                    }
-                })
-                .catch(error => (console.log(error)));
-        }
+    // const handleDelete = id => {
+    //     const proceed = window.confirm('Are you sure, you want to delete?');
+    //     if (proceed) {
+    //         const url = `https://fierce-falls-08266.herokuapp.com/orders/${id}`;
+    //         fetch(url, {
+    //             method: 'DELETE'
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.deletedCount > 0) {
+    //                   Swal.fire(
+    //                     'Deleted!',
+    //                     'Your file has been deleted.',
+    //                     'success'
+    //                   )
+    //                     const remainingUsers = payOrder.filter(order => order._id !== id);
+    //                     setPayOrder(remainingUsers);
+    //                 }
+    //             })
+    //             .catch(error => (console.log(error)));
+    //     }
   
-    }
+    // }
     return (
         <div className='payment'>
           <div className="container">
             <div className="row">                    
-              <div className="col-md-6">
-                       <div>
+              <div className="col-md-4">
+                <div className='pay-summary'>
                        <h6>Package ID: {payOrder._id}</h6>
-                        <h2>Hi ! {payOrder?.fullname}</h2>
-                      <h4>Booked Place: {payOrder?.Place_name}</h4>
-                      <h5>time {payOrder?.time}</h5>
-                      <h5>Price: ${payOrder?.price}</h5>
-                      <button
-                      onClick={() => handleDelete(payOrder?._id)} 
-                      className="btn bg-danger p-2">Delete</button>
-                       </div>
+                        <h3>Booking Summary</h3>
+                      <h4>Place: <span>{payOrder?.place_name}</span></h4>
+                      <h5>{payOrder?.time}</h5>
+                      <h5 className='text-success'>Total Amount:<span className='fw-bold text-danger fs-4'>$ {payOrder?.price}</span></h5>
+                </div>
+                  </div>
 
+                <div className="col-md-8">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm
                     payOrder={payOrder}
                      />
                     </Elements>
-              </div>
+                </div>
             </div>
           </div>
       </div>

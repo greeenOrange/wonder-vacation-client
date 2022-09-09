@@ -1,15 +1,13 @@
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  { useState, useEffect } from 'react';
-import Header from '../Header';
 import './HeroWrapper.css';
 
 const HeroWrapper = () => {
     const [slider, setSlider] = useState([]);
     const [currentSlider, setCurrentSlider] = useState(0);
     const sliderData = slider.length;
-
-
+    
     useEffect(() =>{
         setCurrentSlider(0)
     }, [])
@@ -46,7 +44,6 @@ const HeroWrapper = () => {
 
     return (
         <>
-        <Header />
         <div className='hero-wrapper'>
                 <div className="blr">
               {
@@ -62,8 +59,6 @@ const HeroWrapper = () => {
                     <h2>{pd?.name}<span>{pd?.name2}</span></h2>
                     <p>{pd?.discription.slice(0,159)}</p>
                     <div className="slider-btn">
-                        {/* <button className='view-btn'> <a href="">View Adventure</a></button>
-                    <button className='book-btn'><a href="">Book Now</a></button> */}
                    <button type="button" className="view-btn"><a href="">View Adventure</a></button>
                     <button type="button" className="book-btn"><a href="">Book Now</a></button>
                    </div>
@@ -75,7 +70,7 @@ const HeroWrapper = () => {
                </>
               )}
               </div>
-                        )
+                    )
 
                 })} 
               </div> 

@@ -1,0 +1,17 @@
+.payment{
+    background: linear-gradient(to right, rgba(235,224,232,1) 52%,rgba(254,191,1,1) 53%,rgba(254,191,1,1) 100%);
+    }
+    .pay-summary{
+        background: #ffffff;
+        display: block;
+        border-radius: 1rem;
+        text-align: center;
+        margin: 9.5rem auto;
+        padding: 2rem .5rem;
+    }
+    .pay-summary h3, h6, h4{
+        color: #ccc;
+    }
+    .pay-summary h4 span{
+        color: #edb537;
+    }

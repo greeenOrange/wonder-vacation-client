@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import OrdersSkelition from '../Shared/Spinner/OrdersSkelition';
-import Spinner from '../Shared/Spinner/Spinner';
 import  './MyOrder.css'
 
 const MyOrder = () => {
@@ -85,9 +84,6 @@ const [isDeleted, setIsDeleted] = useState(false);
                 <OrdersSkelition key={index} />
               ) : (
              <div key={index} className="col-md-12 col-lg-6 ">
-              {index + 1 === 0 && (
-          <p className="fs-4 text-center d-block mx-auto">You have no orders to view.</p>
-            )}
            <div className='order-wrapper shadow-sm p-3 mb-5 bg-body rounded'>
            <div className='order-card'>
            <div className='order-image'>
@@ -123,7 +119,7 @@ const [isDeleted, setIsDeleted] = useState(false);
            )          
             
           )}
-          {orders.length === -1 && (
+          {orders.length === 0 && (
           <p className="fs-4 text-center d-block mx-auto">You have no orders to view.</p>
             )}
 </div>
