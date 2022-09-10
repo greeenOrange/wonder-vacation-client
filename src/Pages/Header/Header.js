@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAdmin from '../../Hook/useAdmin/useAdmin';
 import useAuth from '../../Hook/useAuth';
-
 import './Header.css';
+
 const Header = () => {
     const [click, setClick] = useState(false);
     const {user, logout} = useAuth();
@@ -19,11 +19,10 @@ const Header = () => {
     return (
         <> 
         <div className={click ? "main-container" : ""}  onClick={()=>Close()} />
-        <nav className="navbar" onClick={e => e.stopPropagation()}>
+<nav className="navbar" onClick={e => e.stopPropagation()}>
         <div className="container">
           <NavLink to="/" className="nav-logo">
-            WonderVacation
-            <i className="fa fa-code"></i>
+            <img src={'https://i.ibb.co/yp4GYD2/wonder-vacation-logo.png'} alt="" />
           </NavLink>
    
             <div className="main-menu">
@@ -46,8 +45,7 @@ const Header = () => {
                 Packages
               </NavLink>
             </li>
-        
-            {admin && <li>
+            <li>
               <NavLink
                 to="/dashboard"
                 className=""
@@ -55,7 +53,7 @@ const Header = () => {
               >
                 Dashboard
               </NavLink>
-            </li>}
+            </li>
             <li>
               <NavLink
                 to="aboutus"
@@ -83,21 +81,47 @@ const Header = () => {
                 Contact Us
               </NavLink>
             </li>
-            <li class="nav-item dropdown ms-2">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Hi {user?.displayName}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><Link class="dropdown-item active py-3 fs-5" to="/dashboard">My Account</Link></li>
-              <li><Link class="dropdown-item py-3 fs-5" to='/login'>login</Link></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><button onClick={logout} className="dropdown-item bg-danger text-light py-3 fs-5" type="button">log out</button></li>
-            </ul>
-          </li>
+            
           </ul>
-          
             </div>
+            
 
+          <div className="user-menu">
+          <ul id="menu">
+
+      <li>
+      <p>Hi {user?.displayName}</p>
+        <ul>
+       {
+        user?.email? <li>
+        <Link
+            to="/dashboard"
+            className="user-link active"
+              >
+                My Account
+              </Link>
+              </li>: <li></li>
+
+       }
+        <li>
+        <Link
+        to='/login'
+        className='user-link active'>Login</Link>
+        </li>
+        <li>
+            <Link
+            to="/contact"
+            className="user-link active"
+              >
+                Contact Us
+              </Link></li>
+              <li><button onClick={logout} className="dropdown-item bg-danger p-3 text-light h5" type="button">log out</button></li>
+        </ul>
+      </li>
+    </ul>
+    
+            
+            </div>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
           </div>

@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #0250c5;
+    background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
 }
 .review-conainer .review-form{
     display: block;

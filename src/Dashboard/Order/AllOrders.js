@@ -33,7 +33,7 @@ const AllOrders = () => {
     };
 
     return (
-        <div className="">
+        <div className="all-packages">
             <h2>Mange All Orders: {orders?.length}</h2>
             <div className='container'>
             <div className="row">

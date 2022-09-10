@@ -1,4 +1,6 @@
 .add-pacakges-section{
+    background: #0250c5;
+    background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
     margin-top: 2rem;
 }
 .add-pacakges-section form{

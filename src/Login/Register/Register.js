@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './Register.css';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hook/useAuth';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Spinner from '../../Pages/Shared/Spinner/Spinner';
+import './Register.css';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});

@@ -1,12 +1,12 @@
 import  { useEffect } from 'react';
-import './ClientReview.css';
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import "swiper/css/navigation";
 import { useState } from 'react';
 import Rating from 'react-rating';
+import "swiper/css/pagination";
+import "swiper/css";
+import './ClientReview.css';
 import ClientReveiwSkelition from '../Shared/Spinner/ClientReveiwSkelition';
 const ClientReview = () => {
     const [reviewed, setReviewed] = useState([]);
@@ -31,20 +31,20 @@ const ClientReview = () => {
         <h4>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. <span className='d-block'>Suspendissendt blandit interdum. Sed pellentesque at nunc eget consectetur</span></h4>
         </div>
             <div className="row">
-                {reviewed?.map((pd, index) =>(
-                    isLoading ? (
-                        <ClientReveiwSkelition/>
-                    ) : (
-                    <Swiper
+                
+                        <Swiper
             slidesPerView={3}
             spaceBetween={30}
-            loop={true}
             navigation={true}
             modules={[ Navigation]}
             className="mySwiper"
           >
+            {reviewed?.map((pd, index) =>(
+                    isLoading ? (
+                        <ClientReveiwSkelition/>
+                    ) : (
             <SwiperSlide key={index}>
-            <div className="col-md-12 col-sm-6 review-slider">
+                <div className="col-md-12 col-sm-6 review-slider">
                 <div className='review-card'>
                     <div className="reviewer-review">
                     <div className="reviewer-img">
@@ -70,52 +70,52 @@ const ClientReview = () => {
                 </div>
                 </div>
             </SwiperSlide>
-            <SwiperSlide>
-            <div className="col-md-12 col-sm-6">
-            <div className='review-card'>
+            )
+                    
+            ))}
+          </Swiper>
+                    
+                 {/* <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+            clickable: true,
+        }}
+        className="mySwiper"
+        >
+        {reviewed?.map ((pd, index) =>(
+        <>
+       <SwiperSlide>
+       <div className='review-card'>
                     <div className="reviewer-review">
                     <div className="reviewer-img">
-                        <img src="https://i.ibb.co/Wk9vZr8/t-5.jpg" alt="" />
+                        <img src="https://i.ibb.co/0Xhs6TD/t-4.jpg" alt="" />
                     </div>
                     </div>
                     <div className="review-details px-2">
                         <p>{pd?.textField}</p>
                         <div className="review-rating">
                         <div className="reviewer">
-                            <h3>Shwan Pull</h3>
-                            <p>Traveller</p>
+                            <h3>{pd?.displayName}</h3>
+                            <p>{pd?.profession}</p>
                         </div>
-                        <p>review</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                </SwiperSlide>
-            <SwiperSlide>
-            <div className="col-md-12 col-sm-6">
-                <div className='review-card'>
-                    <div className="reviewer-review">
-                    <div className="reviewer-img">
-                        <img src="https://i.ibb.co/gzVBcSc/t-7.jpg" alt="" />
-                    </div>
-                    </div>
-                    <div className="review-details px-2">
-                        <p>consectetur ad quaerat. Tempora, nisi error numquam quod qui laboriosam accusantium?</p>
-                        <div className="review-rating">
-                        <div className="reviewer">
-                            <h3>Shwan Pull</h3>
-                            <p>Traveller</p>
-                        </div>
-                        <p>review</p>
+                        <span className='rating'><Rating
+                        initialRating={pd?.review}
+                        emptySymbol="far fa-star icon-color"
+                        fullSymbol="fas fa-star icon-color"
+                        readonly
+                        fractions={2}
+                        ></Rating></span>
                         </div>
                     </div>
                 </div>
-            </div>
-            </SwiperSlide>
-          </Swiper>
-                    )
-                    
-                ))}
+                
+       </SwiperSlide>
+      </>
+      )
+      )}
+      </Swiper> */}
+      
             </div>
         
       </div>
