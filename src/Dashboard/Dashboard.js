@@ -27,7 +27,7 @@ const Dashboard = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
         <li className="nav-item"><Link className="nav-link active" to="/dashboard">My Orders</Link></li>
-        <li className="nav-item"><Link className="nav-link" to="/addreview">add review</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="addreview">add review</Link></li>
         {admin && <>
             <li className="nav-item"><Link className="nav-link" to="/dashboard/manageProducts">Manage Products</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/dashboard/manageOrders">Manage Orders</Link></li>

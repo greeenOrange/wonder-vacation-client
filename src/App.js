@@ -6,6 +6,7 @@ import AddPackages from './Dashboard/AddPackages/AddPackages';
 import RemovePackages from './Dashboard/AddPackages/RemovePackages/RemovePackages';
 import AllUsers from './Dashboard/AllUsers/AllUsers';
 import Dashboard from './Dashboard/Dashboard';
+import MyOrder from './Dashboard/MyOrder/MyOrder';
 import AllOrders from './Dashboard/Order/AllOrders';
 import Payment from './Dashboard/Payment/Payment';
 import Review from './Dashboard/Review/Review';
@@ -17,7 +18,6 @@ import Destination from './Pages/Destination/Destination';
 import Header from './Pages/Header/Header';
 import Explore from './Pages/Home/Explore/Explore';
 import Home from './Pages/Home/Home';
-import MyOrder from './Pages/MyOrder/MyOrder';
 import PackageBooking from './Pages/PackageBooking/PackageBooking';
 import Packages from './Pages/Packages/Packages';
 
@@ -34,11 +34,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/explore" element={<Explore />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
-        <Route path="/addreview" element={<Review />}/>
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path='/allusers/:email' element={<AllUsers />} />
         <Route path="/makeAdmin" element={
-              <AllUsers></AllUsers>
+              <AllUsers />
           }></Route>
         <Route path="/dashboard" element={
             <Dashboard />
@@ -46,20 +45,23 @@ function App() {
           <Route index element={<MyOrder></MyOrder>} />
           <Route path='payment/:id' element={<Payment />} />
           <Route path="manageProducts" element={
-              <RemovePackages></RemovePackages>
+              <RemovePackages />
           } />
           <Route path="manageOrders" element={
-              <AllOrders></AllOrders>
+              <AllOrders />
           } />
           <Route path="addProduct" element={
-              <AddPackages></AddPackages>
+              <AddPackages />
           } />
           <Route path="makeAdmin" element={
-              <AllUsers></AllUsers>
+              <AllUsers />
           } />
           <Route path="aboutUs" element={
-              <AboutUs></AboutUs>
+              <AboutUs />
           } />
+          <Route path="addreview" element={
+          <Review />
+          }/>
         </Route>
 
       </Routes>

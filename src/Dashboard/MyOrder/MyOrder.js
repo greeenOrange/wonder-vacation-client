@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
-import OrdersSkelition from '../Shared/Spinner/OrdersSkelition';
+import OrdersSkelition from '../../Pages/Shared/Spinner/OrdersSkelition';
 import  './MyOrder.css'
 
 const MyOrder = () => {
