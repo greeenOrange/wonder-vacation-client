@@ -29,15 +29,6 @@ export default class Gallery extends Component {
         <div className='gallery_area my-3'>
              <div className="container">
              <div className="gallery-discription">
-
-             
-
-
-
-
-
-
-
               <h2>Travel Gallery</h2>
              <p>A concert tour is a series of concerts by an artist or group of artists in different cities, countries or locations. There’s no better way to feel the heartbeat of a city.</p>
               </div>

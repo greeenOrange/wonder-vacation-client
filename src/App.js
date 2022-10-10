@@ -11,16 +11,14 @@ import AllOrders from './Dashboard/Order/AllOrders';
 import Payment from './Dashboard/Payment/Payment';
 import Review from './Dashboard/Review/Review';
 import Login from './Login/Login';
-import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Register from './Login/Register/Register';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import ContactUs from './Pages/ContactUs/ContactUs';
 import Destination from './Pages/Destination/Destination';
 import Header from './Pages/Header/Header';
 import Explore from './Pages/Home/Explore/Explore';
 import Home from './Pages/Home/Home';
 import PackageBooking from './Pages/PackageBooking/PackageBooking';
-import Packages from './Pages/Packages/Packages';
-
 
 function App() {
   return (
@@ -34,6 +32,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/explore" element={<Explore />}/>
         <Route path="/aboutus" element={<AboutUs />}/>
+        <Route path="/contact" element={<ContactUs />}/>
+        <Route path="/blog" element={
+              <Destination />
+          } />
         <Route path="/Packagebooking/:id" element={<PackageBooking />} />
         <Route path='/allusers/:email' element={<AllUsers />} />
         <Route path="/makeAdmin" element={
@@ -55,9 +57,6 @@ function App() {
           } />
           <Route path="makeAdmin" element={
               <AllUsers />
-          } />
-          <Route path="aboutUs" element={
-              <AboutUs />
           } />
           <Route path="addreview" element={
           <Review />

@@ -1,0 +1,25 @@
+.contactus-section h2, p{
+        font-size: 1.2rem;
+}
+.contactus-section .contact-form{
+    display: block;
+    margin: auto;
+    width: 600px;
+    max-width: 100%;
+}
+.contactus-section .contact-form label{
+        display: block;
+        text-align: left;
+        margin-top: 1rem;
+}
+.contactus-section .contact-form input{
+        
+}
+
+.contactus-section .contact-form input[type=submit] {
+    margin-left: 16rem;
+    padding:.7rem 2.4rem;  
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
