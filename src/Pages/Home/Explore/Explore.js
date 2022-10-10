@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../Shared/Spinner/Spinner';
-
+import Footer from '../../Footer/Footer';
+import './Explore.css'
 const Explore = () => {
     const [packages, setPackages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -76,6 +77,7 @@ const Explore = () => {
           ))}
             </div>
             </div>
+            <Footer />
         </main>
         </>
     );
