@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "first-firebase-authentic-df7ba"
-  }
+    "default": "healling-hospital-c3c96",
+    "staging": "healling-hospital-c3c96"
+  },
+  "targets": {},
+  "etags": {}
 }
