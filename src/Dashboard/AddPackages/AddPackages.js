@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const AddPackages = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-      axios.post('https://fierce-falls-08266.herokuapp.com/addPackage', data)
+      axios.post('https://wonder-vacation-server.up.railway.app/addPackage', data)
       .then(res=> {
         if(res.data.insertedId){
           Swal.fire(

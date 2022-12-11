@@ -13,7 +13,7 @@ const [isDeleted, setIsDeleted] = useState(false);
 
 // get all the orders
  useEffect(() => {
-        fetch(`https://fierce-falls-08266.herokuapp.com/orders/${user?.email}`,{
+        fetch(`https://wonder-vacation-server.up.railway.app/orders/${user?.email}`,{
           method: 'GET',
         })
           .then((res) => res.json())
@@ -43,7 +43,7 @@ const [isDeleted, setIsDeleted] = useState(false);
   
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://fierce-falls-08266.herokuapp.com/orders/${id}`, {
+          fetch(`https://wonder-vacation-server.up.railway.app/orders/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

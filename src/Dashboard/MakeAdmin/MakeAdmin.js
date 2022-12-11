@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     }
     const onSubmit = (data) =>{
         const user = {email}
-        fetch('https://fierce-falls-08266.herokuapp.com/users/makeadmin', {
+        fetch('https://wonder-vacation-server.up.railway.app/users/makeadmin', {
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'

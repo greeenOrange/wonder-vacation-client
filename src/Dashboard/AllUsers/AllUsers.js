@@ -9,7 +9,7 @@ const AllUsers = () => {
     const [controlUser, setControlUser] = useState(false)
     
     useEffect(() =>{
-        fetch('https://fierce-falls-08266.herokuapp.com/users')
+        fetch('https://wonder-vacation-server.up.railway.app/users')
         .then(res => res.json())
         .then(data => {
             SetAdmin(data)
@@ -20,7 +20,7 @@ const AllUsers = () => {
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
-            const url = `https://fierce-falls-08266.herokuapp.com/users/${id}`;
+            const url = `https://wonder-vacation-server.up.railway.app/users/${id}`;
             fetch(url, {
              method: "DELETE",
             })

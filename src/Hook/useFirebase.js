@@ -124,7 +124,7 @@ const useFirebase = () => {
   const saveUser = (email, method) => {
     const user = { email, };
     setIsLoading(true);
-    fetch('https://fierce-falls-08266.herokuapp.com/users', {
+    fetch('https://wonder-vacation-server.up.railway.app/users', {
         method: method,
         headers: {
             'content-type': 'application/json'
@@ -141,7 +141,7 @@ const useFirebase = () => {
 
 // Check Admin
 useEffect(() => {
-  fetch(`https://fierce-falls-08266.herokuapp.com/users/${user?.email}`)
+  fetch(`https://wonder-vacation-server.up.railway.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin))
       .catch(error => (console.log(error)));
