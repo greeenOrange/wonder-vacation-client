@@ -18,7 +18,7 @@ const CheckoutForm = ({payOrder}) => {
 
 
     useEffect(() => {
-        fetch('https://wonder-vacation-server.up.railway.app/create-payment-intent', {
+        fetch('https://wondervacationserver-production.up.railway.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const CheckoutForm = ({payOrder}) => {
         payOrder: _id,
         transactionId: paymentIntent.id
       }
-      fetch(`https://wonder-vacation-server.up.railway.app/paymentOrders/${_id}`,{
+      fetch(`https://wondervacationserver-production.up.railway.app/paymentOrders/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json'

@@ -8,7 +8,7 @@ const AllOrders = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        fetch("https://wonder-vacation-server.up.railway.app/orders")
+        fetch("https://wondervacationserver-production.up.railway.app/orders")
           .then((res) => res.json())
           .then((data) => setOrders(data))
           .catch(error => (console.log(error)));
@@ -18,7 +18,7 @@ const AllOrders = () => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
           setIsLoading(true)
-            const url = `https://wonder-vacation-server.up.railway.app/orders/${id}`;
+            const url = `https://wondervacationserver-production.up.railway.app/orders/${id}`;
             fetch(url, {
              method: "DELETE",
             })

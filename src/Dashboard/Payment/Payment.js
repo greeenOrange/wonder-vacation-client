@@ -21,7 +21,7 @@ const Payment = () => {
 
     useEffect(() =>{
         setIsLoading(true)
-        fetch(`https://wonder-vacation-server.up.railway.app/paymentOrders/${id}`)
+        fetch(`https://wondervacationserver-production.up.railway.app/paymentOrders/${id}`)
         .then(res => res.json())
         .then(data => setPayOrder(data))
         .catch(error => (console.log(error)))

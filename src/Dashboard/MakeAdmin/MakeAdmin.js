@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     }
     const onSubmit = (data) =>{
         const user = {email}
-        fetch('https://wonder-vacation-server.up.railway.app/users/makeadmin', {
+        fetch('https://wondervacationserver-production.up.railway.app/users/makeadmin', {
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'

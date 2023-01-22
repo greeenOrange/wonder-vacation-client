@@ -19,7 +19,7 @@ const Review = () => {
             review
         };
         // SEND to the server
-        axios.post('https://wonder-vacation-server.up.railway.app/users/review', reviewAdded)
+        axios.post('https://wondervacationserver-production.up.railway.app/users/review', reviewAdded)
         .then(res => {
           if(res.data.insertedId){
             Swal.fire({

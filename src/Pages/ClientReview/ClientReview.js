@@ -14,7 +14,7 @@ const ClientReview = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("https://wonder-vacation-server.up.railway.app/users/review")
+        fetch("https://wondervacationserver-production.up.railway.app/users/review")
           .then((res) => res.json())
           .then((data) => {
             setReviewed(data);

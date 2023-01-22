@@ -12,7 +12,7 @@ const Explore = () => {
 
     useEffect(()=>{
         setIsLoading(true)
-        fetch('https://wonder-vacation-server.up.railway.app/packages')
+        fetch('https://wondervacationserver-production.up.railway.app/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)
