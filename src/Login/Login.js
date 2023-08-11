@@ -74,9 +74,9 @@ const Login = () => {
     <div className='easy-login m-a text-center d-block'>
         <p>Or Sign Up </p>
         <ul className='social-login'>
-            <li><a href="" onClick={handleFacebookSignIn} type="submit"><i className="fa-brands fa-facebook"></i></a></li>
-            <li><a href="" onClick={handleTwitterSignIn} type="submit"><i className="fa-brands fa-twitter"></i></a></li>
-            <li><a href="" onClick={handleGoogleSignIn} type="submit"><i className="fa-brands fa-google"></i></a></li>
+            <li><Link to="" onClick={handleFacebookSignIn} type="submit"><i className="fa-brands fa-facebook"></i></Link></li>
+            <li><Link to="" onClick={handleTwitterSignIn} type="submit"><i className="fa-brands fa-twitter"></i></Link></li>
+            <li><Link to="" onClick={handleGoogleSignIn} type="submit"><i className="fa-brands fa-google"></i></Link></li>
         </ul>
     </div>
         <p className='m-a text-center d-block'>Or New Member? <span><Link href="" to='/register'>signup now</Link></span></p>
