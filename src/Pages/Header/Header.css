@@ -31,15 +31,13 @@
   
   .nav-logo {
     width: 150px;
-    height: 70px;
     display: block;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
-    background: #f5d6b3;
   }
   .nav-logo img{
-    width: 100%;
+    max-width: 100%;
     height: auto;
   }
   .nav-menu {
