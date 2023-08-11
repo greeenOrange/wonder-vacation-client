@@ -37,7 +37,7 @@ const handleLoginSubmit = e => {
         <div className='register'>
             <div className='register-form'>
         <div className="container">
-            <div className="row bg-light p-3 h-50 rounded">
+            <div className="row bg-light p-3 h-sm-50 rounded">
         <h2>Register</h2>
                 <div className="col">
                  <form onSubmit={handleLoginSubmit}>

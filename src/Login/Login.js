@@ -49,7 +49,7 @@ const Login = () => {
         <div className='login-page'>
             <div className='login-form'>
         <div className="container">
-            <div className="row bg-light p-3 h-50 rounded">
+            <div className="row bg-light p-3 h-sm-50 rounded">
         <h2>Sign In</h2>
                 <div className="col">
                 <form onSubmit={handleLoginSubmit}>
