@@ -124,7 +124,7 @@ const useFirebase = () => {
   const saveUser = (email, method) => {
     const user = { email, };
     setIsLoading(true);
-    fetch('https://wondervacationserver-production.up.railway.app/users', {
+    fetch('https://wonder-vacation-server.vercel.app/users', {
         method: method,
         headers: {
             'content-type': 'application/json'
@@ -141,7 +141,7 @@ const useFirebase = () => {
 
 // Check Admin
 useEffect(() => {
-  fetch(`https://wondervacationserver-production.up.railway.app/users/${user?.email}`)
+  fetch(`https://wonder-vacation-server.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin))
       .catch(error => (console.log(error)));

@@ -9,7 +9,7 @@ const RemovePackages = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("https://wondervacationserver-production.up.railway.app/packages")
+        fetch("https://wonder-vacation-server.vercel.app/packages")
           .then((res) => res.json())
           .then((data) => {
             setPackages(data)
@@ -19,7 +19,7 @@ const RemovePackages = () => {
       }, [isDeleted]);
 
     //   const handleDelete = (id) =>{
-    //     axios.delete(`https://wondervacationserver-production.up.railway.app/packages/${id}`)
+    //     axios.delete(`https://wonder-vacation-server.vercel.app/packages/${id}`)
     //     .then(res => res.json())
     //      .then((data) => {
     //             if (data.deletedCount) {
@@ -29,7 +29,7 @@ const RemovePackages = () => {
 
         // const handleDelete = id => {
         //     setIsLoading(true)
-        //     const url = `https://wondervacationserver-production.up.railway.app/packages/${id}`;
+        //     const url = `https://wonder-vacation-server.vercel.app/packages/${id}`;
         //     fetch(url, {
         //     method: 'DELETE'
         //     })
@@ -56,7 +56,7 @@ const RemovePackages = () => {
   
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://wondervacationserver-production.up.railway.app/packages/${id}`, {
+          fetch(`https://wonder-vacation-server.vercel.app/packages/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

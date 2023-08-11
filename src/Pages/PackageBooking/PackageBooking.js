@@ -21,7 +21,6 @@ const PackageBooking = () => {
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
    const bookingDate = startDate?.toLocaleDateString()
-    // const { register, control,  handleSubmit, reset, formState: { errors } } = useForm();
     const { register, formState: { errors }, control, reset, handleSubmit } = useForm();
 
     const onSubmit = (data) =>{
@@ -34,7 +33,7 @@ const PackageBooking = () => {
       bookingData.number = details.phone;
       bookingData.status = "pending"
       // SEND to the server
-      axios.post('https://wondervacationserver-production.up.railway.app/orders', bookingData)
+      axios.post('https://wonder-vacation-server.vercel.app/orders', bookingData)
       .then(res => {
         if(res.data.insertedId && user?.displayName){
           Swal.fire({
@@ -60,7 +59,7 @@ const PackageBooking = () => {
     }
 
     useEffect(() =>{
-    fetch(`https://wondervacationserver-production.up.railway.app/packages/${id}`)
+    fetch(`https://wonder-vacation-server.vercel.app/packages/${id}`)
     
     .then(res => res.json())
     .then(data => setDetails(data))
@@ -102,7 +101,7 @@ useEffect(() => {
                     <div className="packages-details my-4">
                         <img src={details?.image} alt="" className='w-100 mt-3' />
                         <p>Name{details?.place_name}</p>
-                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png"/>{details?.country}</h4>
+                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png" alt='house'/>{details?.country}</h4>
                         <div className="package-discription">
                         <h5>Package Details</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo excepturi reiciendis amet! Quae, assumenda! Excepturi cumque nostrum accusamus eaque voluptatum!</p>
@@ -112,10 +111,9 @@ useEffect(() => {
             </div>
             <div className="col-md-4">
                 <div className="user-details">
-                <h3>Book This Tour <span><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/fa314a/external-dollar-banking-and-finance-kiranshastry-lineal-kiranshastry-6.png"/>{details.price}</span></h3>
+                <h3>Book This Tour <span><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/fa314a/external-dollar-banking-and-finance-kiranshastry-lineal-kiranshastry-6.png" alt='house'/>{details.price}</span></h3>
                     <div className="user-form">
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
       <input placeholder='Your Full Name' {...register("fullname", { required: true })} />
       {errors.fullname?.type === 'required' && <p className='text-danger'>Your name is required</p>}
 

@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const UserRow = ({user}) => {
     const {email, role, displayName} = user;
     const makeAdmin = () =>{
-        fetch(`https://wondervacationserver-production.up.railway.app/users/admin/${email}`,{
+        fetch(`https://wonder-vacation-server.vercel.app/users/admin/${email}`,{
             method: 'PUT',
         })
         .then(res => {

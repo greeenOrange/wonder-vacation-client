@@ -13,7 +13,7 @@ const [isDeleted, setIsDeleted] = useState(false);
 
 // get all the orders
  useEffect(() => {
-        fetch(`https://wondervacationserver-production.up.railway.app/orders/${user?.email}`,{
+        fetch(`https://wonder-vacation-server.vercel.app/orders/${user?.email}`,{
           method: 'GET',
         })
           .then((res) => res.json())
@@ -43,7 +43,7 @@ const [isDeleted, setIsDeleted] = useState(false);
   
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://wondervacationserver-production.up.railway.app/orders/${id}`, {
+          fetch(`https://wonder-vacation-server.vercel.app/orders/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
