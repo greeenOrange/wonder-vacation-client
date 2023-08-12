@@ -95,9 +95,9 @@ const CheckoutForm = ({payOrder}) => {
   };
     return (
         <div className='checkout-form-section'>
-			<div class="card mx-auto">
-				<p class="heading">PAYMENT DETAILS</p>
-					<form class="card-details" onSubmit={handleSubmit}>
+			<div className="card mx-auto">
+				<p className="heading">PAYMENT DETAILS</p>
+					<form className="card-details" onSubmit={handleSubmit}>
 
         <CardElement
           options={{
@@ -115,7 +115,7 @@ const CheckoutForm = ({payOrder}) => {
             },
           }}
         />
-        {!success && <button type="submit" class="btn btn-primary my-4" disabled={!stripe || !clientSecret}>$ {price}<i class="fas fa-arrow-right px-2 py-2"></i></button>}
+        {!success && <button type="submit" className="btn btn-primary my-4" disabled={!stripe || !clientSecret}>$ {price}<i className="fas fa-arrow-right px-2 py-2"></i></button>}
         {success && <></>}
 					</form>
 			</div>

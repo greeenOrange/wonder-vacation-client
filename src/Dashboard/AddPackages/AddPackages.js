@@ -45,7 +45,7 @@ const AddPackages = () => {
       <input type='number' {...register("reviews", { required: "Reviews is required" })} />
       <p>{errors.reviews?.message}</p>
       
-      <button type="submit">Add File <i class="fas fa-paper-plane"></i></button>
+      <button type="submit">Add File <i className="fas fa-paper-plane"></i></button>
     </form>
             </div>
         </div>
