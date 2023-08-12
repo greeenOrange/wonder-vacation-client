@@ -14,7 +14,7 @@ const ClientReview = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("https://wonder-vacation-server.vercel.app/users/review")
+        fetch("https://wonder-vacation-server.vercel.app/review")
           .then((res) => res.json())
           .then((data) => {
             setReviewed(data);
@@ -74,47 +74,6 @@ const ClientReview = () => {
                     
             ))}
           </Swiper>
-                    
-                 {/* <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-            clickable: true,
-        }}
-        className="mySwiper"
-        >
-        {reviewed?.map ((pd, index) =>(
-        <>
-       <SwiperSlide>
-       <div className='review-card'>
-                    <div className="reviewer-review">
-                    <div className="reviewer-img">
-                        <img src="https://i.ibb.co/0Xhs6TD/t-4.jpg" alt="" />
-                    </div>
-                    </div>
-                    <div className="review-details px-2">
-                        <p>{pd?.textField}</p>
-                        <div className="review-rating">
-                        <div className="reviewer">
-                            <h3>{pd?.displayName}</h3>
-                            <p>{pd?.profession}</p>
-                        </div>
-                        <span className='rating'><Rating
-                        initialRating={pd?.review}
-                        emptySymbol="far fa-star icon-color"
-                        fullSymbol="fas fa-star icon-color"
-                        readonly
-                        fractions={2}
-                        ></Rating></span>
-                        </div>
-                    </div>
-                </div>
-                
-       </SwiperSlide>
-      </>
-      )
-      )}
-      </Swiper> */}
       
             </div>
         
