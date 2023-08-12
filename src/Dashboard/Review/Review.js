@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hook/useAuth';
 import './Review.css'
@@ -36,7 +36,7 @@ const Review = () => {
               position: "center",
               icon: "error",
               title: "Please Login",
-              footer: '<a href="/login">login</a>',
+              footer: '<Link to="/login">login</Link>',
               showConfirmButton: false,
             });
           }

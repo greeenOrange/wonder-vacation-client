@@ -2,6 +2,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  { useState, useEffect } from 'react';
 import './HeroWrapper.css';
+import { Link } from 'react-router-dom';
 
 const HeroWrapper = () => {
     const [slider, setSlider] = useState([]);
@@ -59,8 +60,8 @@ const HeroWrapper = () => {
                     <h2>{pd?.name}<span>{pd?.name2}</span></h2>
                     <p>{pd?.discription.slice(0,159)}</p>
                     <div className="slider-btn">
-                   <button type="button" className="view-btn"><a href="">View Adventure</a></button>
-                    <button type="button" className="book-btn"><a href="">Book Now</a></button>
+                   <button type="button" className="view-btn"><Link to="">View Adventure</Link></button>
+                    <button type="button" className="book-btn"><Link to="">Book Now</Link></button>
                    </div>
                 </div>
                 <div className="move-btn">

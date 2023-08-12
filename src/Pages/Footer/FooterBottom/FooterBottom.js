@@ -1,5 +1,6 @@
 import React from 'react';
 import './FooterBottom.css'
+import { Link } from 'react-router-dom';
 const FooterBottom = () => {
     return (
         <div className='tour-footer'>
@@ -9,8 +10,8 @@ const FooterBottom = () => {
                 <p>Copyright&copy;2022 WonderTour|Design By ylSadiq.</p>
                 <h2>WonderTour</h2>
                 <div className='footer-menu'>
-                <a href="">Terms & Condition</a>
-                <a href="">Privacy Policy</a>
+                <Link to="">Terms & Condition</Link>
+                <Link to="">Privacy Policy</Link>
                 </div>
                 </div>
                 </div>

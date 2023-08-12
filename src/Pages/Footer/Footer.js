@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css'
 import FooterBottom from './FooterBottom/FooterBottom';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -13,11 +14,11 @@ const Footer = () => {
                         <div className="social_media">
                             <h3>Follow Us On:</h3>
                             <ul>
-                                <li><a href=""><i className="fa-brands fa-facebook"></i></a></li>
-                                <li><a href=""><i className="fa-brands fa-instagram"></i></a></li>
-                                <li><a href=""><i className="fa-brands fa-twitter"></i></a></li>
-                                <li><a href=""><i className="fa-brands fa-whatsapp"></i></a></li>
-                                <li><a href=""><i className="fa-brands fa-pinterest"></i></a></li>
+                                <li><Link to=""><i className="fa-brands fa-facebook"></i></Link></li>
+                                <li><Link to=""><i className="fa-brands fa-instagram"></i></Link></li>
+                                <li><Link to=""><i className="fa-brands fa-twitter"></i></Link></li>
+                                <li><Link to=""><i className="fa-brands fa-whatsapp"></i></Link></li>
+                                <li><Link to=""><i className="fa-brands fa-pinterest"></i></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -25,10 +26,10 @@ const Footer = () => {
                         <div className="quick_link">
                         <h3>Quick Link</h3>
                         <ul>
-                            <li><a href="">About Us</a></li>
-                            <li><a href="">Tour Packages</a></li>
-                            <li><a href="">Tour Guide</a></li>
-                            <li><a href="">Booking Process</a></li>
+                            <li><Link to="">About Us</Link></li>
+                            <li><Link to="">Tour Packages</Link></li>
+                            <li><Link to="">Tour Guide</Link></li>
+                            <li><Link to="">Booking Process</Link></li>
                         </ul>
                         </div>
                     </div>
@@ -36,11 +37,11 @@ const Footer = () => {
                         <div className="quick_link">
                         <h3>Tour Type</h3>
                         <ul>
-                            <li><a href="">Wild & Adventure Tours</a></li>
-                            <li><a href="">Group Tour</a></li>
-                            <li><a href="">Seasonal Tours</a></li>
-                            <li><a href="">Relaxation Tours</a></li>
-                            <li><a href="">family Tours</a></li>
+                            <li><Link to="">Wild & Adventure Tours</Link></li>
+                            <li><Link to="">Group Tour</Link></li>
+                            <li><Link to="">Seasonal Tours</Link></li>
+                            <li><Link to="">Relaxation Tours</Link></li>
+                            <li><Link to="">family Tours</Link></li>
                         </ul>
                         </div>
                     </div>

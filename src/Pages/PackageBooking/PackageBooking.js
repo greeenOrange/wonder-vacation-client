@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from "react-select";
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './PackageBooking.css';
@@ -50,7 +50,7 @@ const PackageBooking = () => {
             position: "center",
             icon: "error",
             title: "Please login",
-            footer: '<a href="/login">login</a>',
+            footer: '<Link href="/login">login</Link>',
             showConfirmButton: false,
           });
         }

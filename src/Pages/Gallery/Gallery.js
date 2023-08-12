@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import './Gallery.css'
+import { Link } from 'react-router-dom';
 
 const images = [
   'https:demo.egenslab.com/html/tourxpro/demo/assets/images/gallary/g-xl1.png',
@@ -79,9 +80,9 @@ export default class Gallery extends Component {
                      </div>
                      <div className="gallery-item">
                      <img src="https://i.ibb.co/K7sZPWz/gallery-img-7.png" alt="gallery-img-7" border="0" />
-                         <a className='gallery-item-overlay'>
+                         <Link to="" className='gallery-item-overlay'>
                              <i className="fa-solid fa-eye"></i>
-                         </a>
+                         </Link>
                      </div>
                  </div>
 

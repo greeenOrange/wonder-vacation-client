@@ -26,7 +26,7 @@ const handleLoginSubmit = e => {
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
+            footer: '<Link href="">Why do I have this issue?</Link>'
           })
     }
     handleUserRegister(loginData.email, loginData.password, loginData.firstname, loginData.lastname);
