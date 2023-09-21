@@ -8,7 +8,7 @@ const AllOrders = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        fetch("https://wonder-vacation-server.vercel.app/orders")
+        fetch("https://wonder-vation-server.onrender.com/orders")
           .then((res) => res.json())
           .then((data) => setOrders(data))
           .catch(error => (console.log(error)));
@@ -18,7 +18,7 @@ const AllOrders = () => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
           setIsLoading(true)
-            const url = `https://wonder-vacation-server.vercel.app/orders/${id}`;
+            const url = `https://wonder-vation-server.onrender.com/orders/${id}`;
             fetch(url, {
              method: "DELETE",
             })

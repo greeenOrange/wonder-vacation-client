@@ -6,7 +6,7 @@ const useAdmin = (user) => {
     useEffect(() =>{
         const email = user?.email;
         if(email){
-            fetch(`https://wonder-vacation-server.vercel.app/admin/${email}`,{
+            fetch(`https://wonder-vation-server.onrender.com/admin/${email}`,{
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

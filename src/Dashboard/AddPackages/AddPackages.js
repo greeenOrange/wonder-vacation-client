@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const AddPackages = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-      axios.post('https://wonder-vacation-server.vercel.app/addPackage', data)
+      axios.post('https://wonder-vation-server.onrender.com/addPackage', data)
       .then(res=> {
         if(res.data.insertedId){
           Swal.fire(

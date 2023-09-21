@@ -12,7 +12,7 @@ const Explore = () => {
 
     useEffect(()=>{
         setIsLoading(true)
-        fetch('https://wonder-vacation-server.vercel.app/packages')
+        fetch('https://wonder-vation-server.onrender.com/packages')
         .then(res=>res.json())
         .then(data => {
             setPackages(data)

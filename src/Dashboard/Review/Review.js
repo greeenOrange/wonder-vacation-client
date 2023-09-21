@@ -19,7 +19,7 @@ const Review = () => {
             review
         };
         // SEND to the server
-        axios.post('https://wonder-vacation-server.vercel.app/users/review', reviewAdded)
+        axios.post('https://wonder-vation-server.onrender.com/users/review', reviewAdded)
         .then(res => {
           if(res.data.insertedId){
             Swal.fire({

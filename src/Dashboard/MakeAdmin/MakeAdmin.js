@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     }
     const onSubmit = (data) =>{
         const user = {email}
-        fetch('https://wonder-vacation-server.vercel.app/users/makeadmin', {
+        fetch('https://wonder-vation-server.onrender.com/users/makeadmin', {
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'

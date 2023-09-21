@@ -33,7 +33,7 @@ const PackageBooking = () => {
       bookingData.number = details.phone;
       bookingData.status = "pending"
       // SEND to the server
-      axios.post('https://wonder-vacation-server.vercel.app/orders', bookingData)
+      axios.post('https://wonder-vation-server.onrender.com/orders', bookingData)
       .then(res => {
         if(res.data.insertedId && user?.displayName){
           Swal.fire({
@@ -59,7 +59,7 @@ const PackageBooking = () => {
     }
 
     useEffect(() =>{
-    fetch(`https://wonder-vacation-server.vercel.app/packages/${id}`)
+    fetch(`https://wonder-vation-server.onrender.com/packages/${id}`)
     
     .then(res => res.json())
     .then(data => setDetails(data))

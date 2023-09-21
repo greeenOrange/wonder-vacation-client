@@ -14,7 +14,7 @@ const ClientReview = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch("https://wonder-vacation-server.vercel.app/review")
+        fetch("https://wonder-vation-server.onrender.com/users/review")
           .then((res) => res.json())
           .then((data) => {
             setReviewed(data);

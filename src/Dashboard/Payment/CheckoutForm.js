@@ -18,7 +18,7 @@ const CheckoutForm = ({payOrder}) => {
 
 
     useEffect(() => {
-        fetch('https://wonder-vacation-server.vercel.app/create-payment-intent', {
+        fetch('https://wonder-vation-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const CheckoutForm = ({payOrder}) => {
         payOrder: _id,
         transactionId: paymentIntent.id
       }
-      fetch(`https://wonder-vacation-server.vercel.app/paymentOrders/${_id}`,{
+      fetch(`https://wonder-vation-server.onrender.com/paymentOrders/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json'

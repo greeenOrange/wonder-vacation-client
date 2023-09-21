@@ -21,7 +21,7 @@ const Payment = () => {
 
     useEffect(() =>{
         setIsLoading(true)
-        fetch(`https://wonder-vacation-server.vercel.app/paymentOrders/${id}`)
+        fetch(`https://wonder-vation-server.onrender.com/paymentOrders/${id}`)
         .then(res => res.json())
         .then(data => setPayOrder(data))
         .catch(error => (console.log(error)))

@@ -9,7 +9,7 @@ const AllUsers = () => {
     const [controlUser, setControlUser] = useState(false)
     
     useEffect(() =>{
-        fetch('https://wonder-vacation-server.vercel.app/users')
+        fetch('https://wonder-vation-server.onrender.com/users')
         .then(res => res.json())
         .then(data => {
             SetAdmin(data)
@@ -20,7 +20,7 @@ const AllUsers = () => {
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure, you want to delete?');
         if(proceed){
-            const url = `https://wonder-vacation-server.vercel.app/users/${id}`;
+            const url = `https://wonder-vation-server.onrender.com/users/${id}`;
             fetch(url, {
              method: "DELETE",
             })
