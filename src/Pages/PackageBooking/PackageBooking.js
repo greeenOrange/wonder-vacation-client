@@ -18,6 +18,7 @@ const PackageBooking = () => {
     const {user} = useAuth();
     const [isLoading, setIsLoading] = useState(true);
     const [details, setDetails] = useState({});
+    const [error, setError] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
    const bookingDate = startDate?.toLocaleDateString()
@@ -63,7 +64,7 @@ const PackageBooking = () => {
     
     .then(res => res.json())
     .then(data => setDetails(data))
-    .catch(error => (console.log(error)))
+    .catch(error => setError(error))
 },[id]);
 
 useEffect(() => {
@@ -100,8 +101,8 @@ useEffect(() => {
                   ) : (
                     <div className="packages-details my-4">
                         <img src={details?.image} alt="" className='w-100 mt-3' />
-                        <p>Name{details?.place_name}</p>
-                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png" alt='house'/>{details?.country}</h4>
+                        <p>Name: {details?.Place_name}</p>
+                        <h4><img src="https://img.icons8.com/color/48/000000/marker--v1.png" alt='house'/>{details?.Country}</h4>
                         <div className="package-discription">
                         <h5>Package Details</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo excepturi reiciendis amet! Quae, assumenda! Excepturi cumque nostrum accusamus eaque voluptatum!</p>
@@ -130,7 +131,7 @@ useEffect(() => {
         render={({ field }) => (
           <Select
             {...field}
-            
+
         placeholder="Tickets Type 1"
             options={[
               { value: "type-1", label: "Tickets Type 1" },
@@ -193,6 +194,7 @@ useEffect(() => {
                </textarea>
                <input className='btn btn-danger py-3' value="Book Now"  type="submit"/> 
     </form>
+    <p className='text-danger text-center'>{error}</p>
                     </div>
                 </div>
             </div>

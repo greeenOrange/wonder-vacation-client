@@ -7,8 +7,9 @@ import Rating from 'react-rating';
 import Spinner from '../Shared/Spinner/Spinner';
 import PackagesSkelition from '../Shared/Spinner/PackagesSkelition';
 
-const Packages = ({pd}) => {
+const Packages = () => {
     const [packages, setPackages] = useState([]);
+    const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const data = [...packages]
     const sliceData = data.slice(0,6);
@@ -21,7 +22,7 @@ const Packages = ({pd}) => {
             setPackages(data)
             setIsLoading(false)
         })
-        .catch(error => (console.log(error)));
+        .catch(error => setError(error));
     },[]);
     
     return (
@@ -49,7 +50,10 @@ const Packages = ({pd}) => {
                   ) : (
                     <div key={pd._id} className='col-md-4 my-3'>
                 <div className='products-images'>
+                <Link to={`/Packagebooking/${pd?._id}`}> 
                 <img src={pd?.image} alt="" loading="lazy" />
+                </Link>
+                
                 </div>
                 <div className="package-container">
                 <div className="products-card">
@@ -76,6 +80,7 @@ const Packages = ({pd}) => {
                     </span>
                     Per Person
                 </div>
+                <p className='text-error'>{error}</p>
                     <button className='btn btn-outline-danger me-2'><Link to={`/Packagebooking/${pd._id}`}>Book Now <span><FontAwesomeIcon icon={faArrowRight} /></span></Link></button>
                     </div>
                 </div>
