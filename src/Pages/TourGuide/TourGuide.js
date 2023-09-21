@@ -13,7 +13,7 @@ const TourGuide = () => {
                 <div className="grid-container">
                     <div className='grid-item'>
                     <div className='tour-gider'>
-                    <img  src='https://i.ibb.co/0Xhs6TD/t-4.jpg' alt="" />
+                    <img  src='https://i.ibb.co/0Xhs6TD/t-4.jpg' alt="" loading="lazy" />
                     <ul className='guider-media'>
                         <li> <Link to=""><i className="fa-solid fa-at"></i></Link> </li>
                         <li> <Link to=""><i className="fa-brands fa-instagram"></i></Link></li>
@@ -22,7 +22,7 @@ const TourGuide = () => {
                     </ul>
                     </div>
                     <div className='tour-gider'>
-                    <img src='https://i.ibb.co/Wk9vZr8/t-5.jpg' alt="" />
+                    <img src='https://i.ibb.co/Wk9vZr8/t-5.jpg' alt="" loading="lazy" />
                     <ul className='guider-media'>
                         <li> <Link to=""><i className="fa-solid fa-at"></i></Link> </li>
                         <li> <Link to=""><i className="fa-brands fa-instagram"></i></Link></li>
@@ -31,7 +31,7 @@ const TourGuide = () => {
                     </ul>
                     </div>
                     <div className='tour-gider'>
-                    <img src='https://i.ibb.co/gzVBcSc/t-7.jpg' alt="" />
+                    <img src='https://i.ibb.co/gzVBcSc/t-7.jpg' alt="" loading="lazy" />
                     <ul className='guider-media'>
                         <li> <Link to=""><i className="fa-solid fa-at"></i></Link> </li>
                         <li> <Link to=""><i className="fa-brands fa-instagram"></i></Link></li>

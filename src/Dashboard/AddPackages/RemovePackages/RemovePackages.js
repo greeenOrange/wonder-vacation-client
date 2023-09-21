@@ -113,7 +113,7 @@ const RemovePackages = () => {
       <tr>
         <th scope="row">{index + 1}</th>
         <td>{pd?.place_name} <span>{pd?.Country}</span></td>
-        <td><img className="img-thumbnail" src={pd?.image} alt="" /></td>
+        <td><img className="img-thumbnail" src={pd?.image} alt="" loading="lazy" /></td>
         <td>{pd?.price}</td>
         <td>{pd?.time}</td>
         <button type="button" className="btn btn-danger bg-danger" onClick={() => handleDelete(pd?._id)}>Delete</button>            </tr>

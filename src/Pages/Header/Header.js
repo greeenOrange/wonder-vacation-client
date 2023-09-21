@@ -22,7 +22,7 @@ const Header = () => {
 <nav nav className="navbar navbar-light" style={{backgroundColor: "#e3f2fd"}} onClick={e => e.stopPropagation()}>
         <div className="container">
           <NavLink to="/" className="nav-logo">
-            <img src={'https://i.ibb.co/yp4GYD2/wonder-vacation-logo.png'} alt="" />
+            <img src={'https://i.ibb.co/yp4GYD2/wonder-vacation-logo.png'} alt="" loading="lazy" />
           </NavLink>
    
             <div className="main-menu">

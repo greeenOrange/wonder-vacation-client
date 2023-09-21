@@ -42,7 +42,7 @@ const Newslatter = () => {
                                         <div className="col-md-6">
                                         <div className="achivement-container">
                                         <div className="achivement-icon">
-                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon2.svg" alt="" />
+                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon2.svg" alt="" loading="lazy" />
                                            </div>
                                         <div className="achivement-box">
                                             <h2>500+</h2>
@@ -53,7 +53,7 @@ const Newslatter = () => {
                                         <div className="col-md-6">
                                         <div className="achivement-container">
                                         <div className="achivement-icon">
-                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon3.svg" alt="" />
+                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon3.svg" alt="" loading="lazy" />
                                            </div>
                                         <div className="achivement-box">
                                             <h2>300+</h2>
@@ -64,7 +64,7 @@ const Newslatter = () => {
                                         <div className="col-md-6">
                                         <div className="achivement-container">
                                         <div className="achivement-icon">
-                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon1.svg" alt="" />
+                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon1.svg" alt="" loading="lazy" />
                                            </div>
                                         <div className="achivement-box">
                                             <h2>05+</h2>
@@ -75,7 +75,7 @@ const Newslatter = () => {
                                         <div className="col-md-6">
                                         <div className="achivement-container">
                                         <div className="achivement-icon">
-                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon4.svg" alt="" />
+                                           <img src="https://demo.egenslab.com/html/tourxpro/demo/assets/images/icons/counter-icon4.svg" alt="" loading="lazy" />
                                            </div>
                                         <div className="achivement-box">
                                             <h2>150+</h2>

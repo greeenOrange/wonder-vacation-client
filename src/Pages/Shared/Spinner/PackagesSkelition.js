@@ -15,7 +15,7 @@ const PackagesSkelition = () => {
                 <Skeleton />
                 <div className='products'>
                 <Skeleton />
-                <img src="..." alt="" />
+                <img src="..." alt="" loading="lazy" />
                 </div>
                 <div className="package-container">
                 <div className="products-images">

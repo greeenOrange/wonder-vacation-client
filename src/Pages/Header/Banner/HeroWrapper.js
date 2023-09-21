@@ -54,7 +54,7 @@ const HeroWrapper = () => {
                             { index === currentSlider && (
                <>
                <div className="slider-image">
-                    <img src={pd?.images} alt="" />
+                    <img src={pd?.images} alt="" loading="lazy" />
                 </div>
                 <div className="slider-details">
                     <h2>{pd?.name}<span>{pd?.name2}</span></h2>

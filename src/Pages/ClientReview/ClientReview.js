@@ -48,7 +48,7 @@ const ClientReview = () => {
                 <div className='review-card'>
                     <div className="reviewer-review">
                     <div className="reviewer-img">
-                        <img src="https://i.ibb.co/0Xhs6TD/t-4.jpg" alt="" />
+                        <img src="https://i.ibb.co/0Xhs6TD/t-4.jpg" alt="" loading="lazy" />
                     </div>
                     </div>
                     <div className="review-details px-2">

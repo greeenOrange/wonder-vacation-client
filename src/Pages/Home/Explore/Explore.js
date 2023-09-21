@@ -42,7 +42,7 @@ const Explore = () => {
             { packages?.map((pd, index) => (
                 <div key={pd._id} className='col-md-4 my-3'>
                 <div className='products-images'>
-                <img src={pd?.image} alt="" />
+                <img src={pd?.image} alt="" loading="lazy" />
                 </div>
                 <div className="package-container">
                 <div className="products-card">

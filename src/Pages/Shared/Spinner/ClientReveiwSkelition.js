@@ -13,7 +13,7 @@ const ClientReveiwSkelition = () => {
                 <Skeleton />
                 <div className="reviewer-img">
                 <Skeleton />
-                    <img src="...." alt="" />
+                    <img src="...." alt="" loading="lazy" />
                 </div>
                 </div>
                 <div className="review-details px-2">
@@ -44,7 +44,7 @@ const ClientReveiwSkelition = () => {
                 <Skeleton />
                 <div className="reviewer-img">
                 <Skeleton />
-                    <img src="...." alt="" />
+                    <img src="...." alt="" loading="lazy" />
                 </div>
                 </div>
                 <div className="review-details px-2">
@@ -75,7 +75,7 @@ const ClientReveiwSkelition = () => {
                 <Skeleton />
                 <div className="reviewer-img">
                 <Skeleton />
-                    <img src="...." alt="" />
+                    <img src="...." alt="" loading="lazy" />
                 </div>
                 </div>
                 <div className="review-details px-2">
